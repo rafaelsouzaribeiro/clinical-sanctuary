@@ -1,0 +1,26 @@
+<header class="home-header">
+    <div class="home-brand" aria-label="Clinical Sanctuary">
+        <div class="home-brand__avatar" aria-hidden="true"></div>
+        <span>Clinical Sanctuary</span>
+    </div>
+   <button
+        class="menu-toggle"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-controls="mainMenu"
+    >
+        Menu
+    </button>
+
+    <nav
+        id="mainMenu"
+        class="shell-menu"
+        [class.shell-menu--open]="isMenuOpen"
+        aria-label="Menu principal"
+    >
+        @for(s of menuItems; track s.label){
+            <a href="{{s.link}}" (click)="closeMenu()">{{s.label}}</a>
+        }
+    </nav>
+</header>
