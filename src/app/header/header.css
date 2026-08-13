@@ -41,6 +41,15 @@
   white-space: nowrap;
 }
 
+.home-brand__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f7c08b 0 20%, #7a4c39 21% 36%, #0e7f8a 37% 100%);
+  border: 3px solid #0d7d88;
+  box-shadow: 0 4px 16px rgba(10, 96, 106, 0.2);
+}
+
 @media (max-width: 768px) {
 
   .menu-toggle {

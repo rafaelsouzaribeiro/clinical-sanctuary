@@ -10,7 +10,7 @@ export class Header {
   isMenuOpen:boolean = false;
   
   menuItems = [
-    { label: 'Home', link: '/' },
+    { label: 'Home', link: '/home' },
     { label: 'Consultas', link: '/consultas' },
     { label: 'Pacientes', link: '/pacientes' },
     { label: 'Médicos', link: '/medicos' },
