@@ -52,14 +52,6 @@
   
 }
 
-.width-uf{
-  width: 23%!important;
-}
-
-.width-city{
-  width: 74% !important;
-}
-
 .home-search {
   justify-self: end;
   width: 100%;
@@ -98,15 +90,13 @@
 }
 
 
-.profile-control {
-  min-height: 62px;
-  border-radius: 10px;
-  background: #c8d0d4;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
+.width-uf{
+  width: 23%!important;
 }
 
+.width-city{
+  width: 74% !important;
+}
 
 @media (max-width: 1200px) {
   .home-hero {

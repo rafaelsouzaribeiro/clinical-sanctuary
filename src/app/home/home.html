@@ -7,23 +7,21 @@
         </h1>
     </div>
     <div class="container-search">
-        <div class="profile-field profile-field--uf width-uf">
-            <div class="profile-control">
-            <select id="uf" name="uf">
-                <option>SP</option>
-                <option>RJ</option>
-                <option>MG</option>
-                <option>PR</option>
-            </select>
-            </div>
+        <div class="width-uf">
+            <app-location-select
+                id="uf"
+                name="uf"
+                type="uf"
+                [options]="ufOptions">
+            </app-location-select>
         </div>
-        <div class="profile-field profile-field--uf width-city">
-            <div class="profile-control">
-            <select id="uf" name="uf">
-                <option>Salto de Pirapora</option>
-                <option>Pilar do Sul</option>
-            </select>
-            </div>
+        <div class="width-city">
+            <app-location-select
+                id="city"
+                name="city"
+                type="city"
+                [options]="cityOptions">
+            </app-location-select>
         </div>
         <label  for="busca" class="home-search">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">

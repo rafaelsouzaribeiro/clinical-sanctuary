@@ -1,0 +1,11 @@
+
+.profile-control {
+  min-height: 62px;
+  border-radius: 10px;
+  background: #c8d0d4;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+

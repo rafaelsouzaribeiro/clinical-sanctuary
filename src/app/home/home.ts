@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
 import { DoctorCard } from '../doctor-card/doctor-card';
+import { LocationSelect } from '../location-select/location-select';
+import {SelectOption} from "../location-select/interface.sellect-option";
 
 @Component({
   selector: 'app-home',
-  imports: [DoctorCard],
+  imports: [DoctorCard, LocationSelect],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
-    doctors=[
+    doctors:Array<{
+      acronym: string;
+      name: string;
+      status: string;
+      specialty: string;
+      phone: string;
+      address: string;
+      crm: string;
+    }>=[
     {
       acronym:'RS',
       name: 'Dr. John Smith',
@@ -47,4 +57,16 @@ export class Home {
       crm:'456789-SP'
     }
   ]
+
+    ufOptions: SelectOption[] = [
+    { value: 'SP', label: 'SP' },
+    { value: 'RJ', label: 'RJ' },
+    { value: 'MG', label: 'MG' },
+    { value: 'PR', label: 'PR' }
+  ];
+
+  cityOptions: SelectOption[] = [
+    { value: 'salto-pirapora', label: 'Salto de Pirapora' },
+    { value: 'pilar-sul', label: 'Pilar do Sul' }
+  ];
 }
