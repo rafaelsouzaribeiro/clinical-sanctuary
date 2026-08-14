@@ -20,7 +20,12 @@
         aria-label="Menu principal"
     >
         @for(s of menuItems; track s.label){
-            <a href="{{s.link}}" (click)="closeMenu()">{{s.label}}</a>
+            <a 
+                [routerLink]="s.link" 
+                routerLinkActive="nav-link--active"
+                [routerLinkActiveOptions]="{exact: false}"
+                (click)="closeMenu()"
+            >{{s.label}}</a>
         }
     </nav>
 </header>
