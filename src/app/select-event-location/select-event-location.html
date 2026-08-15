@@ -1,0 +1,8 @@
+<div class="profile-control">
+    <select [id]="id" [name]="name" (change)="onChange($event)"> 
+        @for(option of options; track option.value){ 
+            <option [value]="option.value">{{ option.label }}</option> 
+        } 
+    </select> 
+</div>
+
