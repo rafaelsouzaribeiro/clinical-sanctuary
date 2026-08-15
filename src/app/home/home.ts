@@ -11,6 +11,7 @@ import {SelectOption} from "../location-select/interface.sellect-option";
 })
 export class Home {
     doctors:Array<{
+      id:string;
       acronym: string;
       name: string;
       status: string;
@@ -20,6 +21,7 @@ export class Home {
       crm: string;
     }>=[
     {
+      id:"1ef335ed-c98f-4f2a-a5ec-2461615a147b",
       acronym:'RS',
       name: 'Dr. John Smith',
       status:'Ativo',
@@ -30,6 +32,7 @@ export class Home {
 
     },
     {
+      id:"2ab456cd-ef12-3456-7890-abcdef123456",
       acronym:'MJ',
       name: 'Dr. Mary Johnson',
       status:'Ativo',
@@ -39,6 +42,7 @@ export class Home {
       crm:'654321-SP'
     },
     {
+      id:"3cd789ef-4567-8901-2345-abcdef678901",
       acronym:'LW',
       name: 'Dr. Luke Williams',
       status:'Inativo',
@@ -48,6 +52,7 @@ export class Home {
       crm:'987654-SP'
     },
     {
+      id:"4ef012gh-5678-9012-3456-abcdef890123",
       acronym:'ES',
       name: 'Dr. Emily Smith',
       status:'Ativo',
@@ -58,7 +63,7 @@ export class Home {
     }
   ]
 
-    ufOptions: SelectOption[] = [
+  ufOptions: SelectOption[] = [
     { value: 'SP', label: 'SP' },
     { value: 'RJ', label: 'RJ' },
     { value: 'MG', label: 'MG' },

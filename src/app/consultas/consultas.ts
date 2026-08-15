@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocationSelect } from '../location-select/location-select';
+import { ActivatedRoute } from '@angular/router'; 
 
 interface DiaCalendario {
   numero: number;
@@ -16,6 +17,8 @@ interface DiaCalendario {
   styleUrl: './consultas.css',
 })
 export class Consultas implements OnInit {
+  medicoId:string | null = null;
+
   pagamentoOptions: Array<{ value: string; label: string }> = [
     { value: 'cartao', label: 'Cartão de Crédito' },
     { value: 'boleto', label: 'Boleto Bancário' },
@@ -48,6 +51,9 @@ export class Consultas implements OnInit {
 
   consultaFocoSelecionado: string | null = null;
 
+  constructor(
+    private route: ActivatedRoute,
+  ) {}
   ngOnInit(): void {
     this.atualizarTituloMes();
     this.atualizarDiasDaSemana();

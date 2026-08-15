@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './doctor-card.css',
 })
 export class DoctorCard {
+  @Input() id!: string;
   @Input() acronym!: string;
   @Input() name!: string;
   @Input() status!: string;
@@ -15,5 +16,8 @@ export class DoctorCard {
   @Input() crm!: string;
   @Input() phone!: string;
   @Input() address!: string;
-  @Input() consulta: string = '/consultas';
+  
+  get consultaLink(): any[] {
+    return ['/consultas', this.id];
+  }
 }

@@ -33,8 +33,9 @@
     </div>
 </section>
 <section class="home-grid" aria-label="Lista de especialistas">
-    @for(doctor of doctors; track doctor.crm){
+    @for(doctor of doctors; track doctor.id){
         <app-doctor-card 
+            [id]="doctor.id"
             [acronym]="doctor.acronym"
             [name]="doctor.name"
             [status]="doctor.status"
