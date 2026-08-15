@@ -4,6 +4,7 @@ import { Consultas } from './consultas/consultas';
 import { Pacientes } from './pacientes/pacientes';
 import { Medicos } from './medicos/medicos';
 import { Login } from './login/login';
+import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,4 +13,5 @@ export const routes: Routes = [
     { path: 'pacientes', component: Pacientes },
     { path: 'medicos', component: Medicos },
     { path: 'login', component: Login },
+    {path: '**', component: NotFound}
 ];
