@@ -1,0 +1,406 @@
+.consult-hero {
+    margin-bottom: 24px;
+}
+
+.consult-kicker {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #0b7e88;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.consult-title {
+  margin: 0;
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.consult-subtitle {
+  margin: 14px 0 0;
+  max-width: 760px;
+  color: #3f4d53;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.consult-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 32px;
+  align-items: start;
+}
+
+.consult-main {
+  display: grid;
+  gap: 32px;
+}
+
+.consult-select-card,
+.consult-card,
+.summary-card{
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 12px 30px rgba(20, 53, 69, 0.06);
+  position: relative;
+}
+
+.summary-card {
+  background: #e8f5f7;
+  border: 1px solid #cbe0e4;
+  padding: 32px;
+}
+
+.consult-field-group label {
+  display: block;
+  margin: 0 0 12px;
+  color: #3f4d53;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.consult-select{
+  width: 100%;
+  min-height: 64px;
+  border: 0;
+  border-radius: 16px;
+  background: #dfe7ea;
+  color: #1f272b;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.consult-select__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.consult-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+}
+
+
+.consult-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.consult-card__head h2 {
+  margin: 0;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.calendar-nav button {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: #1f272b;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin: 22px 0 18px;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #6f7c82;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px 8px;
+}
+
+.day {
+  aspect-ratio: 1 / 1;
+  border: 0;
+  background: transparent;
+  color: #1f272b;
+  font-size: 1rem;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.day--muted {
+  color: #d3dbe0;
+}
+
+.day--active {
+  border: 2px solid #0b7e88;
+  color: #0b7e88;
+  font-weight: 800;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(11, 126, 136, 0.1);
+}
+
+
+.consult-card {
+  padding: 28px;
+}
+
+.consult-card h2 {
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.consult-hours-card {
+  min-height: 244px;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.time-slot {
+  min-height: 50px;
+  border: 0;
+  border-radius: 999px;
+  background: #edf2f3;
+  color: #1f272b;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.time-slot:hover {
+  background: #0b7e88;
+  color: #ffffff;
+}
+
+.time-slot--active {
+  background: #0b7e88;
+  color: #ffffff;
+}
+
+.consult-notes-card textarea {
+  width: 100%;
+  min-height: 178px;
+  border: 0;
+  resize: vertical;
+  border-radius: 18px;
+  background: #dfe7ea;
+  padding: 20px;
+  font: inherit;
+  color: #1f272b;
+  outline: none;
+}
+
+.consult-notes-card textarea::placeholder {
+  color: #69778c;
+}
+
+.consult-sidebar {
+  display: grid;
+  gap: 28px;
+}
+
+.summary-card hr {
+  border: 0;
+  border-top: 1px solid #cfe1e5;
+  margin: 10px 0 24px;
+}
+
+.consult-select-card,
+.consult-card,
+.summary-card,
+.patient-card {
+    border-radius: 22px;
+}
+
+.summary-item strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.summary-item p {
+  margin: 3px 0 0;
+  color: #405055;
+}
+
+.summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-item__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: #bfe8ed;
+  display: grid;
+  place-items: center;
+  color: #0b7e88;
+  flex: 0 0 auto;
+}
+
+.summary-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #5fa6b0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.summary-confirm {
+  width: 100%;
+  min-height: 60px;
+  border: 0;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #0b7c86, #12a5b3);
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-align: center;
+  line-height: 57px;
+  display: block;
+  box-shadow: 0 8px 22px rgba(14, 124, 139, 0.28);
+}
+
+.summary-cancel {
+  width: 100%;
+  margin-top: 16px;
+  border: 0;
+  background: transparent;
+  color: #0b6e74;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-align: center;
+  line-height: 57px;
+  display: block;
+  padding: 12px;
+}
+
+.shell-main {
+  padding: 120px 0 40px;
+}
+
+.consult-select-card {
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+
+
+@media (max-width: 1180px) {
+  .consult-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .consult-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 920px) {
+
+  .consult-select-card,
+  .consult-content-grid,
+  .consult-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .consult-subtitle br {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+
+  .consult-title {
+    font-size: clamp(2.3rem, 11vw, 3.4rem);
+  }
+
+  .consult-subtitle {
+    font-size: 1rem;
+  }
+
+  .consult-select-card,
+  .consult-card,
+  .summary-card,
+  .patient-card {
+    border-radius: 22px;
+  }
+
+  .consult-select-card,
+  .consult-card,
+  .summary-card,
+  .patient-card {
+    padding: 20px;
+  }
+
+  .time-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 480px) {
+  .consult-hero {
+    margin-bottom: 24px;
+  }
+
+  .calendar-grid {
+    gap: 8px 4px;
+  }
+
+  .day {
+    font-size: 0.92rem;
+  }
+
+  .patient-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .time-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .horario-calender {
+    font-size: 0.95rem;
+  }
+}

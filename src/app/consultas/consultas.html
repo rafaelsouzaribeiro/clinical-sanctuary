@@ -1,1 +1,181 @@
-<p>consultas works!</p>
+<div class="shell-main">
+    <section class="consult-hero" aria-label="Nova consulta">
+    <p class="consult-kicker">Agendamento</p>
+    <h1 class="consult-title">Nova Consulta</h1>
+    <p class="consult-subtitle">
+        Organize o fluxo de atendimento com precisão técnica e cuidado humano.
+        <br />
+        Preencha os detalhes abaixo para reservar o horário.
+    </p>
+    </section>
+
+    <section class="consult-layout" >
+    <div class="consult-main">
+        <div class="consult-select-card">
+        <div class="consult-field-group">
+            <label for="medico">Médico</label>
+            <a class="consult-select" id="medico" href="perfil.html" title="Doctor Armando">
+            <span class="consult-select__left">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
+                <path d="M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M9 8H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M8.5 13H15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+                <span>Doctor Armando</span>
+            </span>
+            </a>
+        </div>
+        <div class="consult-field-group">
+            <label for="medico">Serviços e preços</label>
+            <select class="consult-select" id="servicos" name="servicos">
+            <option value="consulta">Consulta - R$ 150,00</option>
+            <option value="exame">Exame - R$ 80,00</option>
+            <option value="procedimento">Procedimento - R$ 200,00</option>
+            </select>
+        </div>
+        <div class="consult-field-group">
+            <label for="medico">Modalidade de pagamento</label>
+            <select class="consult-select" id="pagamento" name="pagamento">
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="boleto">Boleto Bancário</option>
+            <option value="pix">PIX</option>
+            </select>
+        </div>
+            <div class="consult-field-group">
+            <label for="medico">Convenio</label>
+            <select class="consult-select" id="convenio" name="convenio">
+            <option value="particular">Particular</option>
+            <option value="unimed">Unimed</option>
+            <option value="amil">Amil</option>
+            <option value="bradesco">Bradesco Saúde</option>
+            <option value="sulamerica">SulAmérica</option>
+            </select>
+        </div>
+        <div class="consult-field-group">
+            <label for="unidade">Unidade</label>
+            <select class="consult-select" id="unidade" name="unidade">
+            <option value="unidade1">Clínica Central - Salto de Pirapora, SP</option>
+            <option value="unidade2">Clínica Norte - São Paulo, SP</option>
+            <option value="unidade3">Clínica Sul - Campinas, SP</option>
+            </select>
+        </div>
+        </div>
+        
+
+        <div class="consult-content-grid">
+        <section class="consult-card consult-calendar-card">
+            <div class="consult-card__head">
+            <h2>Data da Consulta</h2>
+            <div class="calendar-nav" aria-label="Navegação do calendário">
+                <button type="button" aria-label="Mês anterior">‹</button>
+                <button type="button" aria-label="Próximo mês">›</button>
+            </div>
+            </div>
+
+            <div class="calendar-weekdays">
+            <span>DOM</span>
+            <span>SEG</span>
+            <span>TER</span>
+            <span>QUA</span>
+            <span>QUI</span>
+            <span>SEX</span>
+            <span>SÁB</span>
+            </div>
+
+            <div class="calendar-grid">
+            <button class="day day--muted" type="button">28</button>
+            <button class="day day--muted" type="button">29</button>
+            <button class="day day--muted" type="button">30</button>
+            <button class="day" type="button">1</button>
+            <button class="day" type="button">2</button>
+            <button class="day" type="button">3</button>
+            <button class="day" type="button">4</button>
+
+            <button class="day" type="button">5</button>
+            <button class="day" type="button">6</button>
+            <button class="day day--active" type="button">7</button>
+            <button class="day" type="button">8</button>
+            <button class="day" type="button">9</button>
+            <button class="day" type="button">10</button>
+            <button class="day" type="button">11</button>
+            </div>
+        </section>
+
+        <section class="consult-card consult-hours-card">
+            <h2>Horários Disponíveis</h2>
+            <div class="time-grid">
+            <button class="time-slot" type="button">08:00</button>
+            <button class="time-slot" type="button">09:30</button>
+            <button class="time-slot time-slot--active" type="button">10:45</button>
+            <button class="time-slot" type="button">13:00</button>
+            <button class="time-slot" type="button">14:30</button>
+            <button class="time-slot" type="button">16:00</button>
+            </div>
+        </section>
+
+        <section class="consult-card consult-notes-card">
+            <h2>Observações</h2>
+            <textarea placeholder="Histórico breve, queixas principais ou notas de encaminhamento..."></textarea>
+        </section>
+        </div>
+    </div>
+
+    <aside class="consult-sidebar">
+        <section class="summary-card">
+        <h2>Resumo da Reserva</h2>
+
+        <div class="summary-item">
+            <div class="summary-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.8" />
+                <path d="M8 3.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M16 3.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M4 10H20" stroke="currentColor" stroke-width="1.8" />
+                <path d="M8 13H8.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M12 13H12.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M16 13H16.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+            </div>
+            <div>
+            <span class="summary-label">Data e Hora</span>
+            <strong>07 de Outubro, 10:45</strong>
+            </div>
+        </div>
+
+        <div class="summary-item">
+            <div class="summary-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="8" y="4" width="8" height="4" rx="1" stroke="currentColor" stroke-width="1.8" />
+                <path d="M12 8V18" stroke="currentColor" stroke-width="1.8" />
+                <path d="M8 12H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <rect x="6" y="8" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+            </div>
+            <div>
+            <span class="summary-label">Especialista</span>
+            <strong>Dr. Alistair Vance</strong>
+            <p>Cardiologia Clínica</p>
+            </div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21C16 17 20 13.4183 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13.4183 8 17 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            </div>
+            <div>
+            <span class="summary-label">Unidade</span>
+            <strong>Clínica Central</strong>
+                <p>Salto de pirapora - SP</p>
+            </div>
+        </div>
+        <hr />
+
+        <a class="summary-confirm" href="login.html" role="button">Confirmar Agendamento</a>
+        <a class="summary-cancel" href="index.html" role="button">Descartar</a>
+        </section>
+    </aside>
+    </section>
+</div>
