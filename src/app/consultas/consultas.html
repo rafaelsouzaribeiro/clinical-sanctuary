@@ -14,7 +14,8 @@
         <div class="consult-select-card">
         <div class="consult-field-group">
             <label for="medico">Médico</label>
-            <a class="consult-select" id="medico" href="perfil.html" title="Doctor Armando">
+            <a class="consult-select consultafoco"
+               id="medico" href="perfil.html" title="Doctor Armando">
             <span class="consult-select__left">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
@@ -28,89 +29,81 @@
         </div>
         <div class="consult-field-group">
             <label for="medico">Serviços e preços</label>
-            <select class="consult-select" id="servicos" name="servicos">
-            <option value="consulta">Consulta - R$ 150,00</option>
-            <option value="exame">Exame - R$ 80,00</option>
-            <option value="procedimento">Procedimento - R$ 200,00</option>
-            </select>
+            <app-location-select
+                id="servicos"
+                name="servicos"
+                type="servicos"
+                [options]="servicoOptions">
+            </app-location-select>
         </div>
         <div class="consult-field-group">
             <label for="medico">Modalidade de pagamento</label>
-            <select class="consult-select" id="pagamento" name="pagamento">
-            <option value="cartao">Cartão de Crédito</option>
-            <option value="boleto">Boleto Bancário</option>
-            <option value="pix">PIX</option>
-            </select>
+            <app-location-select
+                id="pagamento"
+                name="pagamento"
+                type="pagamento"
+                [options]="pagamentoOptions">
+            </app-location-select>
         </div>
             <div class="consult-field-group">
             <label for="medico">Convenio</label>
-            <select class="consult-select" id="convenio" name="convenio">
-            <option value="particular">Particular</option>
-            <option value="unimed">Unimed</option>
-            <option value="amil">Amil</option>
-            <option value="bradesco">Bradesco Saúde</option>
-            <option value="sulamerica">SulAmérica</option>
-            </select>
+            <app-location-select
+                id="convenio"
+                name="convenio"
+                type="convenio"
+                [options]="convenioOptions">
+            </app-location-select>
         </div>
         <div class="consult-field-group">
             <label for="unidade">Unidade</label>
-            <select class="consult-select" id="unidade" name="unidade">
-            <option value="unidade1">Clínica Central - Salto de Pirapora, SP</option>
-            <option value="unidade2">Clínica Norte - São Paulo, SP</option>
-            <option value="unidade3">Clínica Sul - Campinas, SP</option>
-            </select>
+            <app-location-select
+                id="unidade"
+                name="unidade"
+                type="unidade"
+                [options]="unidadeOptions">
+            </app-location-select>
         </div>
         </div>
-        
+
 
         <div class="consult-content-grid">
         <section class="consult-card consult-calendar-card">
             <div class="consult-card__head">
-            <h2>Data da Consulta</h2>
+            <h2 id="mes">{{ mesTitulo }}</h2>
             <div class="calendar-nav" aria-label="Navegação do calendário">
-                <button type="button" aria-label="Mês anterior">‹</button>
-                <button type="button" aria-label="Próximo mês">›</button>
+                <button type="button" id="prev" (click)="mesAnterior()" aria-label="Mês anterior">‹</button>
+                <button type="button" id="next" (click)="proximoMes()" aria-label="Próximo mês">›</button>
             </div>
             </div>
 
-            <div class="calendar-weekdays">
-            <span>DOM</span>
-            <span>SEG</span>
-            <span>TER</span>
-            <span>QUA</span>
-            <span>QUI</span>
-            <span>SEX</span>
-            <span>SÁB</span>
+            <div class="calendar-weekdays" id="weekdays">
+                <span *ngFor="let dia of weekdays">{{ dia }}</span>
             </div>
 
             <div class="calendar-grid">
-            <button class="day day--muted" type="button">28</button>
-            <button class="day day--muted" type="button">29</button>
-            <button class="day day--muted" type="button">30</button>
-            <button class="day" type="button">1</button>
-            <button class="day" type="button">2</button>
-            <button class="day" type="button">3</button>
-            <button class="day" type="button">4</button>
-
-            <button class="day" type="button">5</button>
-            <button class="day" type="button">6</button>
-            <button class="day day--active" type="button">7</button>
-            <button class="day" type="button">8</button>
-            <button class="day" type="button">9</button>
-            <button class="day" type="button">10</button>
-            <button class="day" type="button">11</button>
+                <button
+                    *ngFor="let dia of calendarDays"
+                    type="button"
+                    class="day"
+                    [class.day--muted]="dia.isMuted"
+                    [class.day--active]="dia.isActive"
+                    (click)="selecionarDia(dia)">
+                    {{ dia.numero }}
+                </button>
             </div>
         </section>
 
         <section class="consult-card consult-hours-card">
             <h2>Horários Disponíveis</h2>
             <div class="time-grid">
-            <button class="time-slot" type="button">08:00</button>
-            <button class="time-slot" type="button">09:30</button>
-            <button class="time-slot time-slot--active" type="button">10:45</button>
-            <button class="time-slot" type="button">13:00</button>
-            <button class="time-slot" type="button">14:30</button>
-            <button class="time-slot" type="button">16:00</button>
+                <button
+                    *ngFor="let horario of horarios"
+                    class="time-slot"
+                    [class.time-slot--active]="horarioSelecionado === horario"
+                    type="button"
+                    (click)="selecionarHorario(horario)">
+                    {{ horario }}
+                </button>
             </div>
         </section>
 
@@ -139,7 +132,7 @@
             </div>
             <div>
             <span class="summary-label">Data e Hora</span>
-            <strong>07 de Outubro, 10:45</strong>
+            <strong>{{ horarioSelecionado }}</strong>
             </div>
         </div>
 

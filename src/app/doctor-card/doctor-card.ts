@@ -1,8 +1,9 @@
 import { Component,Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './doctor-card.html',
   styleUrl: './doctor-card.css',
 })
@@ -14,4 +15,5 @@ export class DoctorCard {
   @Input() crm!: string;
   @Input() phone!: string;
   @Input() address!: string;
+  @Input() consulta: string = '/consultas';
 }

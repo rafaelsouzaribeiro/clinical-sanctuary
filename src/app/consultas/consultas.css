@@ -68,7 +68,7 @@
   min-height: 64px;
   border: 0;
   border-radius: 16px;
-  background: #dfe7ea;
+  background: #c8d0d4;
   color: #1f272b;
   padding: 0 18px;
   display: flex;
@@ -79,6 +79,7 @@
   cursor: pointer;
   font: inherit;
 }
+
 
 .consult-select__left {
   display: flex;
