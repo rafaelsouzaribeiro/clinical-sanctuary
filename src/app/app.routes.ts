@@ -9,7 +9,7 @@ import { NotFound } from './not-found/not-found';
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: Home },
-    { path: 'consultas/:id', component: Consultas },
+    { path: 'consultas/:slug/:id', component: Consultas },
     { path: 'pacientes', component: Pacientes },
     { path: 'medicos', component: Medicos },
     { path: 'login', component: Login },

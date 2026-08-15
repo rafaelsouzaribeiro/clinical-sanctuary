@@ -36,6 +36,7 @@
     @for(doctor of doctors; track doctor.id){
         <app-doctor-card 
             [id]="doctor.id"
+            [slug]="doctor.slug"
             [acronym]="doctor.acronym"
             [name]="doctor.name"
             [status]="doctor.status"

@@ -20,6 +20,7 @@ export class Consultas implements OnInit {
   medicoId:string | null = null;
   medico: {
     id: string;
+    slug: string;
     acronym: string;
     name: string;
     status: string;
@@ -29,8 +30,9 @@ export class Consultas implements OnInit {
     crm: string;
   } | undefined;
 
-  doctors:Array<{
+ doctors:Array<{
       id:string;
+      slug:string;
       acronym: string;
       name: string;
       status: string;
@@ -41,6 +43,7 @@ export class Consultas implements OnInit {
     }>=[
     {
       id:"1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      slug:"dr-john-smith",
       acronym:'RS',
       name: 'Dr. John Smith',
       status:'Ativo',
@@ -52,6 +55,7 @@ export class Consultas implements OnInit {
     },
     {
       id:"2ab456cd-ef12-3456-7890-abcdef123456",
+      slug:"dr-mary-johnson",
       acronym:'MJ',
       name: 'Dr. Mary Johnson',
       status:'Ativo',
@@ -62,6 +66,7 @@ export class Consultas implements OnInit {
     },
     {
       id:"3cd789ef-4567-8901-2345-abcdef678901",
+      slug:"dr-luke-williams",
       acronym:'LW',
       name: 'Dr. Luke Williams',
       status:'Inativo',
@@ -72,6 +77,7 @@ export class Consultas implements OnInit {
     },
     {
       id:"4ef012gh-5678-9012-3456-abcdef890123",
+      slug:"dr-emily-smith",
       acronym:'ES',
       name: 'Dr. Emily Smith',
       status:'Ativo',
