@@ -7,12 +7,21 @@ export class Calendar{
     public calendarDays: DiaCalendario[] = [];
     public mesTitulo: string = '';
 
+    selecionarData(dia: number, isMuted: boolean): void {
+        const mesAtual = this.data.getMonth();
+        const anoAtual = this.data.getFullYear();
+
+        if (!isMuted) {
+            this.data = new Date(anoAtual, mesAtual, dia);
+        }
+    }
+    
     public mesAnterior(): void {
         this.data.setMonth(this.data.getMonth() - 1);
         this.atualizarTituloMes();
         this.atualizarDiasDaSemana();
         this.atualizarCalendario();
- }
+    }
     
     public proximoMes(): void {
         this.data.setMonth(this.data.getMonth() + 1);

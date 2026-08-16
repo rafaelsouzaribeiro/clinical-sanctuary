@@ -78,7 +78,7 @@
             </div>
 
             <div class="calendar-weekdays" id="weekdays">
-                <span *ngFor="let dia of weekdays">{{ dia }}</span>
+                <span *ngFor="let dia of this.calendar.weekdays">{{ dia }}</span>
             </div>
 
             <div class="calendar-grid">
@@ -134,6 +134,7 @@
             <div>
             <span class="summary-label">Data e Hora</span>
             <strong>{{ horarioSelecionado }}</strong>
+            <p>{{ this.calendar?.data | date: 'fullDate' : '' : 'pt-BR' }}</p>
             </div>
         </div>
 

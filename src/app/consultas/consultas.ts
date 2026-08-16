@@ -140,6 +140,7 @@ export class Consultas implements OnInit {
   public selecionarDia(diaClicado: DiaCalendario): void {
     this.calendar.calendarDays.forEach((d) => (d.isActive = false));
     diaClicado.isActive = true;
+    this.calendar.selecionarData(diaClicado.numero, diaClicado.isMuted);
   }
 
   public selecionarHorario(horario: string): void {
