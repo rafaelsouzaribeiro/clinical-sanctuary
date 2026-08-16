@@ -2,14 +2,19 @@ import { Component } from '@angular/core';
 import { DoctorCard } from '../doctor-card/doctor-card';
 import { LocationSelect } from '../location-select/location-select';
 import {SelectOption} from "../location-select/interface.sellect-option";
+import { Title } from '@angular/platform-browser';
 
 @Component({
+  viewProviders:[Title],
   selector: 'app-home',
   imports: [DoctorCard, LocationSelect],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
+    constructor(private title: Title) {
+        this.title.setTitle('Home - Clinical Sanctuary');
+    }
     doctors:Array<{
       id:string;
       slug:string;

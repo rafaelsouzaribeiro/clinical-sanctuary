@@ -6,8 +6,10 @@ import { SelectOption } from '../location-select/interface.sellect-option';
 import { SelectEventLocation } from '../select-event-location/select-event-location';
 import { Calendar } from './calendar';
 import { DiaCalendario } from './interface.dia.calendario';
+import{Title} from '@angular/platform-browser'
  
 @Component({
+  viewProviders:[Title],
   selector: 'app-consultas',
   standalone: true,
   imports: [LocationSelect, CommonModule, SelectEventLocation],
@@ -122,7 +124,10 @@ export class Consultas implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-  ) {}
+    private title: Title,
+  ) {
+   
+  }
   ngOnInit(): void {
     this.medicoId = this.route.snapshot.paramMap.get('id');
     this.medico = this.doctors.find((d) => d.id === this.medicoId);
@@ -132,6 +137,7 @@ export class Consultas implements OnInit {
       return;
     }
 
+    this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${this.medico?.name}`);
     this.calendar.atualizarTituloMes();
     this.calendar.atualizarDiasDaSemana();
     this.calendar.atualizarCalendario();
