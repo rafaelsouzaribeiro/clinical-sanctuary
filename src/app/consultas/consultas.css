@@ -296,6 +296,7 @@
   line-height: 57px;
   display: block;
   box-shadow: 0 8px 22px rgba(14, 124, 139, 0.28);
+  cursor: pointer;
 }
 
 .summary-cancel {
@@ -312,6 +313,7 @@
   line-height: 57px;
   display: block;
   padding: 12px;
+  cursor: pointer;
 }
 
 .shell-main {
