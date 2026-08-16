@@ -66,5 +66,73 @@
         }
       ],
       "crm":"456789-SP"
+    },
+    {
+      "id":"5gh345ij-6789-0123-4567-abcdef901234",
+      "slug":"dr-michael-jones",
+      "acronym":"MJ",
+      "name": "Dr. Michael Jones",
+      "status":"Ativo",
+      "specialty":"Ortopedista",
+      "phone":"(11) 8765-4321",
+      "unidade":[
+        { 
+          "address":"Ala Leste, Sala 210",
+          "city":"Votorantim",
+          "uf":"SP"
+        }
+      ],
+      "crm":"321654-SP"
+    },
+    {
+      "id":"6ij678kl-7890-1234-5678-abcdef012345",
+      "slug":"dr-sarah-brown",
+      "acronym":"SB",
+      "name": "Dr. Sarah Brown",
+      "status":"Inativo",
+      "specialty":"Ginecologista",
+      "phone":"(11) 5432-1098",
+      "unidade":[
+        { 
+          "address":"Ala Norte, Sala 305",
+          "city":"Sorocaba",
+          "uf":"SP"
+        }
+      ],
+      "crm":"789012-SP"
+    },
+    {
+      "id":"7kl901mn-8901-2345-6789-abcdef123456",
+      "slug":"dr-david-wilson",
+      "acronym":"DW",
+      "name": "Dr. David Wilson",
+      "status":"Ativo",
+      "specialty":"Oftalmologista",
+      "phone":"(11) 2109-8765",
+      "unidade":[
+        { 
+          "address":"Ala Suldeste, Sala 75",
+          "city":"Sorocaba",
+          "uf":"SP"
+        }
+      ],
+      "crm":"654987-SP"
+    },
+    {
+      "id":"8mn234op-9012-3456-7890-abcdef234567",
+      "slug":"dr-laura-martin",
+      "acronym":"LM",
+      "name": "Dr. Laura Martin",
+      "status":"Ativo",
+      "specialty":"Psiquiatra",
+      "phone":"(11) 1098-5432",
+      "unidade":[
+        { 
+          "address":"Ala Oeste, Sala 150",
+          "city":"Pilar do Sul",
+          "uf":"SP"
+        }
+      ],
+      "crm":"321098-SP"
     }
   ]

@@ -41,7 +41,10 @@ export class Home {
 
   cityOptions: SelectOption[] = [
     { value: 'Salto de Pirapora', label: 'Salto de Pirapora' },
-    { value: 'Pilar do Sul', label: 'Pilar do Sul' }
+    { value: 'Pilar do Sul', label: 'Pilar do Sul' },
+    { value:'Votorantim', label: 'Votorantim' },
+    { value: 'Sorocaba', label: 'Sorocaba' },
+    { value: 'São Paulo', label: 'São Paulo' }
   ];
 
   selectedUf = this.ufOptions[0]?.value ?? '';
