@@ -1,0 +1,70 @@
+[
+    {
+      "id":"1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "slug":"dr-john-smith",
+      "acronym":"RS",
+      "name": "Dr. John Smith",
+      "status":"Ativo",
+      "specialty":"Cardiologista",
+      "phone":"(11) 1234-5678",
+      "unidade":[
+        { 
+          "address":"Ala Norte, Sala 402",
+          "city":"Sorocaba",
+          "uf":"SP"
+        }
+      ],
+      "crm":"123456-SP"
+    },
+    {
+      "id":"2ab456cd-ef12-3456-7890-abcdef123456",
+      "slug":"dr-mary-johnson",
+      "acronym":"MJ",
+      "name": "Dr. Mary Johnson",
+      "status":"Ativo",
+      "specialty":"Dermatologista",
+      "phone":"(11) 9876-5432",
+      "unidade":[
+        { 
+          "address":"Ala Suldeste, Sala 90",
+          "city":"Sorocaba",
+          "uf":"SP"
+        }
+      ],
+      "crm":"654321-SP"
+    },
+    {
+      "id":"3cd789ef-4567-8901-2345-abcdef678901",
+      "slug":"dr-luke-williams",
+      "acronym":"LW",
+      "name": "Dr. Luke Williams",
+      "status":"Inativo",
+      "specialty":"Neurologista",
+      "phone":"(11) 5678-1234",
+      "unidade":[
+        { 
+          "address":"Ala Norte, Sala 120",
+          "city":"Pilar do Sul",
+          "uf":"SP"
+        }
+      ],
+      "crm":"987654-SP"
+    },
+    {
+      "id":"4ef012gh-5678-9012-3456-abcdef890123",
+      "slug":"dr-emily-smith",
+      "acronym":"ES",
+      "name": "Dr. Emily Smith",
+      "status":"Ativo",
+      "specialty":"Pediatra",
+      "phone":"(11) 4321-8765",
+      "unidade":[
+        { 
+          "address":"Ala Oeste, Sala 110",
+          "city":"Salto de Pirapora",
+          "uf":"SP"
+        }
+      ],
+      "crm":"456789-SP"
+    }
+  ]

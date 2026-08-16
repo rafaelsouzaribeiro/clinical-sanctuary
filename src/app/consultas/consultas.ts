@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LocationSelect } from '../location-select/location-select';
 import { ActivatedRoute,Router } from '@angular/router';
 import { SelectOption } from '../location-select/interface.sellect-option';
 import { SelectEventLocation } from '../select-event-location/select-event-location';
@@ -13,7 +12,7 @@ import doctors from './doctors.json';
   viewProviders:[Title],
   selector: 'app-consultas',
   standalone: true,
-  imports: [LocationSelect, CommonModule, SelectEventLocation],
+  imports: [CommonModule, SelectEventLocation],
   templateUrl: './consultas.html',
   styleUrl: './consultas.css',
 })
