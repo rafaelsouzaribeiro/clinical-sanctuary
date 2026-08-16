@@ -6,7 +6,8 @@ import { SelectOption } from '../location-select/interface.sellect-option';
 import { SelectEventLocation } from '../select-event-location/select-event-location';
 import { Calendar } from './calendar';
 import { DiaCalendario } from './interface.dia.calendario';
-import{Title} from '@angular/platform-browser'
+import{Title} from '@angular/platform-browser';
+import doctors from './doctors.json';
  
 @Component({
   viewProviders:[Title],
@@ -17,8 +18,8 @@ import{Title} from '@angular/platform-browser'
   styleUrl: './consultas.css',
 })
 export class Consultas implements OnInit {
-  medicoId:string | null = null;
-  medico: {
+  public medicoId:string | null = null;
+  public medico: {
     id: string;
     slug: string;
     acronym: string;
@@ -26,11 +27,22 @@ export class Consultas implements OnInit {
     status: string;
     specialty: string;
     phone: string;
-    address: string;
     crm: string;
+    pagamentos: SelectOption[];
+    convenios: SelectOption[];
+    unidades: SelectOption[];
+    servicos: SelectOption[];
   } | undefined;
 
- doctors:Array<{
+    public unidade: string = '';
+    public city: string = '';
+    public servico: string = '';
+    public pagamento: string = '';
+    public convenio: string = '';
+    public observacoes: string = '';
+    public unidadeValue: string = '';
+    
+    public doctors:Array<{
       id:string;
       slug:string;
       acronym: string;
@@ -38,83 +50,17 @@ export class Consultas implements OnInit {
       status: string;
       specialty: string;
       phone: string;
-      address: string;
       crm: string;
-    }>=[
-    {
-      id:"1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      slug:"dr-john-smith",
-      acronym:'RS',
-      name: 'Dr. John Smith',
-      status:'Ativo',
-      specialty:'Cardiologista',
-      phone:'(11) 1234-5678',
-      address:'Ala Norte, Sala 402',
-      crm:'123456-SP'
-
-    },
-    {
-      id:"2ab456cd-ef12-3456-7890-abcdef123456",
-      slug:"dr-mary-johnson",
-      acronym:'MJ',
-      name: 'Dr. Mary Johnson',
-      status:'Ativo',
-      specialty:'Dermatologista',
-      phone:'(11) 9876-5432',
-      address:'Ala Sul, Sala 305',
-      crm:'654321-SP'
-    },
-    {
-      id:"3cd789ef-4567-8901-2345-abcdef678901",
-      slug:"dr-luke-williams",
-      acronym:'LW',
-      name: 'Dr. Luke Williams',
-      status:'Inativo',
-      specialty:'Neurologista',
-      phone:'(11) 5678-1234',
-      address:'Ala Leste, Sala 210',
-      crm:'987654-SP'
-    },
-    {
-      id:"4ef012gh-5678-9012-3456-abcdef890123",
-      slug:"dr-emily-smith",
-      acronym:'ES',
-      name: 'Dr. Emily Smith',
-      status:'Ativo',
-      specialty:'Pediatra',
-      phone:'(11) 4321-8765',
-      address:'Ala Oeste, Sala 110',
-      crm:'456789-SP',
-    }
-  ]
+      pagamentos: SelectOption[];
+      convenios: SelectOption[];
+      unidades: SelectOption[];
+      servicos: SelectOption[];
+    }>=doctors;
+    
   public calendar:Calendar = new Calendar();
-
-  pagamentoOptions: SelectOption[] = [
-    { value: 'cartao', label: 'Cartão de Crédito' },
-    { value: 'boleto', label: 'Boleto Bancário' },
-    { value: 'pix', label: 'PIX' },
-  ];
-  convenioOptions: SelectOption[] = [
-    { value: 'particular', label: 'Particular' },
-    { value: 'unimed', label: 'Unimed' },
-    { value: 'amil', label: 'Amil' },
-    { value: 'bradesco', label: 'Bradesco Saúde' },
-    { value: 'sulamerica', label: 'SulAmérica' },
-  ];
-  unidadeOptions: SelectOption[] = [
-    { value: 'Clínica Central - Salto de Pirapora, SP', label: 'Clínica Central - Salto de Pirapora, SP' },
-    { value: 'Clínica Norte - São Paulo, SP', label: 'Clínica Norte - São Paulo, SP' },
-    { value: 'Clínica Sul - Campinas, SP', label: 'Clínica Sul - Campinas, SP' },
-  ];
-  servicoOptions: SelectOption[] = [
-    { value: 'consulta', label: 'Consulta - R$ 150,00' },
-    { value: 'exame', label: 'Exame - R$ 80,00' },
-  ];
 
   weekdays: string[] = [];
   mesTitulo : string = '';
-  unidade:string = this.unidadeOptions[0].label.split(' - ')[0];
-  city:string = this.unidadeOptions[0].label.split(' - ')[1];
 
   calendarDays: DiaCalendario[] = [];
   horarios: string[] = ['08:00', '09:30', '10:45', '13:00', '14:30', '16:00'];
@@ -137,6 +83,14 @@ export class Consultas implements OnInit {
       return;
     }
 
+    this.unidade = this.medico?.unidades[0]?.label.split(' - ')[0] ?? '';
+    this.city = this.medico?.unidades[0]?.label.split(' - ')[1] ?? '';
+    this.unidadeValue = this.medico?.unidades[0]?.value ?? '';
+    this.servico = this.medico?.servicos[0]?.value ?? '';
+    this.pagamento = this.medico?.pagamentos[0]?.value ?? '';
+    this.convenio = this.medico?.convenios[0]?.value ?? '';
+    this.horarioSelecionado = this.horarioSelecionado ?? this.horarios[0];
+
     this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${this.medico?.name}`);
     this.calendar.atualizarTituloMes();
     this.calendar.atualizarDiasDaSemana();
@@ -154,7 +108,47 @@ export class Consultas implements OnInit {
   }
 
   public onUnidadeChange(opcaoSelecionada: SelectOption): void {
-    this.unidade = opcaoSelecionada.value.split(' - ')[0];
-    this.city = opcaoSelecionada.value.split(' - ')[1];
+    this.unidade = opcaoSelecionada.label.split(' - ')[0];
+    this.city = opcaoSelecionada.label.split(' - ')[1];
+    this.unidadeValue = opcaoSelecionada.value;
+  }
+
+    public onDescartar(): void {
+    this.router.navigate(['/']);
+  }
+
+  public onConfirmarAgendamento(): void {
+    const agendamento = {
+      medicoId: this.medico?.id,
+      medicoNome: this.medico?.name,
+      especialidade: this.medico?.specialty,
+      unidade:  this.unidadeValue,
+      cidade: this.city,
+      data: this.calendar.data,
+      horario: this.horarioSelecionado,
+      servico: this.servico,
+      pagamento: this.pagamento,
+      convenio: this.convenio,
+      observacoes: this.observacoes,
+    };
+
+    console.log('Agendamento confirmado:', agendamento);
+  }
+
+  public onServicoChange(opcaoSelecionada: SelectOption): void {
+    this.servico = opcaoSelecionada.value;
+  }
+
+  public onPagamentoChange(opcaoSelecionada: SelectOption): void {
+    this.pagamento = opcaoSelecionada.value;
+  }
+
+  public onConvenioChange(opcaoSelecionada: SelectOption): void {
+    this.convenio = opcaoSelecionada.value;
+  }
+
+  public onObservacoesChange(event: Event): void {
+    const textarea = event.target as HTMLTextAreaElement;
+    this.observacoes = textarea.value;
   }
 }

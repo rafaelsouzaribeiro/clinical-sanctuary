@@ -29,30 +29,33 @@
         </div>
         <div class="consult-field-group">
             <label for="medico">Serviços e preços</label>
-            <app-location-select
+            <app-select-event-location
                 id="servicos"
                 name="servicos"
                 type="servicos"
-                [options]="servicoOptions">
-            </app-location-select>
+                [options]="medico?.servicos ?? []"
+                (selectionChange)="onServicoChange($event)">
+            </app-select-event-location>
         </div>
         <div class="consult-field-group">
             <label for="medico">Modalidade de pagamento</label>
-            <app-location-select
+            <app-select-event-location
                 id="pagamento"
                 name="pagamento"
                 type="pagamento"
-                [options]="pagamentoOptions">
-            </app-location-select>
+                [options]="medico?.pagamentos ?? []"
+                (selectionChange)="onPagamentoChange($event)">
+            </app-select-event-location>
         </div>
             <div class="consult-field-group">
             <label for="medico">Convenio</label>
-            <app-location-select
+            <app-select-event-location
                 id="convenio"
                 name="convenio"
                 type="convenio"
-                [options]="convenioOptions">
-            </app-location-select>
+                [options]="medico?.convenios ?? []"
+                (selectionChange)="onConvenioChange($event)">
+            </app-select-event-location>
         </div>
         <div class="consult-field-group">
             <label for="unidade">Unidade</label>
@@ -60,7 +63,7 @@
                 id="unidade"
                 name="unidade"
                 type="unidade"
-                [options]="unidadeOptions"
+                [options]="medico?.unidades ?? []"  
                 (selectionChange)="onUnidadeChange($event)">
             </app-select-event-location>
         </div>
@@ -110,7 +113,11 @@
 
         <section class="consult-card consult-notes-card">
             <h2>Observações</h2>
-            <textarea placeholder="Histórico breve, queixas principais ou notas de encaminhamento..."></textarea>
+            <textarea 
+            placeholder="Histórico breve, queixas principais ou notas de encaminhamento..."
+            [value]="observacoes"
+            (input)="onObservacoesChange($event)"
+            ></textarea>
         </section>
         </div>
     </div>
@@ -168,8 +175,8 @@
         </div>
         <hr />
 
-        <a class="summary-confirm" href="login.html" role="button">Confirmar Agendamento</a>
-        <a class="summary-cancel" href="index.html" role="button">Descartar</a>
+        <button class="summary-confirm" type="button" (click)="onConfirmarAgendamento()">Confirmar Agendamento</button>
+        <button class="summary-cancel" type="button" (click)="onDescartar()">Descartar</button>
         </section>
     </aside>
     </section>
