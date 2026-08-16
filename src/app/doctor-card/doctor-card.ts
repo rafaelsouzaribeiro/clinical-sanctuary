@@ -16,7 +16,11 @@ export class DoctorCard {
   @Input() specialty!: string;
   @Input() crm!: string;
   @Input() phone!: string;
-  @Input() address!: string;
+  @Input() unidade!: Array<{
+    address: string;
+    city: string;
+    uf: string;
+  }>;
 
   get consultaLink(): string[] {
     return ['/consultas', this.slug, this.id];

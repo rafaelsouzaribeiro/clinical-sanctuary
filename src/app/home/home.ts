@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { DoctorCard } from '../doctor-card/doctor-card';
-import { LocationSelect } from '../location-select/location-select';
+import { SelectEventLocation } from '../select-event-location/select-event-location';
 import {SelectOption} from "../location-select/interface.sellect-option";
 import { Title } from '@angular/platform-browser';
 
 @Component({
   viewProviders:[Title],
   selector: 'app-home',
-  imports: [DoctorCard, LocationSelect],
+  imports: [DoctorCard, SelectEventLocation],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -15,7 +15,7 @@ export class Home {
     constructor(private title: Title) {
         this.title.setTitle('Home - Clinical Sanctuary');
     }
-    doctors:Array<{
+    public doctors:Array<{
       id:string;
       slug:string;
       acronym: string;
@@ -23,7 +23,11 @@ export class Home {
       status: string;
       specialty: string;
       phone: string;
-      address: string;
+      unidade: Array<{
+        address: string;
+        city: string;
+        uf: string;
+      }>;
       crm: string;
     }>=[
     {
@@ -34,7 +38,13 @@ export class Home {
       status:'Ativo',
       specialty:'Cardiologista',
       phone:'(11) 1234-5678',
-      address:'Ala Norte, Sala 402',
+      unidade:[
+        { 
+          address:"Ala Norte, Sala 402",
+          city:"Sorocaba",
+          uf:"SP"
+        }
+      ],
       crm:'123456-SP'
 
     },
@@ -46,7 +56,13 @@ export class Home {
       status:'Ativo',
       specialty:'Dermatologista',
       phone:'(11) 9876-5432',
-      address:'Ala Sul, Sala 305',
+      unidade:[
+        { 
+          address:"Ala Suldeste, Sala 90",
+          city:"Sorocaba",
+          uf:"SP"
+        }
+      ],
       crm:'654321-SP'
     },
     {
@@ -57,7 +73,13 @@ export class Home {
       status:'Inativo',
       specialty:'Neurologista',
       phone:'(11) 5678-1234',
-      address:'Ala Leste, Sala 210',
+      unidade:[
+        { 
+          address:"Ala Norte, Sala 120",
+          city:"Pilar do Sul",
+          uf:"SP"
+        }
+      ],
       crm:'987654-SP'
     },
     {
@@ -68,7 +90,13 @@ export class Home {
       status:'Ativo',
       specialty:'Pediatra',
       phone:'(11) 4321-8765',
-      address:'Ala Oeste, Sala 110',
+      unidade:[
+        { 
+          address:"Ala Oeste, Sala 110",
+          city:"Salto de Pirapora",
+          uf:"SP"
+        }
+      ],
       crm:'456789-SP'
     }
   ]
@@ -81,7 +109,41 @@ export class Home {
   ];
 
   cityOptions: SelectOption[] = [
-    { value: 'salto-pirapora', label: 'Salto de Pirapora' },
-    { value: 'pilar-sul', label: 'Pilar do Sul' }
+    { value: 'Salto de Pirapora', label: 'Salto de Pirapora' },
+    { value: 'Pilar do Sul', label: 'Pilar do Sul' }
   ];
+
+  selectedUf = this.ufOptions[0]?.value ?? '';
+  selectedCity = this.cityOptions[0]?.value ?? '';
+  searchTerm = '';
+
+  get filteredDoctors() {
+      return this.doctors.filter(doctor => {
+          const matchesUf =
+              !this.selectedUf ||
+              doctor.unidade.some(u => u.uf === this.selectedUf);
+          const matchesCity =
+              !this.selectedCity ||
+              doctor.unidade.some(u => u.city === this.selectedCity);
+          const matchesSearch =
+              !this.searchTerm ||
+              doctor.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+              doctor.specialty.toLowerCase().includes(this.searchTerm.toLowerCase());
+
+          return matchesUf && matchesCity && matchesSearch;
+      });
+  }
+
+  onUfChange(value: SelectOption): void {
+      this.selectedUf = value.value;
+  }
+
+  onCityChange(value: SelectOption): void {
+      this.selectedCity = value.value;
+  }
+
+  onSearchChange(event: Event): void {
+      const input = event.target as HTMLInputElement;
+      this.searchTerm = input.value;
+  }
 }

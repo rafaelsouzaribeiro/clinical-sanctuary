@@ -8,32 +8,39 @@
     </div>
     <div class="container-search">
         <div class="width-uf">
-            <app-location-select
+            <app-select-event-location
                 id="uf"
                 name="uf"
                 type="uf"
-                [options]="ufOptions">
-            </app-location-select>
+                [options]="ufOptions"
+                (selectionChange)="onUfChange($event)">
+            </app-select-event-location>
         </div>
         <div class="width-city">
-            <app-location-select
+            <app-select-event-location
                 id="city"
                 name="city"
                 type="city"
-                [options]="cityOptions">
-            </app-location-select>
+                [options]="cityOptions"
+                (selectionChange)="onCityChange($event)">
+            </app-select-event-location>
         </div>
         <label  for="busca" class="home-search">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" />
             <path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg>
-            <input id="busca" type="text" placeholder="Buscar por nome ou especialidade..." />
+            <input
+                id="busca"
+                type="text"
+                placeholder="Buscar por nome ou especialidade..."
+                [value]="searchTerm"
+                (input)="onSearchChange($event)" />
         </label>
     </div>
 </section>
 <section class="home-grid" aria-label="Lista de especialistas">
-    @for(doctor of doctors; track doctor.id){
+    @for(doctor of filteredDoctors; track doctor.id){
         <app-doctor-card 
             [id]="doctor.id"
             [slug]="doctor.slug"
@@ -43,7 +50,7 @@
             [specialty]="doctor.specialty"
             [crm]="doctor.crm"
             [phone]="doctor.phone"
-            [address]="doctor.address">
+            [unidade]="doctor.unidade">
         </app-doctor-card>
     }
     <article class="add-card">

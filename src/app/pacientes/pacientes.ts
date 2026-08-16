@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  viewProviders:[Title],
+  viewProviders:[Title],  
   selector: 'app-pacientes',
   imports: [],
   templateUrl: './pacientes.html',
