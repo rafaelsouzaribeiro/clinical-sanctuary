@@ -29,6 +29,6 @@
     </div>
     </div>
 
-    <a href="perfil.html" title="Dr. Ricardo Santos" class="doctor-card__button doctor-card__button--ghost">Ver Perfil</a>
+    <a [routerLink]="perfilLink" title="Dr. Ricardo Santos" class="doctor-card__button doctor-card__button--ghost">Ver Perfil</a>
     <a [routerLink]="consultaLink" [title]="'Agendar - ' + name" class="doctor-card__button doctor-card__button--ghost">Agendar</a>
 </article>
