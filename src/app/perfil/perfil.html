@@ -1,31 +1,31 @@
 <div class="profile-doctor-page">
     <section class="profile-hero">
         <div class="profile-hero-content">
-        <img src="doctor.png" alt="Dra. Helena Moreira" class="profile-doctor-image" />
+        <img src="{{ doctors.photo }}" alt="{{ doctors.name }}" class="profile-doctor-image" />
         <div class="experience-circle rotate-12">
             <div class="experience-content">
-            <strong class="years">15+</strong>
+            <strong class="years">{{doctors.experience}}+</strong>
             <span class="label">ANOS DE<br>EXPERIÊNCIA</span>
             </div>
         </div>
             
         <div class="profile-info">
             <p class="profile-kicker">TOP SPECIALIST</p>
-            <h1 class="profile-doctor-name">Dra. Helena Moreira</h1>
-            <p class="profile-specialty">Neurologia • CRM 123456-SP</p>
+            <h1 class="profile-doctor-name">{{doctors.name}}</h1>
+            <p class="profile-specialty">{{doctors.specialty}} • CRM {{doctors.crm}}</p>
+            <a class="profile-specialty" [href]="'tel:' + doctors.phone">{{doctors.phone}}</a>
             
             <p class="profile-description">
-            Especialista em neurologia cognitiva e distúrbios do movimento com doutorado pela USP. 
-            Dedicada a um atendimento humanizado que une tecnologia de ponta e acolhimento clínico.
+            {{doctors.description}}
             </p>
 
             <div class="profile-stats">
             <div class="stat-card">
-                <strong class="stat-number">4.9</strong>
-                <span class="stat-label">RATING (500+)</span>
+                <strong class="stat-number">{{doctors.statNumber}}</strong>
+                <span class="stat-label">RATING ({{doctors.rating}}+)</span>
             </div>
             <div class="stat-card">
-                <strong class="stat-number">2k+</strong>
+                <strong class="stat-number">{{doctors.patientNumber}}</strong>
                 <span class="stat-label">PACIENTES</span>
             </div>
 
@@ -39,26 +39,12 @@
         <div class="consult-card profile-services">
             <h2>Investimento em Saúde</h2>
             <div class="services-list">
-            <div class="service-item">
-                <span>Consulta de retorno</span>
-                <strong>R$ 250,00</strong>
-            </div>
-            <div class="service-item">
-                <span>Consulta gineco com preventivo</span>
-                <strong>R$ 450,00</strong>
-            </div>
-            <div class="service-item">
-                <span>Check-up Preventivo</span>
-                <strong>R$ 600,00</strong>
-            </div>
-            <div class="service-item popular">
-                <span>Teleconsulta <span class="popular-badge">POPULAR</span></span>
-                <strong>R$ 300,00</strong>
-            </div>
-            <div class="service-item">
-                <span>Primeira consulta ginecologia e obstetrícia</span>
-                <strong>R$ 500,00</strong>
-            </div>
+                @for(s of doctors.servicos; track s.id){
+                    <div class="service-item">
+                        <span>{{s.label}}</span>
+                        <strong>{{s.price}}</strong>
+                    </div>
+                }
             </div>
         </div>
         <div class="location-card">
@@ -67,8 +53,8 @@
             </div>
             <div class="location-info">
                 <h3>Localização</h3>
-                <p><strong>Av. Paulista, 2000 - Bela Vista</strong></p>
-                <p>Edifício Clinical Sanctuary, Sala 1204</p>
+                <p><strong>{{doctors.unidades[0].label}}</strong></p>
+                <p>{{doctors.unidades[0].room}}</p>
                 
                 <button class="location-btn">
                 <span>📍</span> COMO CHEGAR
@@ -87,71 +73,49 @@
             <h2>Convênios Aceitos</h2>
         </div>
         <div class="convenios-grid">
-            <div class="convenio-badge">Unimed</div>
-            <div class="convenio-badge">Bradesco Saúde</div>
-            <div class="convenio-badge">Amil</div>
-            <div class="convenio-badge">SulAmérica</div>
-            <div class="convenio-badge">Omint</div>
+            @for(c of doctors.convenios; track c.value){
+                <div class="convenio-badge">{{c.label}}</div>
+            }
         </div>
         </div>
 
         <!-- Unidades de Atendimento -->
         <div class="unidades-card">
         <h2>Unidades de Atendimento</h2>
-        
-        <div class="unidade-item">
-            <div class="unidade-icon main">🏥</div>
-            <div class="unidade-info">
-            <strong>Sanctuary Paulista</strong>
-            <span>Principal • Seg a Sex</span>
+        @for(u of doctors.unidades; track u.value; let i = $index){
+            <div class="unidade-item">
+                <div class="unidade-icon" [class.main]="i === 0">🏢</div>
+                <div class="unidade-info">
+                <strong>{{u.label}}</strong>
+                <span>{{u.open}}</span>
+                </div>
             </div>
-        </div>
-
-        <div class="unidade-item">
-            <div class="unidade-icon">🏢</div>
-            <div class="unidade-info">
-            <strong>Unidade Jardins</strong>
-            <span>Apenas Terças</span>
-            </div>
-        </div>
+        }
         </div>
 
     </section>
     <!-- Avaliações -->
     <section class="reviews-section">
         <div class="reviews-header">
-        <h2>Experiência do Paciente</h2>
-        <a href="#" class="view-all">VER TODOS</a>
+            <h2>Experiência do Paciente</h2>
+            <a href="#" class="view-all">VER TODOS</a>
         </div>
         <div class="reviews-grid">
-        <div class="review-card">
-            <div class="review-header">
-            <div class="review-avatar">MC</div>
-            <div class="review-info">
-                <strong>Mariana Costa</strong>
-                <small>Consulta em 12 Out 2023</small>
-            </div>
-            <div class="review-stars">★★★★★</div>
-            </div>
-            <p class="review-text">
-            "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. 
-            Ela explicou cada detalhe do meu tratamento com muita clareza."
-            </p>
-        </div>
-
-        <div class="review-card">
-            <div class="review-header">
-            <div class="review-avatar">RP</div>
-            <div class="review-info">
-                <strong>Ricardo Pereira</strong>
-                <small>Consulta em 05 Set 2023</small>
-            </div>
-            <div class="review-stars">★★★★☆</div>
-            </div>
-            <p class="review-text">
-            "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-            </p>
-        </div>
+            @for(r of comments; track r.id){
+                <div class="review-card">
+                    <div class="review-header">
+                    <div class="review-avatar">{{r.avatar}}</div>
+                    <div class="review-info">
+                        <strong>{{r.name}} - </strong>
+                        <small>Consulta em {{r.date}}</small>
+                    </div>
+                    <div class="review-stars">{{ '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) }}</div>
+                    </div>
+                    <p class="review-text">
+                    "{{r.text}}"
+                    </p>
+                </div>
+            }
         </div>
     </section>
 </div>
@@ -160,7 +124,7 @@
     Próximo horário disponível: <strong>Amanhã, às 09:30</strong>
   </p>
   <div class="profile-cta">
-    <a href="consulta.html" title="Agendar - Dra. Helena Moreira" class="doctor-card__button schedule-btn">
+    <a href="#" [routerLink]="consultaLink" title="Agendar - Dra. Helena Moreira" class="doctor-card__button schedule-btn">
       <!-- ícone + texto -->
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>

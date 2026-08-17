@@ -1,0 +1,36 @@
+
+{
+  "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+  "slug": "dr-john-smith",
+  "name": "Dr. John Smith",
+  "specialty": "Cardiologista",
+  "phone": "(11) 1234-5678",
+  "crm": "123456-SP",
+  "photo":"doctor.png",
+  "statNumber":4.9,
+  "rating":500,
+  "patientNumber":1200,
+  "experience": 15,
+  "description": "Dr. John Smith é um renomado cardiologista com mais de 15 anos de experiência no tratamento de doenças cardíacas. Ele é conhecido por sua abordagem centrada no paciente e por utilizar as mais recentes tecnologias em cardiologia para oferecer o melhor cuidado possível.",
+  "pagamentos": [
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Cartão de Crédito" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Boleto Bancário" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "PIX" }
+  ],
+  "convenios": [
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Particular" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Unimed" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Amil" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Bradesco Saúde" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "SulAmérica" }
+  ],
+  "unidades": [
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Clínica Central - Salto de Pirapora, SP","room": "Edifício Clinical Sanctuary, Sala 1205","open":"Seg a Sex" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 1206","open":"Apenas Terças" },
+    { "value": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 1207","open":"Apenas Quintas" }
+  ],
+  "servicos": [
+    { "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Consulta", "price": "R$ 150,00" },
+    { "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "label": "Exame", "price": "R$ 80,00" }
+  ]
+}

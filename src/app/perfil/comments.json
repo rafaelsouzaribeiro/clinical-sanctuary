@@ -1,0 +1,18 @@
+[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
