@@ -1,5 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import generateSlug from '../utils/generate.slug';
 
 @Component({
   selector: 'app-doctor-card',
@@ -22,21 +23,13 @@ export class DoctorCard {
     uf: string;
   }>;
 
-   get specialtySlug(): string {
-    return this.specialty
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]/g, '');
-  }
+
 
   get consultaLink(): string[] {
     return ['/consultas', this.slug, this.id];
   }
 
   get perfilLink(): string[]{
-    return ['/perfil', this.specialtySlug, this.slug];
+    return ['/perfil', generateSlug(this.specialty), this.slug];
   }
 }
