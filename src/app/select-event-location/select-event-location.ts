@@ -11,6 +11,7 @@ export class SelectEventLocation {
   @Input() id: string = '';
   @Input() name: string = '';
   @Input() options: SelectOption[] = [];
+  @Input() selectedValue: string | null = null;
   @Output() selectionChange = new EventEmitter<SelectOption>();
 
   onChange(event: Event): void {
@@ -23,4 +24,6 @@ export class SelectEventLocation {
       this.selectionChange.emit(opcaoSelecionada);
     }
   }
+
+  
 }

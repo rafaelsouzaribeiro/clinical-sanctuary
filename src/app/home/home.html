@@ -13,6 +13,7 @@
                 name="uf"
                 type="uf"
                 [options]="ufOptions"
+                [selectedValue]="selectedUf"
                 (selectionChange)="onUfChange($event)">
             </app-select-event-location>
         </div>
@@ -22,6 +23,7 @@
                 name="city"
                 type="city"
                 [options]="cityOptions"
+                [selectedValue]="selectedCity"
                 (selectionChange)="onCityChange($event)">
             </app-select-event-location>
         </div>
