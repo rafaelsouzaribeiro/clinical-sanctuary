@@ -1,5 +1,6 @@
 .profile-doctor-page {
   padding-top: 100px;
+  margin-bottom: 200px;
 }
 
 .profile-hero {
@@ -498,3 +499,92 @@
   display: block;
   text-align: center;
 }
+
+@media (max-width: 640px) {
+  .convenios-grid {
+    justify-content: center;
+  }
+  
+  .convenio-badge {
+    padding: 10px 20px;
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar {
+    position: fixed;          
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px 20px;
+    background: rgba(244, 248, 249, 0.98);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    gap: 12px;
+  }
+
+  .horario-calender {
+    font-size: 1rem;
+    order: -1;                
+  }
+
+  .profile-cta {
+    max-width: 100%;
+  }
+
+  .schedule-btn {
+    padding: 16px 32px;
+    font-size: 1.05rem;
+    min-width: auto;
+  }
+
+  .experience-circle {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .years {
+    font-size: 2.4rem;
+  }
+  
+  .label {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .profile-hero-content {
+    gap: 24px;
+  }
+  .profile-doctor-image {
+    width: 280px;
+  }
+  .horario-calender {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .convenios-unidades {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+
+  .profile-grid {
+    grid-template-columns: 1fr; 
+    gap: 24px;
+  }
+  
+  .map-container {
+    height: 240px;
+  }
+
+}
+
