@@ -327,7 +327,13 @@
   gap: 28px;
 }
 
-
+.day--booked {
+  background-color: #f5f5f5;
+  color: #b0b0b0;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  pointer-events: none;
+}
 
 @media (max-width: 1180px) {
   .consult-layout {

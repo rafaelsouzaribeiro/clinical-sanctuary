@@ -92,6 +92,12 @@ export class Consultas implements OnInit {
     this.pagamento = this.medico?.pagamentos[0]?.value ?? '';
     this.convenio = this.medico?.convenios[0]?.value ?? '';
     this.horarioSelecionado = this.horarioSelecionado ?? this.horarios[0];
+    this.calendar.datesBooked = [
+      new Date(2026, 7, 20),
+      new Date(2026, 7, 21),
+      new Date(2026, 7, 25),
+      new Date(2026, 8, 26),
+    ];
 
     this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${this.medico?.name}`);
     this.calendar.atualizarTituloMes();
@@ -102,7 +108,7 @@ export class Consultas implements OnInit {
   public selecionarDia(diaClicado: DiaCalendario): void {
     this.calendar.calendarDays.forEach((d) => (d.isActive = false));
     diaClicado.isActive = true;
-    this.calendar.selecionarData(diaClicado.numero, diaClicado.isMuted);
+    this.calendar.selecionarData(diaClicado.numero, diaClicado.isMuted,diaClicado.isBooked ?? false);
   }
 
   public selecionarHorario(horario: string): void {

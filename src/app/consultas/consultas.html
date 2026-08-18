@@ -90,14 +90,16 @@
 
             <div class="calendar-grid">
                 <button
-                    *ngFor="let dia of this.calendar.calendarDays"
-                    type="button"
-                    class="day"
-                    [class.day--muted]="dia.isMuted"
-                    [class.day--active]="dia.isActive"
-                    (click)="selecionarDia(dia)">
-                    {{ dia.numero }}
-                </button>
+                        *ngFor="let dia of this.calendar.calendarDays"
+                        type="button"
+                        class="day"
+                        [class.day--muted]="dia.isMuted"
+                        [class.day--active]="dia.isActive"
+                        [class.day--booked]="dia.isBooked"
+                        [disabled]="dia.isBooked || dia.isMuted"
+                        (click)="selecionarDia(dia)">
+                        {{ dia.numero }}
+                    </button>
             </div>
         </section>
 

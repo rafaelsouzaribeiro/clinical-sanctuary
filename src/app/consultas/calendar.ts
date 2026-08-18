@@ -1,4 +1,3 @@
-
 import { DiaCalendario } from './interface.dia.calendario';
 
 export class Calendar{
@@ -6,14 +5,24 @@ export class Calendar{
     public weekdays: string[] = [];
     public calendarDays: DiaCalendario[] = [];
     public mesTitulo: string = '';
+    public datesBooked: Date[] = [];
 
-    selecionarData(dia: number, isMuted: boolean): void {
+    public selecionarData(dia: number, isMuted: boolean, isBooked: boolean): void {
         const mesAtual = this.data.getMonth();
         const anoAtual = this.data.getFullYear();
 
-        if (!isMuted) {
+        if (!isMuted && !isBooked) {
             this.data = new Date(anoAtual, mesAtual, dia);
         }
+    }
+
+    private isDateBooked(ano: number, mes: number, dia: number): boolean {
+        return this.datesBooked.some(
+            (d) =>
+                d.getFullYear() === ano &&
+                d.getMonth() === mes &&
+                d.getDate() === dia
+        );
     }
     
     public mesAnterior(): void {
@@ -65,7 +74,7 @@ export class Calendar{
         const hoje = new Date();
     
         for (let i = diaSemanaPrimeiroDia; i > 0; i--) {
-          dias.push({ numero: ultimoDiaMesAnterior - i + 1, isMuted: true, isActive: false });
+          dias.push({ numero: ultimoDiaMesAnterior - i + 1, isMuted: true, isActive: false, isBooked: false });
         }
     
         for (let dia = 1; dia <= totalDiasMesAtual; dia++) {
@@ -73,7 +82,8 @@ export class Calendar{
             dia === hoje.getDate() &&
             mes === hoje.getMonth() &&
             ano === hoje.getFullYear();
-          dias.push({ numero: dia, isMuted: false, isActive: isHoje });
+          const isBooked = this.isDateBooked(ano, mes, dia);
+          dias.push({ numero: dia, isMuted: false, isActive: isHoje, isBooked });
         }
     
         const totalEspacosGrid = 42;
@@ -81,11 +91,9 @@ export class Calendar{
         const diasRestantes = totalEspacosGrid - espacosPreenchidos;
     
         for (let dia = 1; dia <= diasRestantes; dia++) {
-          dias.push({ numero: dia, isMuted: true, isActive: false });
+          dias.push({ numero: dia, isMuted: true, isActive: false, isBooked: false });
         }
     
         this.calendarDays = dias;
       }
-    
-    
 }
