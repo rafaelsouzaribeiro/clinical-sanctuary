@@ -40,7 +40,7 @@
             <h2>Investimento em Saúde</h2>
             <div class="services-list">
                 @for(s of doctors.servicos; track s.id){
-                    <div class="service-item" (click)="setService(s)">
+                    <div class="service-item" [class.popular]="servicoSelecionado?.id === s.id" (click)="setService(s)">
                         <span>{{s.label}}</span>
                         <strong>{{s.price}}</strong>
                     </div>
@@ -74,7 +74,7 @@
         </div>
         <div class="convenios-grid">
             @for(c of doctors.convenios; track c.value){
-                <div class="convenio-badge" (click)="setConvenio(c)">{{c.label}}</div>
+                <div class="convenio-badge" [class.convenio-badge-active]="convenioSelecionado?.value === c.value" (click)="setConvenio(c)">{{c.label}}</div>
             }
         </div>
         </div>
@@ -82,9 +82,9 @@
         <!-- Unidades de Atendimento -->
         <div class="unidades-card">
         <h2>Unidades de Atendimento</h2>
-        @for(u of doctors.unidades; track u.value; let i = $index){
+        @for(u of doctors.unidades; track u.value){
             <div class="unidade-item" (click)="setUnidade(u)">
-                <div class="unidade-icon" [class.main]="i === 0">🏢</div>
+                <div class="unidade-icon" [class.main]="unidadeSelecionada?.value === u.value">🏢</div>
                 <div class="unidade-info">
                 <strong>{{u.label}}</strong>
                 <span>{{u.open}}</span>
@@ -119,7 +119,7 @@
         </div>
     </section>
 </div>
-    @if(showModal){
+@if(showModal){
     <div class="modal-overlay" (click)="closeModal()">
         <div class="modal-box" (click)="$event.stopPropagation()">
         <div class="modal-icon">⚠️</div>
@@ -128,7 +128,7 @@
         <button class="modal-btn" (click)="closeModal()">Entendi</button>
         </div>
     </div>
-    }
+}
  <div class="calendar">
   <p class="horario-calender">
     Próximo horário disponível: <strong>Amanhã, às 09:30</strong>

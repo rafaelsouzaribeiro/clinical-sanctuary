@@ -322,6 +322,7 @@
   font-size: 1.02rem;
   white-space: nowrap;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .convenio-badge:hover,.convenio-badge-active {
@@ -343,6 +344,7 @@
   gap: 16px;
   padding: 18px 0;
   border-bottom: 1px solid #edf2f4;
+  cursor: pointer;
 }
 
 .unidade-item:last-child {
