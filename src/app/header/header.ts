@@ -12,7 +12,6 @@ export class Header {
   
   menuItems = [
     { label: 'Home', link: '/home' },
-    { label: 'Consultas', link: '/consulta-busca-doctor' },
     { label: 'Pacientes', link: '/pacientes' },
     { label: 'Médicos', link: '/medicos' },
     { label: 'Login', link: '/login' }

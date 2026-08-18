@@ -3,28 +3,13 @@ import doctorsData from './doctors.json';
 import commentsData from './comments.json';
 import {Router} from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { AlertModal } from '../alert-modal/alert-modal';
+import { Servico, Convenio, Unidade } from './perfil.interface';
 
-interface Servico {
-  id: string;
-  label: string;
-  price: string;
-}
-
-interface Convenio {
-  value: string;
-  label: string;
-}
-
-interface Unidade {
-  value: string;
-  label: string;
-  room: string;
-  open: string;
-}
 
 @Component({
   selector: 'app-perfil',
-  imports: [],
+  imports: [AlertModal],
   templateUrl: './perfil.html',
   styleUrl: './perfil.css',
 })
@@ -35,7 +20,7 @@ export class Perfil {
   public convenioSelecionado: Convenio | null = null;
   public unidadeSelecionada: Unidade | null = null;
   public showModal: boolean = false;
-
+  
   constructor(private titleService: Title, private router: Router) {
     this.titleService.setTitle(`Perfil - ${this.doctors.specialty} - ${this.doctors.name}`);
   }
@@ -75,7 +60,5 @@ export class Perfil {
     this.unidadeSelecionada = unidade;
   }
 
-  public closeModal(): void {
-    this.showModal = false;
-  }
+
 }
