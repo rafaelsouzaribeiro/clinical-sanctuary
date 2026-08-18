@@ -34,6 +34,7 @@ export class Perfil {
   public servicoSelecionado: Servico | null = null;
   public convenioSelecionado: Convenio | null = null;
   public unidadeSelecionada: Unidade | null = null;
+  public showModal: boolean = false;
 
   constructor(private titleService: Title, private router: Router) {
     this.titleService.setTitle(`Perfil - ${this.doctors.specialty} - ${this.doctors.name}`);
@@ -46,7 +47,7 @@ export class Perfil {
   public goConsultation(): void {
 
     if (!this.servicoSelecionado || !this.convenioSelecionado || !this.unidadeSelecionada) {
-      alert('Por favor, selecione um serviço, convênio e unidade antes de prosseguir.');
+      this.showModal = true;
       return;
     }
 
@@ -72,5 +73,9 @@ export class Perfil {
 
   public setUnidade(unidade: Unidade):void{
     this.unidadeSelecionada = unidade;
+  }
+
+  public closeModal(): void {
+    this.showModal = false;
   }
 }

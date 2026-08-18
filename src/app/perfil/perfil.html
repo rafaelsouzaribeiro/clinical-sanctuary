@@ -119,6 +119,16 @@
         </div>
     </section>
 </div>
+    @if(showModal){
+    <div class="modal-overlay" (click)="closeModal()">
+        <div class="modal-box" (click)="$event.stopPropagation()">
+        <div class="modal-icon">⚠️</div>
+        <h3>Atenção</h3>
+        <p>Por favor, selecione um <strong>serviço</strong>, <strong>convênio</strong> e <strong>unidade</strong> antes de prosseguir.</p>
+        <button class="modal-btn" (click)="closeModal()">Entendi</button>
+        </div>
+    </div>
+    }
  <div class="calendar">
   <p class="horario-calender">
     Próximo horário disponível: <strong>Amanhã, às 09:30</strong>
