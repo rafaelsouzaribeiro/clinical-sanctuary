@@ -4,9 +4,10 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { SelectOption } from '../location-select/interface.sellect-option';
 import { SelectEventLocation } from '../select-event-location/select-event-location';
 import { Calendar } from './calendar';
-import { DiaCalendario } from './interface.dia.calendario';
+import { DateCalendar,DateConsultation } from './interface.dia.calendario';
 import{Title} from '@angular/platform-browser';
 import doctors from './doctors.json';
+import datesBooked from './datesBooked.json';
  
 @Component({
   viewProviders:[Title],
@@ -61,7 +62,7 @@ export class Consultas implements OnInit {
   weekdays: string[] = [];
   mesTitulo : string = '';
 
-  calendarDays: DiaCalendario[] = [];
+  calendarDays: DateCalendar[] = [];
   horarios: string[] = ['08:00', '09:30', '10:45', '13:00', '14:30', '16:00'];
   horarioSelecionado: string = '10:45';
   consultaFocoSelecionado: string | null = null;
@@ -76,7 +77,10 @@ export class Consultas implements OnInit {
   ngOnInit(): void {
     this.medicoId = this.route.snapshot.paramMap.get('id');
     const navigation = this.router.currentNavigation();
-    const doctorFromState = navigation?.extras.state?.['doctors'] ?? history.state?.['doctors'];
+    const stateFromNavigation = navigation?.extras?.state?.['doctors'];
+    const stateFromHistory = typeof history !== 'undefined' ? history.state?.['doctors'] : undefined;
+
+    const doctorFromState = stateFromNavigation ?? stateFromHistory;
 
     this.medico = doctorFromState ?? this.doctors.find((d) => d.id === this.medicoId);
 
@@ -92,12 +96,10 @@ export class Consultas implements OnInit {
     this.pagamento = this.medico?.pagamentos[0]?.value ?? '';
     this.convenio = this.medico?.convenios[0]?.value ?? '';
     this.horarioSelecionado = this.horarioSelecionado ?? this.horarios[0];
-    this.calendar.datesBooked = [
-      new Date(2026, 7, 20),
-      new Date(2026, 7, 21),
-      new Date(2026, 7, 25),
-      new Date(2026, 8, 26),
-    ];
+    this.calendar.datesBooked = datesBooked.map((data: string) => {
+      const [ano, mes, dia] = data.split('-').map(Number);
+      return new Date(ano, mes - 1, dia);
+    });
 
     this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${this.medico?.name}`);
     this.calendar.atualizarTituloMes();
@@ -105,7 +107,7 @@ export class Consultas implements OnInit {
     this.calendar.atualizarCalendario();
   }
 
-  public selecionarDia(diaClicado: DiaCalendario): void {
+  public selecionarDia(diaClicado: DateCalendar): void {
     this.calendar.calendarDays.forEach((d) => (d.isActive = false));
     diaClicado.isActive = true;
     this.calendar.selecionarData(diaClicado.numero, diaClicado.isMuted,diaClicado.isBooked ?? false);

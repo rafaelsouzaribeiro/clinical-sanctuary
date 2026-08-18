@@ -1,9 +1,9 @@
-import { DiaCalendario } from './interface.dia.calendario';
+import { DateCalendar } from './interface.dia.calendario';
 
 export class Calendar{
     public data: Date = new Date();
     public weekdays: string[] = [];
-    public calendarDays: DiaCalendario[] = [];
+    public calendarDays: DateCalendar[] = [];
     public mesTitulo: string = '';
     public datesBooked: Date[] = [];
 
@@ -70,7 +70,7 @@ export class Calendar{
         const diaSemanaPrimeiroDia = primeiroDiaDoMes.getDay();
         const ultimoDiaMesAnterior = new Date(ano, mes, 0).getDate();
     
-        const dias: DiaCalendario[] = [];
+        const dias: DateCalendar[] = [];
         const hoje = new Date();
     
         for (let i = diaSemanaPrimeiroDia; i > 0; i--) {
