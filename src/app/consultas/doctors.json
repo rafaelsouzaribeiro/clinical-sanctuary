@@ -9,25 +9,25 @@
     "phone": "(11) 1234-5678",
     "crm": "123456-SP",
     "pagamentos": [
-      { "value": "cartao", "label": "Cartão de Crédito" },
-      { "value": "boleto", "label": "Boleto Bancário" },
-      { "value": "pix", "label": "PIX" }
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
     ],
     "convenios": [
-      { "value": "particular", "label": "Particular" },
-      { "value": "unimed", "label": "Unimed" },
-      { "value": "amil", "label": "Amil" },
-      { "value": "bradesco", "label": "Bradesco Saúde" },
-      { "value": "sulamerica", "label": "SulAmérica" }
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
     ],
     "unidades": [
-      { "value": "Clínica Central - Salto de Pirapora, SP", "label": "Clínica Central - Salto de Pirapora, SP" },
-      { "value": "Clínica Norte - São Paulo, SP", "label": "Clínica Norte - São Paulo, SP" },
-      { "value": "Clínica Sul - Campinas, SP", "label": "Clínica Sul - Campinas, SP" }
+      { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+      { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+      { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
     ],
     "servicos": [
-      { "value": "consulta", "label": "Consulta - R$ 150,00" },
-      { "value": "exame", "label": "Exame - R$ 80,00" }
+      { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+      { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
     ]
   },
   {
@@ -40,25 +40,25 @@
     "phone": "(11) 9876-5432",
     "crm": "654321-SP",
     "pagamentos": [
-      { "value": "cartao", "label": "Cartão de Crédito" },
-      { "value": "boleto", "label": "Boleto Bancário" },
-      { "value": "pix", "label": "PIX" }
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
     ],
     "convenios": [
-      { "value": "particular", "label": "Particular" },
-      { "value": "unimed", "label": "Unimed" },
-      { "value": "amil", "label": "Amil" },
-      { "value": "bradesco", "label": "Bradesco Saúde" },
-      { "value": "sulamerica", "label": "SulAmérica" }
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
     ],
     "unidades": [
-      { "value": "Clínica Central - Salto de Pirapora, SP", "label": "Clínica Central - Salto de Pirapora, SP" },
-      { "value": "Clínica Norte - São Paulo, SP", "label": "Clínica Norte - São Paulo, SP" },
-      { "value": "Clínica Sul - Campinas, SP", "label": "Clínica Sul - Campinas, SP" }
+      { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+      { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+      { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
     ],
     "servicos": [
-      { "value": "consulta", "label": "Consulta - R$ 150,00" },
-      { "value": "exame", "label": "Exame - R$ 80,00" }
+      { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+      { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
     ]
   },
   {
@@ -71,25 +71,25 @@
     "phone": "(11) 5678-1234",
     "crm": "987654-SP",
     "pagamentos": [
-      { "value": "cartao", "label": "Cartão de Crédito" },
-      { "value": "boleto", "label": "Boleto Bancário" },
-      { "value": "pix", "label": "PIX" }
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
     ],
     "convenios": [
-      { "value": "particular", "label": "Particular" },
-      { "value": "unimed", "label": "Unimed" },
-      { "value": "amil", "label": "Amil" },
-      { "value": "bradesco", "label": "Bradesco Saúde" },
-      { "value": "sulamerica", "label": "SulAmérica" }
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
     ],
     "unidades": [
-      { "value": "Clínica Central - Salto de Pirapora, SP", "label": "Clínica Central - Salto de Pirapora, SP" },
-      { "value": "Clínica Norte - São Paulo, SP", "label": "Clínica Norte - São Paulo, SP" },
-      { "value": "Clínica Sul - Campinas, SP", "label": "Clínica Sul - Campinas, SP" }
+      { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+      { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+      { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
     ],
     "servicos": [
-      { "value": "consulta", "label": "Consulta - R$ 150,00" },
-      { "value": "exame", "label": "Exame - R$ 80,00" }
+      { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+      { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
     ]
   },
   {
@@ -102,25 +102,25 @@
     "phone": "(11) 4321-8765",
     "crm": "456789-SP",
     "pagamentos": [
-      { "value": "cartao", "label": "Cartão de Crédito" },
-      { "value": "boleto", "label": "Boleto Bancário" },
-      { "value": "pix", "label": "PIX" }
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
     ],
     "convenios": [
-      { "value": "particular", "label": "Particular" },
-      { "value": "unimed", "label": "Unimed" },
-      { "value": "amil", "label": "Amil" },
-      { "value": "bradesco", "label": "Bradesco Saúde" },
-      { "value": "sulamerica", "label": "SulAmérica" }
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
     ],
     "unidades": [
-      { "value": "Clínica Central - Salto de Pirapora, SP", "label": "Clínica Central - Salto de Pirapora, SP" },
-      { "value": "Clínica Norte - São Paulo, SP", "label": "Clínica Norte - São Paulo, SP" },
-      { "value": "Clínica Sul - Campinas, SP", "label": "Clínica Sul - Campinas, SP" }
+      { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+      { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+      { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
     ],
     "servicos": [
-      { "value": "consulta", "label": "Consulta - R$ 150,00" },
-      { "value": "exame", "label": "Exame - R$ 80,00" }
+      { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+      { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
     ]
   }
 ]

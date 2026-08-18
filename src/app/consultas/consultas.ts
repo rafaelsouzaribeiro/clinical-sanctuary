@@ -75,7 +75,10 @@ export class Consultas implements OnInit {
   }
   ngOnInit(): void {
     this.medicoId = this.route.snapshot.paramMap.get('id');
-    this.medico = this.doctors.find((d) => d.id === this.medicoId);
+    const navigation = this.router.currentNavigation();
+    const doctorFromState = navigation?.extras.state?.['doctors'] ?? history.state?.['doctors'];
+
+    this.medico = doctorFromState ?? this.doctors.find((d) => d.id === this.medicoId);
 
      if (!this.medico) {
       this.router.navigate(['/not-found']);

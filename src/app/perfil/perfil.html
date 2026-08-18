@@ -40,7 +40,7 @@
             <h2>Investimento em Saúde</h2>
             <div class="services-list">
                 @for(s of doctors.servicos; track s.id){
-                    <div class="service-item">
+                    <div class="service-item" (click)="setService(s)">
                         <span>{{s.label}}</span>
                         <strong>{{s.price}}</strong>
                     </div>
@@ -74,7 +74,7 @@
         </div>
         <div class="convenios-grid">
             @for(c of doctors.convenios; track c.value){
-                <div class="convenio-badge">{{c.label}}</div>
+                <div class="convenio-badge" (click)="setConvenio(c)">{{c.label}}</div>
             }
         </div>
         </div>
@@ -83,7 +83,7 @@
         <div class="unidades-card">
         <h2>Unidades de Atendimento</h2>
         @for(u of doctors.unidades; track u.value; let i = $index){
-            <div class="unidade-item">
+            <div class="unidade-item" (click)="setUnidade(u)">
                 <div class="unidade-icon" [class.main]="i === 0">🏢</div>
                 <div class="unidade-info">
                 <strong>{{u.label}}</strong>
@@ -124,7 +124,7 @@
     Próximo horário disponível: <strong>Amanhã, às 09:30</strong>
   </p>
   <div class="profile-cta">
-    <a href="#" [routerLink]="consultaLink" title="Agendar - Dra. Helena Moreira" class="doctor-card__button schedule-btn">
+    <button (click)="goConsultation()" title="Agendar - Dra. Helena Moreira" class="doctor-card__button schedule-btn">
       <!-- ícone + texto -->
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -133,6 +133,6 @@
         <line x1="3" y1="10" x2="21" y2="10"></line>
       </svg>
       AGENDAR AGORA
-    </a>
+    </button>
   </div>
 </div>
