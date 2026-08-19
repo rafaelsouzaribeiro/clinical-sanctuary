@@ -6,11 +6,15 @@ export class Calendar{
     public calendarDays: DateCalendar[] = [];
     public mesTitulo: string = '';
     public datesBooked: Date[] = [];
+    public monthActive: number= this.data.getMonth();
+    public yearActive: number= this.data.getFullYear();
+    public dayActive: number= this.data.getDay();
+
 
     public selecionarData(dia: number, isMuted: boolean, isBooked: boolean): void {
         const mesAtual = this.data.getMonth();
         const anoAtual = this.data.getFullYear();
-
+        this.dayActive = dia;
         if (!isMuted && !isBooked) {
             this.data = new Date(anoAtual, mesAtual, dia);
         }
@@ -26,14 +30,16 @@ export class Calendar{
     }
     
     public mesAnterior(): void {
-        this.data.setMonth(this.data.getMonth() - 1);
+        this.monthActive = this.data.getMonth()-1;
+        this.data.setMonth(this.monthActive);
         this.atualizarTituloMes();
         this.atualizarDiasDaSemana();
         this.atualizarCalendario();
     }
     
     public proximoMes(): void {
-        this.data.setMonth(this.data.getMonth() + 1);
+        this.monthActive = this.data.getMonth()+1;
+        this.data.setMonth(this.monthActive);
         this.atualizarTituloMes();
         this.atualizarDiasDaSemana();
         this.atualizarCalendario();

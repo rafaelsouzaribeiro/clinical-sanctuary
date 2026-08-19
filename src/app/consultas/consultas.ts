@@ -8,12 +8,14 @@ import { DateCalendar,DateConsultation } from './interface.dia.calendario';
 import{Title} from '@angular/platform-browser';
 import doctors from './doctors.json';
 import datesBooked from './datesBooked.json';
+import availableTimes from './availableTimes.json';
+import { AlertModal } from '../alert-modal/alert-modal';
  
 @Component({
   viewProviders:[Title],
   selector: 'app-consultas',
   standalone: true,
-  imports: [CommonModule, SelectEventLocation],
+  imports: [CommonModule, SelectEventLocation,AlertModal],
   templateUrl: './consultas.html',
   styleUrl: './consultas.css',
 })
@@ -41,6 +43,7 @@ export class Consultas implements OnInit {
     public convenio: string = '';
     public observacoes: string = '';
     public unidadeValue: string = '';
+    public showModal: boolean = false;
     
     public doctors:Array<{
       id:string;
@@ -63,8 +66,8 @@ export class Consultas implements OnInit {
   mesTitulo : string = '';
 
   calendarDays: DateCalendar[] = [];
-  horarios: string[] = ['08:00', '09:30', '10:45', '13:00', '14:30', '16:00'];
-  horarioSelecionado: string = '10:45';
+  horarios: string[] = [];
+  horarioSelecionado: string = '';
   consultaFocoSelecionado: string | null = null;
 
   constructor(
@@ -81,7 +84,6 @@ export class Consultas implements OnInit {
     const stateFromHistory = typeof history !== 'undefined' ? history.state?.['doctors'] : undefined;
 
     const doctorFromState = stateFromNavigation ?? stateFromHistory;
-
     this.medico = doctorFromState ?? this.doctors.find((d) => d.id === this.medicoId);
 
      if (!this.medico) {
@@ -96,6 +98,7 @@ export class Consultas implements OnInit {
     this.pagamento = this.medico?.pagamentos[0]?.value ?? '';
     this.convenio = this.medico?.convenios[0]?.value ?? '';
     this.horarioSelecionado = this.horarioSelecionado ?? this.horarios[0];
+
     this.calendar.datesBooked = datesBooked.map((data: string) => {
       const [ano, mes, dia] = data.split('-').map(Number);
       return new Date(ano, mes - 1, dia);
@@ -105,12 +108,33 @@ export class Consultas implements OnInit {
     this.calendar.atualizarTituloMes();
     this.calendar.atualizarDiasDaSemana();
     this.calendar.atualizarCalendario();
+    this.addHoursToDate(availableTimes);
   }
+
+public addHoursToDate(items: DateConsultation[]): void {
+    this.horarios = [];
+
+    items.forEach((item) => {
+      const [year, month, day] = item.date.split('-').map(Number);
+      const dateItem = new Date(year, month - 1, day);
+
+      const calendarDateSemHorario = new Date(
+        this.calendar.data.getFullYear(),
+        this.calendar.data.getMonth(),
+        this.calendar.data.getDate()
+      );
+
+      if (dateItem.getTime() === calendarDateSemHorario.getTime()) {
+        this.horarios = item.availableTimes;
+      }
+    });
+  } 
 
   public selecionarDia(diaClicado: DateCalendar): void {
     this.calendar.calendarDays.forEach((d) => (d.isActive = false));
     diaClicado.isActive = true;
     this.calendar.selecionarData(diaClicado.numero, diaClicado.isMuted,diaClicado.isBooked ?? false);
+    this.addHoursToDate(availableTimes);
   }
 
   public selecionarHorario(horario: string): void {
@@ -141,6 +165,11 @@ export class Consultas implements OnInit {
       convenio: this.convenio,
       observacoes: this.observacoes,
     };
+
+    if (!this.horarioSelecionado) {
+      this.showModal = true;
+      return;
+    }
 
     console.log('Agendamento confirmado:', agendamento);
   }

@@ -180,7 +180,7 @@
             </div>
         </div>
         <hr />
-
+        <app-alert-modal [(showModal)]="showModal" [message]="'Por favor, selecione um <strong>Horário</strong>'"></app-alert-modal>
         <button class="summary-confirm" type="button" (click)="onConfirmarAgendamento()">Confirmar Agendamento</button>
         <button class="summary-cancel" type="button" (click)="onDescartar()">Descartar</button>
         </section>
