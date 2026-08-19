@@ -1,18 +1,59 @@
 [
   {
     "date": "2026-08-18",
-    "availableTimes": ["08:00", "09:30", "13:00"]
+    "availableTimes": ["08:00", "09:30", "15  :00"]
+  },
+  {
+    "date": "2026-08-19",
+    "availableTimes": ["10:00", "11:30", "15:00"]
+  },
+  {
+    "date": "2026-08-20",
+    "availableTimes": ["09:00", "12:30", "16:00"]
   },
   {
     "date": "2026-08-21",
-    "availableTimes": []
+    "availableTimes": ["08:00"]
   },
   {
-    "date": "2026-08-24",
+    "date": "2026-08-22",
     "availableTimes": ["10:45", "14:30"]
   },
   {
-    "date": "2026-09-26",
-    "availableTimes": []
+    "date": "2026-08-23",
+    "availableTimes": ["09:30", "11:00", "13:15"]
+  },
+  {
+    "date": "2026-08-24",
+    "availableTimes": ["08:00"]
+  },
+  {
+    "date": "2026-08-25",
+    "availableTimes": ["08:00"]
+  },
+  {
+    "date": "2026-08-26",
+    "availableTimes": ["08:00"]
+  },
+  {
+    "date": "2026-08-27",
+    "availableTimes": ["08:00"]
+  },
+  {
+    "date": "2026-08-28",
+    "availableTimes": ["08:00"]
+  },
+  {
+    "date": "2026-08-29",
+    "availableTimes": ["08:00"]
+  },
+  {
+    "date": "2026-08-30",
+    "availableTimes": ["08:00"]
+  },
+  {
+    "date": "2026-08-31",
+    "availableTimes": ["08:00"]
   }
+
 ]
