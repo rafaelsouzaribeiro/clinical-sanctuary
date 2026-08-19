@@ -113,6 +113,7 @@ export class Consultas implements OnInit {
 
 public addHoursToDate(items: DateConsultation[]): void {
     this.horarios = [];
+    this.horarioSelecionado='';
 
     items.forEach((item) => {
       const [year, month, day] = item.date.split('-').map(Number);
