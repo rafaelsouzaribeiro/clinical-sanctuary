@@ -1,1 +1,158 @@
-<p>pacientes works!</p>
+<section class="profile-intro" aria-label="Introdução">
+<p class="profile-kicker">Administração de Pacientes</p>
+<h1>Cadastro de Paciente</h1>
+<p>
+    Insira as informações clínicas e pessoais para criar um novo registro no
+    santuário clínico. A precisão dos dados garante a excelência no atendimento.
+</p>
+</section>
+
+<form class="profile-form" action="#" method="post" novalidate>
+<div class="profile-grid-top">
+    <aside class="upload-card" aria-label="Foto do paciente">
+    <label class="upload-card__target" for="foto-paciente">
+        <span class="upload-avatar" aria-hidden="true">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="3.1" stroke="currentColor" stroke-width="1.8" />
+            <path d="M5.6 18C7.2 15.9 9.3 14.8 12 14.8C14.7 14.8 16.8 15.9 18.4 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+        </span>
+        <span class="upload-title">Foto do Paciente</span>
+        <span class="upload-info">Formatos suportados: JPG, PNG. Máx 5MB.</span>
+    </label>
+    <input id="foto-paciente" name="foto-paciente" type="file" accept=".jpg,.jpeg,.png" />
+    </aside>
+
+    <section class="profile-card" aria-label="Dados pessoais">
+    <div class="profile-field profile-field--full">
+        <label for="nome">Nome Completo</label>
+        <div class="profile-control">
+        <input id="nome" name="nome" type="text" placeholder="Ex: Ana Maria Silva" />
+        </div>
+    </div>
+
+    <div class="profile-field">
+        <label for="nascimento">Data de Nascimento</label>
+        <div class="profile-control profile-control--icon">
+        <input id="nascimento" name="nascimento" type="date" />
+        </div>
+    </div>
+
+    <div class="profile-field">
+        <label for="email">Email de Contato</label>
+        <div class="profile-control">
+        <input id="email" name="email" type="email" placeholder="paciente@exemplo.com" />
+        </div>
+    </div>
+
+    <div class="profile-field">
+        <label for="cpf">CPF</label>
+        <div class="profile-control">
+        <input id="cpf" name="cpf" type="text" placeholder="000.000.000-00" />
+        </div>
+    </div>
+
+    <div class="profile-field">
+        <label for="rg">RG</label>
+        <div class="profile-control">
+        <input id="rg" name="rg" type="text" placeholder="00.000.000-0" />
+        </div>
+    </div>
+    </section>
+</div>
+
+<section class="profile-card profile-card--address" aria-label="Localização e endereço">
+    <div class="profile-card__heading">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 21C12 21 6 15.54 6 10.5C6 7.19 8.69 4.5 12 4.5C15.31 4.5 18 7.19 18 10.5C18 15.54 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" />
+        <circle cx="12" cy="10.5" r="2" stroke="currentColor" stroke-width="1.8" />
+    </svg>
+    <h2>Localização e Endereço</h2>
+    </div>
+
+    <div class="address-grid">
+    <div class="profile-field">
+        <label for="cep">CEP</label>
+        <div class="profile-control">
+        <input id="cep" name="cep" type="text" placeholder="00000-000" />
+        </div>
+    </div>
+
+    <div class="profile-field profile-field--logradouro">
+        <label for="logradouro">Rua / Logradouro</label>
+        <div class="profile-control">
+        <input id="logradouro" name="logradouro" type="text" placeholder="Av. das Flores" />
+        </div>
+    </div>
+
+    <div class="profile-field">
+        <label for="numero">Número</label>
+        <div class="profile-control">
+        <input id="numero" name="numero" type="text" placeholder="123" />
+        </div>
+    </div>
+
+    <div class="profile-field profile-field--logradouro">
+        <label for="complemento">Complemento</label>
+        <div class="profile-control">
+        <input id="complemento" name="complemento" type="text" placeholder="Apto 42, Bloco B" />
+        </div>
+    </div>
+
+    <div class="profile-field">
+        <label for="bairro">Bairro</label>
+        <div class="profile-control">
+        <input id="bairro" name="bairro" type="text" placeholder="Centro" />
+        </div>
+    </div>
+
+    <div class="profile-field profile-field--cidade">
+        <label for="cidade">Cidade</label>
+        <div class="profile-control">
+        <input id="cidade" name="cidade" type="text" placeholder="São Paulo" />
+        </div>
+    </div>
+
+    <div class="profile-field profile-field--uf">
+        <label for="uf">UF</label>
+        <div class="profile-control">
+        <select id="uf" name="uf">
+            <option>SP</option>
+            <option>RJ</option>
+            <option>MG</option>
+            <option>PR</option>
+        </select>
+        </div>
+    </div>
+    </div>
+</section>
+<section class="profile-card profile-card--address" aria-label="Localização e endereço">
+    <div class="profile-card__heading">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+    </svg>
+    <h2>Senha</h2>
+    </div>
+
+    <div class="address-grid">
+    <div class="profile-field">
+        <label for="senha">Senha</label>
+        <div class="profile-control">
+        <input id="senha" name="senha" type="password" placeholder="Digite sua senha" />
+        </div>
+    </div>
+
+    <div class="profile-field profile-field--logradouro">
+        <label for="confirmar-senha">Confirmar Senha</label>
+        <div class="profile-control">
+        <input id="confirmar-senha" name="confirmar-senha" type="password" placeholder="Confirme sua senha" />
+        </div>
+    </div>
+    </div>    
+</section>
+<div class="profile-actions">
+    <button class="profile-btn profile-btn--ghost" type="button">Cancelar</button>
+    <button class="profile-btn profile-btn--primary" type="submit">Finalizar Cadastro</button>
+</div>
+</form>
