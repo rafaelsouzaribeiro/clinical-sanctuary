@@ -42,12 +42,13 @@
     </div>
 </section>
 <section class="home-grid" aria-label="Lista de especialistas">
-    @for(doctor of filteredDoctors; track doctor.id){
+    @for(doctor of filteredDoctors; track doctor.id; let i = $index) {
         <app-doctor-card 
             [id]="doctor.id"
             [slug]="doctor.slug"
             [acronym]="doctor.acronym"
             [name]="doctor.name"
+            [avatarIndex]="i"
             [status]="doctor.status"
             [specialty]="doctor.specialty"
             [crm]="doctor.crm"

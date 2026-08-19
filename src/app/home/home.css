@@ -98,6 +98,14 @@
   width: 74% !important;
 }
 
+.avatar--doctor-2 {
+  background: linear-gradient(145deg, #245f7c, #5b8ba6);
+}
+
+.avatar--doctor-3 {
+  background: linear-gradient(145deg, #101824, #28445f);
+}
+
 @media (max-width: 1200px) {
   .home-hero {
     grid-template-columns: 1fr;

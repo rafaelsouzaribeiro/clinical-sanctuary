@@ -1,10 +1,11 @@
 import { Component,Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NgClass } from '@angular/common';
 import generateSlug from '../utils/generate.slug';
 
 @Component({
   selector: 'app-doctor-card',
-  imports: [RouterLink],
+  imports: [RouterLink, NgClass],
   templateUrl: './doctor-card.html',
   styleUrl: './doctor-card.css',
 })
@@ -22,9 +23,12 @@ export class DoctorCard {
     city: string;
     uf: string;
   }>;
+  @Input() avatarIndex:number=0;
 
-
-
+  get avatarClass(): string {
+    const cycle = (this.avatarIndex % 3)+1;
+    return `avatar--doctor-${cycle}`;
+  }
   get consultaLink(): string[] {
     return ['/consultas', this.slug, this.id];
   }

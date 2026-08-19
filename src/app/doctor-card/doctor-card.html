@@ -1,6 +1,6 @@
 <article class="doctor-card">
     <div class="doctor-card__top">
-    <div class="avatar avatar--doctor-1" aria-hidden="true">{{acronym}}</div>
+    <div class="avatar" [ngClass]="avatarClass" aria-hidden="true">{{acronym}}</div>
     <div class="doctor-card__meta">
         <div class="doctor-card__name-row">
         <h2 class="doctor-card__name">{{name}}</h2>
