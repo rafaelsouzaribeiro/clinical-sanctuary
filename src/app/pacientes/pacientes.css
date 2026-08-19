@@ -1,5 +1,6 @@
 .profile-intro {
   max-width: 820px;
+  margin-top: 80px;
 }
 
 .profile-kicker {
@@ -24,4 +25,265 @@
   font-size: 1.06rem;
   line-height: 1.45;
   max-width: 760px;
+}
+
+.profile-form {
+  margin-top: 50px;
+}
+
+.profile-grid-top {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.upload-card {
+  background: #ecebec;
+  border-radius: 14px;
+  padding: 32px 24px;
+}
+
+.upload-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
+.upload-card__target {
+  height: 100%;
+  min-height: 268px;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-avatar {
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: #c7ced1;
+  color: #a7b2b7;
+  display: grid;
+  place-items: center;
+  border: 4px solid #dfe4e7;
+}
+
+.upload-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.upload-info {
+  color: #445158;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.profile-card {
+  background: #dce2e4;
+  border-radius: 16px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 22px;
+}
+
+.profile-field {
+  min-width: 0;
+}
+
+.profile-field--full {
+  grid-column: 1 / -1;
+}
+
+.profile-page .profile-field label {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.84rem;
+  color: #066f79;
+}
+
+.profile-control {
+  min-height: 62px;
+  border-radius: 10px;
+  background: #c8d0d4;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-page .profile-control input::placeholder {
+  color: #626d7f;
+}
+
+.profile-page .profile-control select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23687684' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 28px;
+}
+
+.profile-card--address {
+  margin-top: 32px;
+  grid-template-columns: 1fr;
+}
+
+.profile-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  color: #067681;
+}
+
+.profile-card__heading h2 {
+  margin: 0;
+  color: #172126;
+  font-size: 2.8rem;
+  letter-spacing: -0.03em;
+}
+
+.address-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px 22px;
+}
+
+.address-grid .profile-field {
+  grid-column: span 2;
+}
+
+.address-grid .profile-field--logradouro {
+  grid-column: span 4;
+}
+
+.address-grid .profile-field--cidade {
+  grid-column: span 3;
+}
+
+.address-grid .profile-field--uf {
+  grid-column: span 1;
+}
+
+.profile-actions {
+  margin-top: 54px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.profile-btn {
+  border: 0;
+  border-radius: 14px;
+  min-height: 56px;
+  padding: 0 26px;
+  font-size: 0.98rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.profile-btn--ghost {
+  background: transparent;
+  color: #086f78;
+}
+
+.profile-btn--primary {
+  min-width: 300px;
+  background: linear-gradient(90deg, #087a84, #089ead);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(10, 118, 130, 0.3);
+}
+
+
+@media (max-width: 1024px) {
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+
+  .profile-grid {
+    grid-template-columns: 1fr;   /* Empilha verticalmente */
+    gap: 24px;
+  }
+  
+  .profile-grid-top {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-card__target {
+    min-height: 220px;
+  }
+
+  .profile-card,
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .address-grid .profile-field,
+  .address-grid .profile-field--logradouro,
+  .address-grid .profile-field--cidade,
+  .address-grid .profile-field--uf {
+    grid-column: auto;
+  }
+
+  .profile-actions {
+    justify-content: stretch;
+  }
+
+  .profile-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .profile-form {
+    margin-top: 28px;
+  }
+
+  .profile-card,
+  .profile-card--address,
+  .upload-card {
+    padding: 18px;
+  }
+
+  .profile-card__heading h2 {
+    font-size: 1.9rem;
+  }
+
+  .upload-avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  .upload-title {
+    font-size: 1.5rem;
+  }
+
+  .profile-actions {
+    margin-top: 32px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-btn,
+  .profile-btn--primary {
+    width: 100%;
+    min-width: 0;
+  }
 }
