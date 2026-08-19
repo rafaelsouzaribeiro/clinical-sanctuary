@@ -80,3 +80,8 @@ input, select,textarea{
   outline: none;
 }
 
+.shell-main {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+

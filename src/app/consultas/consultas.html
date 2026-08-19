@@ -1,194 +1,192 @@
-<div class="shell-main">
-    <section class="consult-hero" aria-label="Nova consulta">
-    <p class="consult-kicker">Agendamento</p>
-    <h1 class="consult-title">Nova Consulta</h1>
-    <p class="consult-subtitle">
-        Organize o fluxo de atendimento com precisão técnica e cuidado humano.
-        <br />
-        Preencha os detalhes abaixo para reservar o horário.
-    </p>
+<section class="consult-hero" aria-label="Nova consulta">
+<p class="consult-kicker">Agendamento</p>
+<h1 class="consult-title">Nova Consulta</h1>
+<p class="consult-subtitle">
+    Organize o fluxo de atendimento com precisão técnica e cuidado humano.
+    <br />
+    Preencha os detalhes abaixo para reservar o horário.
+</p>
+</section>
+
+<section class="consult-layout" >
+<div class="consult-main">
+    <div class="consult-select-card">
+    <div class="consult-field-group">
+        <label for="medico">Médico</label>
+        <a class="consult-select consultafoco"
+            id="medico" href="perfil.html" title="Doctor Armando">
+        <span class="consult-select__left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
+            <path d="M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M9 8H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M8.5 13H15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <span>{{ medico?.name }}</span>
+        </span>
+        </a>
+    </div>
+    <div class="consult-field-group">
+        <label for="medico">Serviços e preços</label>
+        <app-select-event-location
+            id="servicos"
+            name="servicos"
+            type="servicos"
+            [options]="medico?.servicos ?? []"
+            [selectedValue]="servico"
+            (selectionChange)="onServicoChange($event)">
+        </app-select-event-location>
+    </div>
+    <div class="consult-field-group">
+        <label for="medico">Modalidade de pagamento</label>
+        <app-select-event-location
+            id="pagamento"
+            name="pagamento"
+            type="pagamento"
+            [options]="medico?.pagamentos ?? []"
+            [selectedValue]="pagamento"
+            (selectionChange)="onPagamentoChange($event)">
+        </app-select-event-location>
+    </div>
+        <div class="consult-field-group">
+        <label for="medico">Convenio</label>
+        <app-select-event-location
+            id="convenio"
+            name="convenio"
+            type="convenio"
+            [options]="medico?.convenios ?? []"
+            [selectedValue]="convenio"
+            (selectionChange)="onConvenioChange($event)">
+        </app-select-event-location>
+    </div>
+    <div class="consult-field-group">
+        <label for="unidade">Unidade</label>
+        <app-select-event-location
+            id="unidade"
+            name="unidade"
+            type="unidade"
+            [options]="medico?.unidades ?? []" 
+            [selectedValue]="unidadeValue"
+            (selectionChange)="onUnidadeChange($event)">
+        </app-select-event-location>
+    </div>
+    </div>
+
+
+    <div class="consult-content-grid">
+    <section class="consult-card consult-calendar-card">
+        <div class="consult-card__head">
+        <h2 id="mes">{{ this.calendar.mesTitulo }}</h2>
+        <div class="calendar-nav" aria-label="Navegação do calendário">
+            <button type="button" id="prev" (click)="this.calendar.mesAnterior()" aria-label="Mês anterior">‹</button>
+            <button type="button" id="next" (click)="this.calendar.proximoMes()" aria-label="Próximo mês">›</button>
+        </div>
+        </div>
+
+        <div class="calendar-weekdays" id="weekdays">
+            <span *ngFor="let dia of this.calendar.weekdays">{{ dia }}</span>
+        </div>
+
+        <div class="calendar-grid">
+            <button
+                    *ngFor="let dia of this.calendar.calendarDays"
+                    type="button"
+                    class="day"
+                    [class.day--muted]="dia.isMuted"
+                    [class.day--active]="dia.isActive"
+                    [class.day--booked]="dia.isBooked"
+                    [disabled]="dia.isBooked || dia.isMuted"
+                    (click)="selecionarDia(dia)">
+                    {{ dia.numero }}
+                </button>
+        </div>
     </section>
 
-    <section class="consult-layout" >
-    <div class="consult-main">
-        <div class="consult-select-card">
-        <div class="consult-field-group">
-            <label for="medico">Médico</label>
-            <a class="consult-select consultafoco"
-               id="medico" href="perfil.html" title="Doctor Armando">
-            <span class="consult-select__left">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
-                <path d="M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                <path d="M9 8H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                <path d="M8.5 13H15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                </svg>
-                <span>{{ medico?.name }}</span>
-            </span>
-            </a>
+    <section class="consult-card consult-hours-card">
+        <h2>Horários Disponíveis</h2>
+        @if(horarios.length === 0){
+        <div class="time-grid item-not-found">
+            Nenhum horário disponível 
         </div>
-        <div class="consult-field-group">
-            <label for="medico">Serviços e preços</label>
-            <app-select-event-location
-                id="servicos"
-                name="servicos"
-                type="servicos"
-                [options]="medico?.servicos ?? []"
-                [selectedValue]="servico"
-                (selectionChange)="onServicoChange($event)">
-            </app-select-event-location>
+        }
+        <div class="time-grid">
+            <button
+                *ngFor="let horario of horarios"
+                class="time-slot"
+                [class.time-slot--active]="horarioSelecionado === horario"
+                type="button"
+                (click)="selecionarHorario(horario)">
+                {{ horario }}
+            </button>
         </div>
-        <div class="consult-field-group">
-            <label for="medico">Modalidade de pagamento</label>
-            <app-select-event-location
-                id="pagamento"
-                name="pagamento"
-                type="pagamento"
-                [options]="medico?.pagamentos ?? []"
-                [selectedValue]="pagamento"
-                (selectionChange)="onPagamentoChange($event)">
-            </app-select-event-location>
+    </section>
+
+    <section class="consult-card consult-notes-card">
+        <h2>Observações</h2>
+        <textarea 
+        placeholder="Histórico breve, queixas principais ou notas de encaminhamento..."
+        [value]="observacoes"
+        (input)="onObservacoesChange($event)"
+        ></textarea>
+    </section>
+    </div>
+</div>
+
+<aside class="consult-sidebar">
+    <section class="summary-card">
+    <h2>Resumo da Reserva</h2>
+
+    <div class="summary-item">
+        <div class="summary-item__icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.8" />
+            <path d="M8 3.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M16 3.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M4 10H20" stroke="currentColor" stroke-width="1.8" />
+            <path d="M8 13H8.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M12 13H12.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M16 13H16.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
         </div>
-            <div class="consult-field-group">
-            <label for="medico">Convenio</label>
-            <app-select-event-location
-                id="convenio"
-                name="convenio"
-                type="convenio"
-                [options]="medico?.convenios ?? []"
-                [selectedValue]="convenio"
-                (selectionChange)="onConvenioChange($event)">
-            </app-select-event-location>
-        </div>
-        <div class="consult-field-group">
-            <label for="unidade">Unidade</label>
-            <app-select-event-location
-                id="unidade"
-                name="unidade"
-                type="unidade"
-                [options]="medico?.unidades ?? []" 
-                [selectedValue]="unidadeValue"
-                (selectionChange)="onUnidadeChange($event)">
-            </app-select-event-location>
-        </div>
-        </div>
-
-
-        <div class="consult-content-grid">
-        <section class="consult-card consult-calendar-card">
-            <div class="consult-card__head">
-            <h2 id="mes">{{ this.calendar.mesTitulo }}</h2>
-            <div class="calendar-nav" aria-label="Navegação do calendário">
-                <button type="button" id="prev" (click)="this.calendar.mesAnterior()" aria-label="Mês anterior">‹</button>
-                <button type="button" id="next" (click)="this.calendar.proximoMes()" aria-label="Próximo mês">›</button>
-            </div>
-            </div>
-
-            <div class="calendar-weekdays" id="weekdays">
-                <span *ngFor="let dia of this.calendar.weekdays">{{ dia }}</span>
-            </div>
-
-            <div class="calendar-grid">
-                <button
-                        *ngFor="let dia of this.calendar.calendarDays"
-                        type="button"
-                        class="day"
-                        [class.day--muted]="dia.isMuted"
-                        [class.day--active]="dia.isActive"
-                        [class.day--booked]="dia.isBooked"
-                        [disabled]="dia.isBooked || dia.isMuted"
-                        (click)="selecionarDia(dia)">
-                        {{ dia.numero }}
-                    </button>
-            </div>
-        </section>
-
-        <section class="consult-card consult-hours-card">
-            <h2>Horários Disponíveis</h2>
-            @if(horarios.length === 0){
-            <div class="time-grid item-not-found">
-                Nenhum horário disponível 
-            </div>
-            }
-            <div class="time-grid">
-                <button
-                    *ngFor="let horario of horarios"
-                    class="time-slot"
-                    [class.time-slot--active]="horarioSelecionado === horario"
-                    type="button"
-                    (click)="selecionarHorario(horario)">
-                    {{ horario }}
-                </button>
-            </div>
-        </section>
-
-        <section class="consult-card consult-notes-card">
-            <h2>Observações</h2>
-            <textarea 
-            placeholder="Histórico breve, queixas principais ou notas de encaminhamento..."
-            [value]="observacoes"
-            (input)="onObservacoesChange($event)"
-            ></textarea>
-        </section>
+        <div>
+        <span class="summary-label">Data e Hora</span>
+        <strong>{{ horarioSelecionado }}</strong>
+        <p>{{ this.calendar?.data | date: 'fullDate' : '' : 'pt-BR' }}</p>
         </div>
     </div>
 
-    <aside class="consult-sidebar">
-        <section class="summary-card">
-        <h2>Resumo da Reserva</h2>
-
-        <div class="summary-item">
-            <div class="summary-item__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.8" />
-                <path d="M8 3.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                <path d="M16 3.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                <path d="M4 10H20" stroke="currentColor" stroke-width="1.8" />
-                <path d="M8 13H8.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-                <path d="M12 13H12.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-                <path d="M16 13H16.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-            </svg>
-            </div>
-            <div>
-            <span class="summary-label">Data e Hora</span>
-            <strong>{{ horarioSelecionado }}</strong>
-            <p>{{ this.calendar?.data | date: 'fullDate' : '' : 'pt-BR' }}</p>
-            </div>
+    <div class="summary-item">
+        <div class="summary-item__icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="8" y="4" width="8" height="4" rx="1" stroke="currentColor" stroke-width="1.8" />
+            <path d="M12 8V18" stroke="currentColor" stroke-width="1.8" />
+            <path d="M8 12H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <rect x="6" y="8" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.8" />
+        </svg>
         </div>
-
-        <div class="summary-item">
-            <div class="summary-item__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="8" y="4" width="8" height="4" rx="1" stroke="currentColor" stroke-width="1.8" />
-                <path d="M12 8V18" stroke="currentColor" stroke-width="1.8" />
-                <path d="M8 12H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                <rect x="6" y="8" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.8" />
-            </svg>
-            </div>
-            <div>
-            <span class="summary-label">Especialista</span>
-            <strong>{{ medico?.name }}</strong>
-            <p>{{ medico?.specialty }}</p>
-            </div>
+        <div>
+        <span class="summary-label">Especialista</span>
+        <strong>{{ medico?.name }}</strong>
+        <p>{{ medico?.specialty }}</p>
         </div>
-        <div class="summary-item">
-            <div class="summary-item__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 21C16 17 20 13.4183 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13.4183 8 17 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
-            </div>
-            <div>
-            <span class="summary-label">Unidade</span>
-            <strong>{{ unidade }}</strong>
-                <p>{{ city }}</p>
-            </div>
+    </div>
+    <div class="summary-item">
+        <div class="summary-item__icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 21C16 17 20 13.4183 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13.4183 8 17 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
         </div>
-        <hr />
-        <app-alert-modal [(showModal)]="showModal" [message]="'Por favor, selecione um <strong>Horário</strong>'"></app-alert-modal>
-        <button class="summary-confirm" type="button" (click)="onConfirmarAgendamento()">Confirmar Agendamento</button>
-        <button class="summary-cancel" type="button" (click)="onDescartar()">Descartar</button>
-        </section>
-    </aside>
+        <div>
+        <span class="summary-label">Unidade</span>
+        <strong>{{ unidade }}</strong>
+            <p>{{ city }}</p>
+        </div>
+    </div>
+    <hr />
+    <app-alert-modal [(showModal)]="showModal" [message]="'Por favor, selecione um <strong>Horário</strong>'"></app-alert-modal>
+    <button class="summary-confirm" type="button" (click)="onConfirmarAgendamento()">Confirmar Agendamento</button>
+    <button class="summary-cancel" type="button" (click)="onDescartar()">Descartar</button>
     </section>
-</div>
+</aside>
+</section>
