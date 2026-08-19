@@ -105,6 +105,11 @@
 
         <section class="consult-card consult-hours-card">
             <h2>Horários Disponíveis</h2>
+            @if(horarios.length === 0){
+            <div class="time-grid item-not-found">
+                Nenhum horário disponível 
+            </div>
+            }
             <div class="time-grid">
                 <button
                     *ngFor="let horario of horarios"

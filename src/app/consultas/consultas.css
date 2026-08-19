@@ -187,6 +187,10 @@
   gap: 14px;
 }
 
+.item-not-found{
+  grid-template-columns: none!important;
+}
+
 .time-slot {
   min-height: 50px;
   border: 0;
