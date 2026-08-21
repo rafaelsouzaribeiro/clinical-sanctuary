@@ -5,9 +5,7 @@ import { SelectOption } from '../../select-event-location/interface.sellect-opti
 import BASEURL from '../../../app.api';
 import { Doctor,IHomeService } from '../iservice/home.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class HomeService implements IHomeService {
 
   constructor(private http: HttpClient) {}

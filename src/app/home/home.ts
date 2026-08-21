@@ -5,9 +5,10 @@ import {SelectOption} from "../select-event-location/interface.sellect-option";
 import { Title } from '@angular/platform-browser';
 import { HomeService } from '../services/impl/home.service';
 import { Doctor } from '../services/iservice/home.interface';
+import { Subject, switchMap } from 'rxjs';
 
 @Component({
-  viewProviders:[Title],
+  viewProviders:[Title,HomeService],
   selector: 'app-home',
   imports: [DoctorCard, SelectEventLocation],
   templateUrl: './home.html',
