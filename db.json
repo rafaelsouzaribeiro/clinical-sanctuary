@@ -306,5 +306,18 @@
     { "date": "2026-08-29", "availableTimes": ["08:00"] },
     { "date": "2026-08-30", "availableTimes": ["08:00"] },
     { "date": "2026-08-31", "availableTimes": ["08:00"] }
+  ],
+  "ufOptions": [
+    { "value": "SP", "label": "SP" },
+    { "value": "RJ", "label": "RJ" },
+    { "value": "MG", "label": "MG" },
+    { "value": "PR", "label": "PR" }
+  ],
+  "cityOptions": [
+    { "value": "Salto de Pirapora", "label": "Salto de Pirapora" },
+    { "value": "Pilar do Sul", "label": "Pilar do Sul" },
+    { "value": "Votorantim", "label": "Votorantim" },
+    { "value": "Sorocaba", "label": "Sorocaba" },
+    { "value": "São Paulo", "label": "São Paulo" }
   ]
 }
