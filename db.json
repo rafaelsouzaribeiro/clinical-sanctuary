@@ -314,10 +314,14 @@
     { "value": "PR", "label": "PR" }
   ],
   "cityOptions": [
-    { "value": "Salto de Pirapora", "label": "Salto de Pirapora" },
-    { "value": "Pilar do Sul", "label": "Pilar do Sul" },
-    { "value": "Votorantim", "label": "Votorantim" },
-    { "value": "Sorocaba", "label": "Sorocaba" },
-    { "value": "São Paulo", "label": "São Paulo" }
-  ]
+    { "uf": "SP", "value": "Salto de Pirapora", "label": "Salto de Pirapora" },
+    { "uf": "SP", "value": "Pilar do Sul", "label": "Pilar do Sul" },
+    { "uf": "SP", "value": "Votorantim", "label": "Votorantim" },
+    { "uf": "SP", "value": "Sorocaba", "label": "Sorocaba" },
+    { "uf": "SP", "value": "São Paulo", "label": "São Paulo" },
+    { "uf": "RJ", "value": "Rio de Janeiro", "label": "Rio de Janeiro" },
+    { "uf": "RJ", "value": "Niterói", "label": "Niterói" },
+    { "uf": "MG", "value": "Belo Horizonte", "label": "Belo Horizonte" },
+    { "uf": "PR", "value": "Curitiba", "label": "Curitiba" }
+  ] 
 }

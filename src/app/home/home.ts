@@ -1,55 +1,56 @@
 import { Component } from '@angular/core';
 import { DoctorCard } from '../doctor-card/doctor-card';
 import { SelectEventLocation } from '../select-event-location/select-event-location';
-import {SelectOption} from "../location-select/interface.sellect-option";
+import {SelectOption} from "../select-event-location/interface.sellect-option";
 import { Title } from '@angular/platform-browser';
-import doctorsData from './doctors.json';
+import { HomeService } from '../services/impl/home.service';
+import { Doctor } from '../services/iservice/home.interface';
 
 @Component({
   viewProviders:[Title],
   selector: 'app-home',
   imports: [DoctorCard, SelectEventLocation],
   templateUrl: './home.html',
-  styleUrl: './home.css',
+  styleUrls: ['./home.css'],
 })
 export class Home {
-    constructor(private title: Title) {
+    constructor(
+        private title: Title,
+        private homeService: HomeService
+    ) {
         this.title.setTitle('Home - Clinical Sanctuary');
     }
-    public doctors:Array<{
-      id:string;
-      slug:string;
-      acronym: string;
-      name: string;
-      status: string;
-      specialty: string;
-      phone: string;
-      unidade: Array<{
-        address: string;
-        city: string;
-        uf: string;
-      }>;
-      crm: string;
-    }>=doctorsData;
 
-  ufOptions: SelectOption[] = [
-    { value: 'SP', label: 'SP' },
-    { value: 'RJ', label: 'RJ' },
-    { value: 'MG', label: 'MG' },
-    { value: 'PR', label: 'PR' }
-  ];
+    public doctors: Doctor[] = [];
+    public ufOptions: SelectOption[] = [];
+    public cityOptions: SelectOption[] = [];
 
-  cityOptions: SelectOption[] = [
-    { value: 'Salto de Pirapora', label: 'Salto de Pirapora' },
-    { value: 'Pilar do Sul', label: 'Pilar do Sul' },
-    { value:'Votorantim', label: 'Votorantim' },
-    { value: 'Sorocaba', label: 'Sorocaba' },
-    { value: 'São Paulo', label: 'São Paulo' }
-  ];
+    public selectedUf = '';
+    public selectedCity = '';
+    public searchTerm = '';
 
-  selectedUf = this.ufOptions[0]?.value ?? '';
-  selectedCity = this.cityOptions[0]?.value ?? '';
-  searchTerm = '';
+   public ngOnInit(): void {
+    this.homeService.getDoctors().subscribe((doctors) => {
+      this.doctors = doctors;
+    });
+
+    this.homeService.getUfOptions().subscribe((options) => {
+      this.ufOptions = options;
+      this.selectedUf = this.ufOptions[0]?.value ?? '';
+      this.loadCities(this.selectedUf);
+    });
+  }
+
+    private loadCities(uf: string): void {
+        console.log('Loading cities for UF:', uf);
+        this.homeService.getCityOptions(uf).subscribe((options) => {
+            if (options.length > 0) {
+                this.cityOptions = options;
+                this.selectedCity = this.cityOptions[0].value;
+            }
+            console.log('City options loaded:', this.cityOptions);
+        });
+  }
 
   get filteredDoctors() {
       return this.doctors.filter(doctor => {
@@ -70,6 +71,7 @@ export class Home {
 
   onUfChange(value: SelectOption): void {
       this.selectedUf = value.value;
+      this.loadCities(this.selectedUf);
   }
 
   onCityChange(value: SelectOption): void {

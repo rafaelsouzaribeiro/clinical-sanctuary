@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SelectOption } from '../location-select/interface.sellect-option';
+import { SelectOption } from './interface.sellect-option';
 
 @Component({
   selector: 'app-select-event-location',
