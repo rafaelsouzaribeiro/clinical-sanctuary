@@ -1,0 +1,310 @@
+{
+  "doctorProfile": {
+    "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+    "slug": "dr-john-smith",
+    "name": "Dr. John Smith",
+    "specialty": "Cardiologista",
+    "phone": "(11) 1234-5678",
+    "crm": "123456-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.9,
+    "rating": 500,
+    "patientNumber": 1200,
+    "experience": 15,
+    "description": "Dr. John Smith é um renomado cardiologista com mais de 15 anos de experiência no tratamento de doenças cardíacas. Ele é conhecido por sua abordagem centrada no paciente e por utilizar as mais recentes tecnologias em cardiologia para oferecer o melhor cuidado possível.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP", "room": "Edifício Clinical Sanctuary, Sala 1205", "open": "Seg a Sex" },
+      { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 1206", "open": "Apenas Terças" },
+      { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 1207", "open": "Apenas Quintas" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 150,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 80,00" }
+    ]
+  },
+  "comments": [
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ],
+  "homeDoctors": [
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "slug": "dr-john-smith",
+      "acronym": "RS",
+      "name": "Dr. John Smith",
+      "status": "Ativo",
+      "specialty": "Cardiologista",
+      "phone": "(11) 1234-5678",
+      "unidade": [
+        { "address": "Ala Norte, Sala 402", "city": "Sorocaba", "uf": "SP" }
+      ],
+      "crm": "123456-SP"
+    },
+    {
+      "id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "slug": "dr-mary-johnson",
+      "acronym": "MJ",
+      "name": "Dr. Mary Johnson",
+      "status": "Ativo",
+      "specialty": "Dermatologista",
+      "phone": "(11) 9876-5432",
+      "unidade": [
+        { "address": "Ala Suldeste, Sala 90", "city": "Sorocaba", "uf": "SP" }
+      ],
+      "crm": "654321-SP"
+    },
+    {
+      "id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "slug": "dr-luke-williams",
+      "acronym": "LW",
+      "name": "Dr. Luke Williams",
+      "status": "Inativo",
+      "specialty": "Neurologista",
+      "phone": "(11) 5678-1234",
+      "unidade": [
+        { "address": "Ala Norte, Sala 120", "city": "Pilar do Sul", "uf": "SP" }
+      ],
+      "crm": "987654-SP"
+    },
+    {
+      "id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "slug": "dr-emily-smith",
+      "acronym": "ES",
+      "name": "Dr. Emily Smith",
+      "status": "Ativo",
+      "specialty": "Pediatra",
+      "phone": "(11) 4321-8765",
+      "unidade": [
+        { "address": "Ala Oeste, Sala 110", "city": "Salto de Pirapora", "uf": "SP" }
+      ],
+      "crm": "456789-SP"
+    },
+    {
+      "id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "slug": "dr-michael-jones",
+      "acronym": "MJ",
+      "name": "Dr. Michael Jones",
+      "status": "Ativo",
+      "specialty": "Ortopedista",
+      "phone": "(11) 8765-4321",
+      "unidade": [
+        { "address": "Ala Leste, Sala 210", "city": "Votorantim", "uf": "SP" }
+      ],
+      "crm": "321654-SP"
+    },
+    {
+      "id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "slug": "dr-sarah-brown",
+      "acronym": "SB",
+      "name": "Dr. Sarah Brown",
+      "status": "Inativo",
+      "specialty": "Ginecologista",
+      "phone": "(11) 5432-1098",
+      "unidade": [
+        { "address": "Ala Norte, Sala 305", "city": "Sorocaba", "uf": "SP" }
+      ],
+      "crm": "789012-SP"
+    },
+    {
+      "id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "slug": "dr-david-wilson",
+      "acronym": "DW",
+      "name": "Dr. David Wilson",
+      "status": "Ativo",
+      "specialty": "Oftalmologista",
+      "phone": "(11) 2109-8765",
+      "unidade": [
+        { "address": "Ala Suldeste, Sala 75", "city": "Sorocaba", "uf": "SP" }
+      ],
+      "crm": "654987-SP"
+    },
+    {
+      "id": "8mn234op-9012-3456-7890-abcdef234567",
+      "slug": "dr-laura-martin",
+      "acronym": "LM",
+      "name": "Dr. Laura Martin",
+      "status": "Ativo",
+      "specialty": "Psiquiatra",
+      "phone": "(11) 1098-5432",
+      "unidade": [
+        { "address": "Ala Oeste, Sala 150", "city": "Pilar do Sul", "uf": "SP" }
+      ],
+      "crm": "321098-SP"
+    }
+  ],
+  "consultasDoctors": [
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "slug": "dr-john-smith",
+      "acronym": "RS",
+      "name": "Dr. John Smith",
+      "status": "Ativo",
+      "specialty": "Cardiologista",
+      "phone": "(11) 1234-5678",
+      "crm": "123456-SP",
+      "pagamentos": [
+        { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+        { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+        { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+      ],
+      "convenios": [
+        { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+        { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+        { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+        { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+        { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+      ],
+      "unidades": [
+        { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+        { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+        { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
+      ],
+      "servicos": [
+        { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+        { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
+      ]
+    },
+    {
+      "id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "slug": "dr-mary-johnson",
+      "acronym": "MJ",
+      "name": "Dr. Mary Johnson",
+      "status": "Ativo",
+      "specialty": "Dermatologista",
+      "phone": "(11) 9876-5432",
+      "crm": "654321-SP",
+      "pagamentos": [
+        { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+        { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+        { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+      ],
+      "convenios": [
+        { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+        { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+        { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+        { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+        { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+      ],
+      "unidades": [
+        { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+        { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+        { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
+      ],
+      "servicos": [
+        { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+        { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
+      ]
+    },
+    {
+      "id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "slug": "dr-luke-williams",
+      "acronym": "LW",
+      "name": "Dr. Luke Williams",
+      "status": "Inativo",
+      "specialty": "Neurologista",
+      "phone": "(11) 5678-1234",
+      "crm": "987654-SP",
+      "pagamentos": [
+        { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+        { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+        { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+      ],
+      "convenios": [
+        { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+        { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+        { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+        { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+        { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+      ],
+      "unidades": [
+        { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+        { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+        { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
+      ],
+      "servicos": [
+        { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+        { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
+      ]
+    },
+    {
+      "id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "slug": "dr-emily-smith",
+      "acronym": "ES",
+      "name": "Dr. Emily Smith",
+      "status": "Ativo",
+      "specialty": "Pediatra",
+      "phone": "(11) 4321-8765",
+      "crm": "456789-SP",
+      "pagamentos": [
+        { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+        { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+        { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+      ],
+      "convenios": [
+        { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+        { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+        { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+        { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+        { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+      ],
+      "unidades": [
+        { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP" },
+        { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP" },
+        { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP" }
+      ],
+      "servicos": [
+        { "value": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta - R$ 150,00" },
+        { "value": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame - R$ 80,00" }
+      ]
+    }
+  ],
+  "datesBooked": [
+   { "id": "0841575d-9371-498c-92b3-e267bc036128", "date": "2026-08-20" },
+    { "id": "6f14fcb3-82ae-4c2c-9fdb-c101d159478e", "date": "2026-08-21" },
+    { "id": "60ce4cd0-409a-424d-8504-6348c7bd1a28", "date": "2026-08-25" },
+    { "id": "cf514e6f-fc07-43fd-893a-a5e96717efc5", "date": "2026-09-27" },
+    { "id": "8c417c2a-9b37-4968-8777-a9ad6cb5d256", "date": "2026-09-26" }
+  ],
+  "availableTimes": [
+    { "date": "2026-08-18", "availableTimes": ["08:00", "09:30", "15:00"] },
+    { "date": "2026-08-19", "availableTimes": ["10:00", "11:30", "15:00"] },
+    { "date": "2026-08-20", "availableTimes": ["09:00", "12:30", "16:00"] },
+    { "date": "2026-08-21", "availableTimes": ["08:00"] },
+    { "date": "2026-08-22", "availableTimes": ["10:45", "14:30"] },
+    { "date": "2026-08-23", "availableTimes": ["09:30", "11:00", "13:15"] },
+    { "date": "2026-08-24", "availableTimes": ["08:00"] },
+    { "date": "2026-08-25", "availableTimes": ["08:00"] },
+    { "date": "2026-08-26", "availableTimes": ["08:00"] },
+    { "date": "2026-08-27", "availableTimes": ["08:00"] },
+    { "date": "2026-08-28", "availableTimes": ["08:00"] },
+    { "date": "2026-08-29", "availableTimes": ["08:00"] },
+    { "date": "2026-08-30", "availableTimes": ["08:00"] },
+    { "date": "2026-08-31", "availableTimes": ["08:00"] }
+  ]
+}
