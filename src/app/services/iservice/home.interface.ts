@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { SelectCidades } from '../../cidades/cidades.interface';
+import { SelectCidades } from '../../home/cidades/cidades.interface';
 
 export interface Doctor {
   id: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, output } from '@angular/core';
 import { SelectCidades } from "./cidades.interface";
-import { HomeService } from '../services/impl/home.service';
+import { HomeService } from '../../services/impl/home.service';
 
 @Component({
   selector: 'app-cidades',

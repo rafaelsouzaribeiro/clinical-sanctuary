@@ -1,9 +1,9 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
-import { HomeService } from '../services/impl/home.service';
-import { Doctor } from '../services/iservice/home.interface';
-import generateSlug from '../utils/generate.slug';
+import { HomeService } from '../../services/impl/home.service';
+import { Doctor } from '../../services/iservice/home.interface';
+import generateSlug from '../../utils/generate.slug';
 
 @Component({
   selector: 'app-doctor-card',

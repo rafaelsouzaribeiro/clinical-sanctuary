@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SelectCidades } from '../../cidades/cidades.interface';
+import { SelectCidades } from '../../home/cidades/cidades.interface';
 import BASEURL from '../../../app.api';
 import { Doctor,IHomeService } from '../iservice/home.interface';
 

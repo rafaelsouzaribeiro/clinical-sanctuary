@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { DoctorCard } from '../doctor-card/doctor-card';
+import { DoctorCard } from './doctor-card/doctor-card';
 import { Title } from '@angular/platform-browser';
-import { HomeService } from '../services/impl/home.service';
-import { Cidades } from '../cidades/cidades';
+import { Cidades } from './cidades/cidades';
 
 @Component({
   viewProviders: [Title],
