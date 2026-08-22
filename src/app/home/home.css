@@ -43,14 +43,7 @@
   font-weight: 800;
 }
 
-.container-search {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 16px;
-  flex-wrap: wrap;
-  
-}
+
 
 .home-search {
   justify-self: end;
@@ -90,13 +83,6 @@
 }
 
 
-.width-uf{
-  width: 23%!important;
-}
-
-.width-city{
-  width: 74% !important;
-}
 
 .avatar--doctor-2 {
   background: linear-gradient(145deg, #245f7c, #5b8ba6);
@@ -105,9 +91,6 @@
 .avatar--doctor-3 {
   background: linear-gradient(145deg, #101824, #28445f);
 }
-
-
-
 
 @media (max-width: 1200px) {
   .home-hero {

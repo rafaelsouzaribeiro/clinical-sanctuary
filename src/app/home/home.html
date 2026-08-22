@@ -6,24 +6,11 @@
         <strong>de Excelência.</strong>
         </h1>
     </div>
-    <div class="container-search">
-        <app-cidades
+    <app-cidades
             (ufChange)="onUfChange($event)"
-            (cityChange)="onCityChange($event)">
+            (cityChange)="onCityChange($event)"
+            (searchChange)="onSearchChange($event)">
         </app-cidades>
-        <label  for="busca" class="home-search">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" />
-            <path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <input
-                id="busca"
-                type="text"
-                placeholder="Buscar por nome ou especialidade..."
-                [value]="searchTerm"
-                (input)="onSearchChange($event)" />
-        </label>
-    </div>
 </section>
 <section class="home-grid" aria-label="Lista de especialistas">
     @for(doctor of filteredDoctors; track doctor.id; let i = $index) {

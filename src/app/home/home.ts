@@ -57,8 +57,7 @@ export class Home {
         this.selectedCity = value;
     }
 
-    onSearchChange(event: Event): void {
-        const input = event.target as HTMLInputElement;
-        this.searchTerm = input.value;
+    onSearchChange(value: string): void {
+        this.searchTerm = value;
     }
 }

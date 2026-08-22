@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, output } from '@angular/core';
 import { SelectOption } from "../select-event-location/interface.sellect-option";
 import { HomeService } from '../services/impl/home.service';
 
@@ -11,12 +11,14 @@ import { HomeService } from '../services/impl/home.service';
 export class Cidades implements OnInit {
     @Output() ufChange = new EventEmitter<string>();
     @Output() cityChange = new EventEmitter<string>();
+    @Output() searchChange = new EventEmitter<string>();
 
     public ufOptions: SelectOption[] = [];
     public cityOptions: SelectOption[] = [];
 
     public selectedUf = '';
     public selectedCity = '';
+    public searchTerm = '';
 
     constructor(private homeService: HomeService) {}
 
@@ -51,5 +53,10 @@ export class Cidades implements OnInit {
         const value = (event.target as HTMLSelectElement).value;
         this.selectedCity = value;
         this.cityChange.emit(value);
+    }
+
+    onSearchChange(event: Event): void {
+        const value = (event.target as HTMLInputElement).value;
+        this.searchChange.emit(value);
     }
 }
