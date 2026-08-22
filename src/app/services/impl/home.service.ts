@@ -5,7 +5,9 @@ import { SelectCidades } from '../../cidades/cidades.interface';
 import BASEURL from '../../../app.api';
 import { Doctor,IHomeService } from '../iservice/home.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class HomeService implements IHomeService {
 
   constructor(private http: HttpClient) {}

@@ -10,7 +10,6 @@ import generateSlug from '../utils/generate.slug';
   imports: [RouterLink, NgClass],
   templateUrl: './doctor-card.html',
   styleUrl: './doctor-card.css',
-  providers: [HomeService],
 })
 export class DoctorCard implements OnChanges {
   @Input() selectedCity!: string;

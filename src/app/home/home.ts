@@ -5,7 +5,7 @@ import { HomeService } from '../services/impl/home.service';
 import { Cidades } from '../cidades/cidades';
 
 @Component({
-  viewProviders: [Title, HomeService],
+  viewProviders: [Title],
   selector: 'app-home',
   imports: [DoctorCard, Cidades],
   templateUrl: './home.html',
