@@ -1,0 +1,22 @@
+<div class="width-uf">
+    <div class="profile-control">
+        <select id="uf" name="uf" [value]="selectedUf" (change)="onUfSelect($event)">
+            @for (option of ufOptions; track option.value) {
+                <option [value]="option.value" [selected]="option.value === selectedUf">
+                    {{ option.label }}
+                </option>
+            }
+        </select>
+    </div>
+</div>
+<div class="width-city">
+    <div class="profile-control">
+        <select id="city" name="city" [value]="selectedCity" (change)="onCitySelect($event)">
+            @for (option of cityOptions; track option.value) {
+                <option [value]="option.value" [selected]="option.value === selectedCity">
+                    {{ option.label }}
+                </option>
+            }
+        </select>
+    </div>
+</div>

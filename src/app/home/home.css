@@ -106,6 +106,9 @@
   background: linear-gradient(145deg, #101824, #28445f);
 }
 
+
+
+
 @media (max-width: 1200px) {
   .home-hero {
     grid-template-columns: 1fr;

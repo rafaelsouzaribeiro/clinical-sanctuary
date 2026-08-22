@@ -1,0 +1,55 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { SelectOption } from "../select-event-location/interface.sellect-option";
+import { HomeService } from '../services/impl/home.service';
+
+@Component({
+  selector: 'app-cidades',
+  imports: [],
+  templateUrl: './cidades.html',
+  styleUrl: './cidades.css',
+})
+export class Cidades implements OnInit {
+    @Output() ufChange = new EventEmitter<string>();
+    @Output() cityChange = new EventEmitter<string>();
+
+    public ufOptions: SelectOption[] = [];
+    public cityOptions: SelectOption[] = [];
+
+    public selectedUf = '';
+    public selectedCity = '';
+
+    constructor(private homeService: HomeService) {}
+
+    ngOnInit(): void {
+        this.homeService.getUfOptions().subscribe((options) => {
+            this.ufOptions = options;
+            this.selectedUf = this.ufOptions[0]?.value ?? '';
+            this.ufChange.emit(this.selectedUf);
+            this.loadCities(this.selectedUf);
+        });
+    }
+
+    private loadCities(uf: string): void {
+        this.cityOptions = [];
+        this.selectedCity = '';
+
+        this.homeService.getCityOptions(uf).subscribe((options) => {
+            this.cityOptions = options;
+            this.selectedCity = options[0]?.value ?? '';
+            this.cityChange.emit(this.selectedCity);
+        });
+    }
+
+    onUfSelect(event: Event): void {
+        const value = (event.target as HTMLSelectElement).value;
+        this.selectedUf = value;
+        this.ufChange.emit(value);
+        this.loadCities(value);
+    }
+
+    onCitySelect(event: Event): void {
+        const value = (event.target as HTMLSelectElement).value;
+        this.selectedCity = value;
+        this.cityChange.emit(value);
+    }
+}
