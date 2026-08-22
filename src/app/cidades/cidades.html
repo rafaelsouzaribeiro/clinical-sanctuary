@@ -1,37 +1,37 @@
 
 <div class="container-search">
-<div class="width-uf">
-    <div class="profile-control">
-        <select id="uf" name="uf" [value]="selectedUf" (change)="onUfSelect($event)">
-            @for (option of ufOptions; track option.value) {
-                <option [value]="option.value" [selected]="option.value === selectedUf">
-                    {{ option.label }}
-                </option>
-            }
-        </select>
+    <div class="width-uf">
+        <div class="profile-control">
+            <select id="uf" name="uf" [value]="selectedUf" (change)="onUfSelect($event)">
+                @for (option of ufOptions; track option.value) {
+                    <option [value]="option.value" [selected]="option.value === selectedUf">
+                        {{ option.label }}
+                    </option>
+                }
+            </select>
+        </div>
     </div>
-</div>
-<div class="width-city">
-    <div class="profile-control">
-        <select id="city" name="city" [value]="selectedCity" (change)="onCitySelect($event)">
-            @for (option of cityOptions; track option.value) {
-                <option [value]="option.value" [selected]="option.value === selectedCity">
-                    {{ option.label }}
-                </option>
-            }
-        </select>
+    <div class="width-city">
+        <div class="profile-control">
+            <select id="city" name="city" [value]="selectedCity" (change)="onCitySelect($event)">
+                @for (option of cityOptions; track option.value) {
+                    <option [value]="option.value" [selected]="option.value === selectedCity">
+                        {{ option.label }}
+                    </option>
+                }
+            </select>
+        </div>
     </div>
-</div>
-        <label  for="busca" class="home-search">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" />
-            <path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <input
-                id="busca"
-                type="text"
-                placeholder="Buscar por nome ou especialidade..."
-                [value]="searchTerm"
-                (input)="onSearchChange($event)" />
-        </label>
+    <label  for="busca" class="home-search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" />
+        <path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <input
+            id="busca"
+            type="text"
+            placeholder="Buscar por nome ou especialidade..."
+            [value]="searchTerm"
+            (input)="onSearchChange($event)" />
+    </label>
     </div>
