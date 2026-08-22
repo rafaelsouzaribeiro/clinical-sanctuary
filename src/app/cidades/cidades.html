@@ -14,8 +14,8 @@
     <div class="width-city">
         <div class="profile-control">
             <select id="city" name="city" [value]="selectedCity" (change)="onCitySelect($event)">
-                @for (option of cityOptions; track option.value) {
-                    <option [value]="option.value" [selected]="option.value === selectedCity">
+                @for (option of cityOptions; track option.id) {
+                    <option [value]="option.id" [selected]="option.id === selectedCity">
                         {{ option.label }}
                     </option>
                 }

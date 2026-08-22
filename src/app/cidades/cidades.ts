@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, output } from '@angular/core';
-import { SelectOption } from "../select-event-location/interface.sellect-option";
+import { SelectCidades } from "./cidades.interface";
 import { HomeService } from '../services/impl/home.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class Cidades implements OnInit {
     @Output() cityChange = new EventEmitter<string>();
     @Output() searchChange = new EventEmitter<string>();
 
-    public ufOptions: SelectOption[] = [];
-    public cityOptions: SelectOption[] = [];
+    public ufOptions: SelectCidades[] = [];
+    public cityOptions: SelectCidades[] = [];
 
     public selectedUf = '';
     public selectedCity = '';
@@ -37,7 +37,7 @@ export class Cidades implements OnInit {
 
         this.homeService.getCityOptions(uf).subscribe((options) => {
             this.cityOptions = options;
-            this.selectedCity = options[0]?.value ?? '';
+            this.selectedCity = options[0]?.id ?? '';
             this.cityChange.emit(this.selectedCity);
         });
     }

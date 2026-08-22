@@ -1,6 +1,8 @@
-import { Component,Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { HomeService } from '../services/impl/home.service';
+import { Doctor } from '../services/iservice/home.interface';
 import generateSlug from '../utils/generate.slug';
 
 @Component({
@@ -8,32 +10,35 @@ import generateSlug from '../utils/generate.slug';
   imports: [RouterLink, NgClass],
   templateUrl: './doctor-card.html',
   styleUrl: './doctor-card.css',
+  providers: [HomeService],
 })
-export class DoctorCard {
-  @Input() id!: string;
-  @Input() slug!: string;
-  @Input() acronym!: string;
-  @Input() name!: string;
-  @Input() status!: string;
-  @Input() specialty!: string;
-  @Input() crm!: string;
-  @Input() phone!: string;
-  @Input() unidade!: Array<{
-    address: string;
-    city: string;
-    uf: string;
-  }>;
-  @Input() avatarIndex:number=0;
+export class DoctorCard implements OnChanges {
+  @Input() selectedCity!: string;
 
-  get avatarClass(): string {
-    const cycle = (this.avatarIndex % 3)+1;
+  public doctors: Doctor[] = [];
+
+  constructor(private homeService: HomeService) {}
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+      this.selectedCity = changes['selectedCity'].currentValue;
+      console.log('Selected City changed:', this.selectedCity);
+      this.homeService.getDoctors(this.selectedCity).subscribe((doctors) => {
+        this.doctors = doctors;
+        console.log('Doctors fetched:', this.doctors);
+      });
+  }
+
+  avatarClass(index: number): string {
+    const cycle = (index % 3) + 1;
     return `avatar--doctor-${cycle}`;
   }
-  get consultaLink(): string[] {
-    return ['/consultas', this.slug, this.id];
+
+  consultaLink(doctor: Doctor): string[] {
+    return ['/consultas', doctor.slug, doctor.id];
   }
 
-  get perfilLink(): string[]{
-    return ['/perfil', generateSlug(this.specialty), this.slug];
+  perfilLink(doctor: Doctor): string[] {
+    return ['/perfil', generateSlug(doctor.specialty), doctor.slug];
   }
 }

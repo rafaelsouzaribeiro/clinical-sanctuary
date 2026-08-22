@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { SelectOption } from '../../select-event-location/interface.sellect-option';
+import { SelectCidades } from '../../cidades/cidades.interface';
 
 export interface Doctor {
   id: string;
@@ -15,10 +15,11 @@ export interface Doctor {
     uf: string;
   }>;
   crm: string;
+  cityId: string;
 }
 
 export interface IHomeService {
-  getDoctors(): Observable<Doctor[]>;
-  getUfOptions(): Observable<SelectOption[]>;
-  getCityOptions(uf: string): Observable<SelectOption[]>;
+  getDoctors(id:string): Observable<Doctor[]>;
+  getUfOptions(): Observable<SelectCidades[]>;
+  getCityOptions(uf: string): Observable<SelectCidades[]>;
 }

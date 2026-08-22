@@ -61,6 +61,7 @@
       "status": "Ativo",
       "specialty": "Cardiologista",
       "phone": "(11) 1234-5678",
+      "cityId": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
         { "address": "Ala Norte, Sala 402", "city": "Sorocaba", "uf": "SP" }
       ],
@@ -74,6 +75,7 @@
       "status": "Ativo",
       "specialty": "Dermatologista",
       "phone": "(11) 9876-5432",
+      "cityId": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
         { "address": "Ala Suldeste, Sala 90", "city": "Sorocaba", "uf": "SP" }
       ],
@@ -87,6 +89,7 @@
       "status": "Inativo",
       "specialty": "Neurologista",
       "phone": "(11) 5678-1234",
+      "cityId": "1b8951b0-898e-4d2a-8c98-760add865e24",
       "unidade": [
         { "address": "Ala Norte, Sala 120", "city": "Pilar do Sul", "uf": "SP" }
       ],
@@ -100,6 +103,7 @@
       "status": "Ativo",
       "specialty": "Pediatra",
       "phone": "(11) 4321-8765",
+      "cityId": "177d8c35-11fc-4732-b310-94fc493ced9a",
       "unidade": [
         { "address": "Ala Oeste, Sala 110", "city": "Salto de Pirapora", "uf": "SP" }
       ],
@@ -113,6 +117,7 @@
       "status": "Ativo",
       "specialty": "Ortopedista",
       "phone": "(11) 8765-4321",
+      "cityId": "9f67a54e-7e4b-4307-9766-bf8cfd1b937b",
       "unidade": [
         { "address": "Ala Leste, Sala 210", "city": "Votorantim", "uf": "SP" }
       ],
@@ -126,6 +131,7 @@
       "status": "Inativo",
       "specialty": "Ginecologista",
       "phone": "(11) 5432-1098",
+      "cityId": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
         { "address": "Ala Norte, Sala 305", "city": "Sorocaba", "uf": "SP" }
       ],
@@ -139,6 +145,7 @@
       "status": "Ativo",
       "specialty": "Oftalmologista",
       "phone": "(11) 2109-8765",
+      "cityId": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
         { "address": "Ala Suldeste, Sala 75", "city": "Sorocaba", "uf": "SP" }
       ],
@@ -152,6 +159,7 @@
       "status": "Ativo",
       "specialty": "Psiquiatra",
       "phone": "(11) 1098-5432",
+      "cityId": "1b8951b0-898e-4d2a-8c98-760add865e24",
       "unidade": [
         { "address": "Ala Oeste, Sala 150", "city": "Pilar do Sul", "uf": "SP" }
       ],
@@ -314,14 +322,14 @@
     { "value": "PR", "label": "PR" }
   ],
   "cityOptions": [
-    { "uf": "SP", "value": "Salto de Pirapora", "label": "Salto de Pirapora" },
-    { "uf": "SP", "value": "Pilar do Sul", "label": "Pilar do Sul" },
-    { "uf": "SP", "value": "Votorantim", "label": "Votorantim" },
-    { "uf": "SP", "value": "Sorocaba", "label": "Sorocaba" },
-    { "uf": "SP", "value": "São Paulo", "label": "São Paulo" },
-    { "uf": "RJ", "value": "Rio de Janeiro", "label": "Rio de Janeiro" },
-    { "uf": "RJ", "value": "Niterói", "label": "Niterói" },
-    { "uf": "MG", "value": "Belo Horizonte", "label": "Belo Horizonte" },
-    { "uf": "PR", "value": "Curitiba", "label": "Curitiba" }
+    { "id": "177d8c35-11fc-4732-b310-94fc493ced9a", "uf": "SP", "label": "Salto de Pirapora" },
+    { "id": "1b8951b0-898e-4d2a-8c98-760add865e24", "uf": "SP",  "label": "Pilar do Sul" },
+    { "id": "9f67a54e-7e4b-4307-9766-bf8cfd1b937b", "uf": "SP", "label": "Votorantim" },
+    { "id": "0dede741-d7ef-427d-8209-73cfee8e19d4", "uf": "SP", "label": "Sorocaba" },
+    { "id": "9dfe48d3-7657-42de-a0c6-b80dae81bee9", "uf": "SP",  "label": "São Paulo" },
+    { "id": "f00ffc46-1d23-4f25-b1aa-8cbd4ef020c0", "uf": "RJ", "label": "Rio de Janeiro" },
+    { "id": "ad9edf7f-1da6-4116-8e0d-2c1febd44b7a", "uf": "RJ", "label": "Niterói" },
+    { "id": "c599f668-42f3-474a-8fac-d8cd854f62f2", "uf": "MG", "label": "Belo Horizonte" },
+    { "id": "4a49230b-bcb8-457a-ae9b-422d129777dc", "uf": "PR", "label": "Curitiba" }
   ] 
 }
