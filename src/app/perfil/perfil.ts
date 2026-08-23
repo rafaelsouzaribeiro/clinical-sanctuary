@@ -6,6 +6,7 @@ import { Servico, Convenio, Unidade } from './../services/iservice/perfil.interf
 import { PerfilService } from '../services/impl/perfil.service';
 import { ActivatedRoute } from '@angular/router';
 import { DoctorProfile } from '../services/iservice/perfil.interface';
+import { ScheduleService } from '../services/impl/schedule.service';
 
 
 @Component({
@@ -39,11 +40,13 @@ export class Perfil {
   public convenioSelecionado: Convenio | null = null;
   public unidadeSelecionada: Unidade | null = null;
   public showModal: boolean = false;
+  public nextSlotMessage = 'Carregando horário...';
   
   constructor(
       private titleService: Title, 
       private router: Router,
-      private perfilService: PerfilService
+      private perfilService: PerfilService,
+      private scheduleService: ScheduleService  
     ) {
   }
 
@@ -55,6 +58,10 @@ export class Perfil {
           this.doctor.set(doctor);
           this.titleService.setTitle(`Perfil - ${doctor.specialty} - ${doctor.name}`);
     });
+
+    this.scheduleService.getNextAvailableMessage().subscribe((msg) => {
+      this.nextSlotMessage = msg;
+    })
   }
 
   get consultaLink():string[]{
