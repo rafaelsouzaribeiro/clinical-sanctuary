@@ -15,13 +15,9 @@ export class Home {
         this.title.setTitle('Home - Clinical Sanctuary');
     }
 
-    public selectedUf = '';
     public selectedCity = '';
     public searchTerm = '';
 
-    onUfChange(value: string): void {
-        this.selectedUf = value;
-    }
 
     onCityChange(value: string): void {
         this.selectedCity = value;

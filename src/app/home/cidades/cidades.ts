@@ -9,7 +9,6 @@ import { HomeService } from '../../services/impl/home.service';
   styleUrl: './cidades.css',
 })
 export class Cidades implements OnInit {
-    @Output() ufChange = new EventEmitter<string>();
     @Output() cityChange = new EventEmitter<string>();
     @Output() searchChange = new EventEmitter<string>();
 
@@ -26,7 +25,6 @@ export class Cidades implements OnInit {
         this.homeService.getUfOptions().subscribe((options) => {
             this.ufOptions = options;
             this.selectedUf = this.ufOptions[0]?.value ?? '';
-            this.ufChange.emit(this.selectedUf);
             this.loadCities(this.selectedUf);
         });
     }
@@ -45,7 +43,6 @@ export class Cidades implements OnInit {
     onUfSelect(event: Event): void {
         const value = (event.target as HTMLSelectElement).value;
         this.selectedUf = value;
-        this.ufChange.emit(value);
         this.loadCities(value);
     }
 
