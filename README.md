@@ -9,7 +9,7 @@ Diretório médico desenvolvido em **Angular** com backend mockado via **JSON Se
 Antes de começar, certifique-se de ter instalado em sua máquina:
 * [Node.js](https://nodejs.org/) (versão LTS recomendada)
 * [npm](https://www.npmjs.com/) (gerenciador de pacotes do Node)
-* [Angular CLI](https://angular.dev/tools/cli)
+* [Angular CLI](https://angular.dev/tools/cli) version 22.1.3
 
 ---
 
