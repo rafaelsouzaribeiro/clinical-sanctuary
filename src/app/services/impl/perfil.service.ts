@@ -12,11 +12,9 @@ export class PerfilService {
 
   getDoctor(slug: string): Observable<DoctorProfile> {
       const url = `${BASEURL}/doctorProfile?slug=${slug}`;
-      console.log('URL chamada:', url);
 
       return this.http.get<DoctorProfile[]>(url).pipe(
         map((lista) => {
-          console.log('Array retornado pelo json-server:', lista);
           return lista[0]; 
         })
       );

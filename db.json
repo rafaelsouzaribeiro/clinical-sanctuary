@@ -33,7 +33,25 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 150,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 80,00" }
-    ]
+    ],
+        "comments":[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
   },
   {
     "id": "2ab456cd-ef12-3456-7890-abcdef123456",
@@ -67,7 +85,25 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 180,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 120,00" }
-    ]
+    ],
+        "comments":[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
   },
   {
     "id": "3cd789ef-4567-8901-2345-abcdef678901",
@@ -101,7 +137,25 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 220,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 150,00" }
-    ]
+    ],
+        "comments":[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
   },
   {
     "id": "4ef012gh-5678-9012-3456-abcdef890123",
@@ -135,7 +189,25 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 160,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 90,00" }
-    ]
+    ],
+        "comments":[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
   },
   {
     "id": "5gh345ij-6789-0123-4567-abcdef901234",
@@ -169,7 +241,25 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 200,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 130,00" }
-    ]
+    ],
+        "comments":[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
   },
   {
     "id": "6ij678kl-7890-1234-5678-abcdef012345",
@@ -203,7 +293,25 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 190,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 110,00" }
-    ]
+    ],
+        "comments":[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
   },
   {
     "id": "7kl901mn-8901-2345-6789-abcdef123456",
@@ -237,7 +345,25 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 170,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 100,00" }
-    ]
+    ],
+    "comments":[
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ]
   },
   {
     "id": "8mn234op-9012-3456-7890-abcdef234567",
@@ -271,10 +397,8 @@
     "servicos": [
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 250,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 140,00" }
-    ]
-  }
-  ],
-  "comments": [
+    ],
+    "comments":[
     {
       "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
       "avatar": "MC",
@@ -284,13 +408,15 @@
       "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
     },
     {
-      "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
+     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
       "avatar": "RP",
       "name": "Ricardo Pereira",
       "date": "Consulta em 05 Set 2023",
       "stars": 4,
       "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
     }
+  ]
+  }
   ],
   "homeDoctors": [
     {

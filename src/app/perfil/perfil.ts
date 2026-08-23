@@ -50,18 +50,10 @@ export class Perfil {
 
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';
-    console.log('Slug da rota:', slug);
 
-    this.perfilService.getDoctor(slug).subscribe({
-      next: (doctor) => {
-        console.log('Doctor recebido:', doctor);
-        console.log('Tem id?', doctor?.id);
-        this.doctor.set(doctor);
-        if (doctor) {
+    this.perfilService.getDoctor(slug).subscribe((doctor)=>{
+          this.doctor.set(doctor);
           this.titleService.setTitle(`Perfil - ${doctor.specialty} - ${doctor.name}`);
-        }
-      },
-      error: (err) => console.error(err),
     });
   }
 
