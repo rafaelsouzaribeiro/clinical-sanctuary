@@ -11,19 +11,5 @@
             (searchChange)="onSearchChange($event)">
         </app-cidades>
 </section>
-<section class="home-grid" aria-label="Lista de especialistas">
-    <app-doctor-card [selectedCity]="selectedCity"></app-doctor-card>
-    <article class="add-card">
-        <div>
-        <div class="add-card__icon" aria-hidden="true">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5V19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-            <path d="M5 12H19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-            <path d="M5.5 18.5C7.4 16.35 9.55 15.25 12 15.25C14.45 15.25 16.6 16.35 18.5 18.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-            </svg>
-        </div>
-        <h3>Adicionar Novo</h3>
-        <p>Expanda sua equipe clínica integrando novos profissionais.</p>
-        </div>
-    </article>
-</section>
+<app-doctor-card [selectedCity]="selectedCity" [searchTerm]="searchTerm"></app-doctor-card>
+

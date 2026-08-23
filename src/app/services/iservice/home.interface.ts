@@ -19,7 +19,7 @@ export interface Doctor {
 }
 
 export interface IHomeService {
-  getDoctors(id:string): Observable<Doctor[]>;
+  getDoctors(searchTerm: string,id: string): Observable<Doctor[]>;
   getUfOptions(): Observable<SelectCidades[]>;
   getCityOptions(uf: string): Observable<SelectCidades[]>;
 }

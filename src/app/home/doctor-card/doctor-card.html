@@ -1,36 +1,52 @@
-@for (doctor of doctors(); track doctor.id; let i = $index) {
-<article class="doctor-card">
-    <div class="doctor-card__top">
-    <div class="avatar" [ngClass]="avatarClass(i)" aria-hidden="true">{{doctor.acronym}}</div>
-    <div class="doctor-card__meta">
-        <div class="doctor-card__name-row">
-        <h2 class="doctor-card__name">{{doctor.name}}</h2>
-        <span class="badge">{{doctor.status}}</span>
+<section class="home-grid" aria-label="Lista de especialistas">
+    @for (doctor of doctors(); track doctor.id; let i = $index) {
+        <article class="doctor-card">
+            <div class="doctor-card__top">
+            <div class="avatar" [ngClass]="avatarClass(i)" aria-hidden="true">{{doctor.acronym}}</div>
+            <div class="doctor-card__meta">
+                <div class="doctor-card__name-row">
+                <h2 class="doctor-card__name">{{doctor.name}}</h2>
+                <span class="badge">{{doctor.status}}</span>
+                </div>
+                <div class="specialty">{{doctor.specialty}}</div>
+                <div class="crm">CRM: {{doctor.crm}}</div>
+            </div>
+            </div>
+
+            <hr />
+
+            <div class="info-list">
+            <div class="info-item">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 4.5C5 3.67 5.67 3 6.5 3H8.1C8.84 3 9.48 3.5 9.66 4.22L10.46 7.42C10.62 8.04 10.4 8.7 9.91 9.1L8.75 10.05C9.56 11.65 10.85 12.94 12.45 13.75L13.4 12.59C13.8 12.1 14.46 11.88 15.08 12.04L18.28 12.84C19 13.02 19.5 13.66 19.5 14.4V16C19.5 16.83 18.83 17.5 18 17.5C10.82 17.5 4.5 11.18 4.5 4V4.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" />
+                </svg>
+                <span>{{doctor.phone}}</span>
+            </div>
+            <div class="info-item">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21C12 21 6 15.54 6 10.5C6 7.19 8.69 4.5 12 4.5C15.31 4.5 18 7.19 18 10.5C18 15.54 12 21 12 21Z" stroke="currentColor" stroke-width="1.9" />
+                <circle cx="12" cy="10.5" r="2" stroke="currentColor" stroke-width="1.9" />
+                </svg>
+                <span>{{doctor.unidade[0].address}} - {{doctor.unidade[0].city}}/{{doctor.unidade[0].uf}}</span>
+            </div>
+            </div>
+
+            <a [routerLink]="perfilLink(doctor)" title="Dr. Ricardo Santos" class="doctor-card__button doctor-card__button--ghost">Ver Perfil</a>
+            <a [routerLink]="consultaLink(doctor)" [title]="'Agendar - ' + doctor.name" class="doctor-card__button doctor-card__button--ghost">Agendar</a>
+        </article>
+    }
+
+    <article class="add-card">
+        <div>
+        <div class="add-card__icon" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5V19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M5 12H19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M5.5 18.5C7.4 16.35 9.55 15.25 12 15.25C14.45 15.25 16.6 16.35 18.5 18.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
         </div>
-        <div class="specialty">{{doctor.specialty}}</div>
-        <div class="crm">CRM: {{doctor.crm}}</div>
-    </div>
-    </div>
-
-    <hr />
-
-    <div class="info-list">
-    <div class="info-item">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M5 4.5C5 3.67 5.67 3 6.5 3H8.1C8.84 3 9.48 3.5 9.66 4.22L10.46 7.42C10.62 8.04 10.4 8.7 9.91 9.1L8.75 10.05C9.56 11.65 10.85 12.94 12.45 13.75L13.4 12.59C13.8 12.1 14.46 11.88 15.08 12.04L18.28 12.84C19 13.02 19.5 13.66 19.5 14.4V16C19.5 16.83 18.83 17.5 18 17.5C10.82 17.5 4.5 11.18 4.5 4V4.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" />
-        </svg>
-        <span>{{doctor.phone}}</span>
-    </div>
-    <div class="info-item">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 21C12 21 6 15.54 6 10.5C6 7.19 8.69 4.5 12 4.5C15.31 4.5 18 7.19 18 10.5C18 15.54 12 21 12 21Z" stroke="currentColor" stroke-width="1.9" />
-        <circle cx="12" cy="10.5" r="2" stroke="currentColor" stroke-width="1.9" />
-        </svg>
-        <span>{{doctor.unidade[0].address}} - {{doctor.unidade[0].city}}/{{doctor.unidade[0].uf}}</span>
-    </div>
-    </div>
-
-    <a [routerLink]="perfilLink(doctor)" title="Dr. Ricardo Santos" class="doctor-card__button doctor-card__button--ghost">Ver Perfil</a>
-    <a [routerLink]="consultaLink(doctor)" [title]="'Agendar - ' + doctor.name" class="doctor-card__button doctor-card__button--ghost">Agendar</a>
-</article>
-}
+        <h3>Adicionar Novo</h3>
+        <p>Expanda sua equipe clínica integrando novos profissionais.</p>
+        </div>
+    </article>
+</section>

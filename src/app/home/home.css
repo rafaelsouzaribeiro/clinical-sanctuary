@@ -1,18 +1,5 @@
 
-.add-card {
-  border: 2px dashed #d9e2e4;
-  background: rgba(255, 255, 255, 0.48);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  color: #566368;
-   padding: 20px;
-     min-height: 326px;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 26px 26px 28px;
-  box-shadow: 0 18px 40px rgba(20, 53, 69, 0.06);
-}
+
 
 .home-hero {
   display: grid;
@@ -42,17 +29,7 @@
   color: #0ba6bb;
   font-weight: 800;
 }
-
-
-
-
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 34px;
-}
-
-
+  
 
 .avatar--doctor-2 {
   background: linear-gradient(145deg, #245f7c, #5b8ba6);
@@ -67,84 +44,18 @@
     grid-template-columns: 1fr;
   }
 
-  .home-search {
-    justify-self: start;
-  }
-
-  .home-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 
 
 @media (max-width: 760px) {
-  .home-header {
-    padding: 10px 14px;
-  }
 
-
-  .home-header {
-    margin-bottom: 10px;
-  }
-
-  .home-brand {
-    font-size: 1rem;
-  }
-
-  .home-brand__avatar {
-    width: 38px;
-    height: 38px;
-  }
 
   .home-title {
     font-size: clamp(2.2rem, 10vw, 3.4rem);
   }
 
-  .home-search {
-    width: 100%;
-    padding: 16px;
-  }
-
-  .home-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .doctor-card{
-    padding: 20px;
-    min-height: auto;
-  }
-
-  .doctor-card__top {
-    gap: 14px;
-  }
-
-  .avatar {
-    width: 76px;
-    height: 76px;
-    border-radius: 16px;
-    font-size: 1.6rem;
-  }
-
-  .doctor-card__name {
-    font-size: 1.4rem;
-  }
-
-  .specialty,
-  .crm,
-  .info-item{
-    font-size: 0.98rem;
-  }
-
-  .doctor-card__button {
-    padding: 14px 16px;
-  }
   
 }
 
-@media (max-width: 480px) {
-  .home-brand span {
-    font-size: 0.95rem;
-  }
-}
+

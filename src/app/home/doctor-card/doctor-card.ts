@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { switchMap } from 'rxjs';
+import { combineLatest, map, switchMap } from 'rxjs';
 import { HomeService } from '../../services/impl/home.service';
 import { Doctor } from '../../services/iservice/home.interface';
 import generateSlug  from '../../utils/generate.slug';
@@ -15,11 +15,27 @@ import generateSlug  from '../../utils/generate.slug';
 })
 export class DoctorCard {
   selectedCity = input.required<string>();
+  searchTerm = input.required<string>();
   
 
   public doctors = toSignal(
-    toObservable(this.selectedCity).pipe(
-      switchMap(city => this.homeService.getDoctors(city))
+    combineLatest([
+      toObservable(this.selectedCity),
+      toObservable(this.searchTerm),
+    ]).pipe(
+      switchMap(([city, term]) =>
+        this.homeService.getDoctors(city).pipe(
+          map((doctors) => {
+            if (!term?.trim()) {
+              return doctors;
+            }
+            const t = term.trim().toLowerCase();
+            return doctors.filter(
+              (d) => d.specialty?.toLowerCase().includes(t)
+            );
+          })
+        )
+      )
     ),
     { initialValue: [] as Doctor[] }
   );
