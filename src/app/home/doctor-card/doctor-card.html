@@ -1,4 +1,4 @@
-@for (doctor of doctors; track doctor.id; let i = $index) {
+@for (doctor of doctors(); track doctor.id; let i = $index) {
 <article class="doctor-card">
     <div class="doctor-card__top">
     <div class="avatar" [ngClass]="avatarClass(i)" aria-hidden="true">{{doctor.acronym}}</div>

@@ -1,9 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { filter, switchMap } from 'rxjs';
 import { HomeService } from '../../services/impl/home.service';
 import { Doctor } from '../../services/iservice/home.interface';
-import generateSlug from '../../utils/generate.slug';
+import generateSlug  from '../../utils/generate.slug';
 
 @Component({
   selector: 'app-doctor-card',
@@ -11,22 +13,18 @@ import generateSlug from '../../utils/generate.slug';
   templateUrl: './doctor-card.html',
   styleUrl: './doctor-card.css',
 })
-export class DoctorCard implements OnChanges {
-  @Input() selectedCity!: string;
+export class DoctorCard {
+  selectedCity = input.required<string>();
 
-  public doctors: Doctor[] = [];
+  public doctors = toSignal(
+    toObservable(this.selectedCity).pipe(
+      filter(city => !!city),
+      switchMap(city => this.homeService.getDoctors(city))
+    ),
+    { initialValue: [] as Doctor[] }
+  );
 
   constructor(private homeService: HomeService) {}
-
-
-  ngOnChanges(changes: SimpleChanges): void {
-      this.selectedCity = changes['selectedCity'].currentValue;
-      console.log('Selected City changed:', this.selectedCity);
-      this.homeService.getDoctors(this.selectedCity).subscribe((doctors) => {
-        this.doctors = doctors;
-        console.log('Doctors fetched:', this.doctors);
-      });
-  }
 
   avatarClass(index: number): string {
     const cycle = (index % 3) + 1;
