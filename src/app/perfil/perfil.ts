@@ -40,7 +40,7 @@ export class Perfil {
   public convenioSelecionado: Convenio | null = null;
   public unidadeSelecionada: Unidade | null = null;
   public showModal: boolean = false;
-  public nextSlotMessage = 'Carregando horário...';
+  public nextSlotMessage = signal<string>('Carregando horário...');
   
   constructor(
       private titleService: Title, 
@@ -57,11 +57,13 @@ export class Perfil {
     this.perfilService.getDoctor(slug).subscribe((doctor)=>{
           this.doctor.set(doctor);
           this.titleService.setTitle(`Perfil - ${doctor.specialty} - ${doctor.name}`);
+
+          this.scheduleService.getNextAvailableMessage(doctor.id).subscribe((msg) => {
+            this.nextSlotMessage.set(msg);
+          });
     });
 
-    this.scheduleService.getNextAvailableMessage().subscribe((msg) => {
-      this.nextSlotMessage = msg;
-    })
+    
   }
 
   get consultaLink():string[]{

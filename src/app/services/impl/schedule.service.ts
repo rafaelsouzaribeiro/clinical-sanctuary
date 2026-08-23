@@ -2,37 +2,38 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import BASEURL from '../../../app.api';
-import { AvailableTime } from '../iservice/schedule.service'; 
+import { AvailableTime, IScheduleService } from '../iservice/schedule.service'; 
 
 @Injectable({
   providedIn: 'root',
 })
-export class ScheduleService {
+export class ScheduleService implements IScheduleService {
   constructor(private http: HttpClient) {}
 
-  getAvailableTimes(): Observable<AvailableTime[]> {
-    return this.http.get<AvailableTime[]>(`${BASEURL}/availableTimes`);
+  public getAvailableTimes(idDoctor: string): Observable<AvailableTime[]> {
+    console.log(`${BASEURL}/availableTimes?idDoctor=${idDoctor}`)
+    return this.http.get<AvailableTime[]>(`${BASEURL}/availableTimes?idDoctor=${idDoctor}`);
   }
 
-  getNextAvailableMessage(): Observable<string> {
-    return this.getAvailableTimes().pipe(
+  public getNextAvailableMessage(idDoctor: string): Observable<string> {
+    return this.getAvailableTimes(idDoctor).pipe(
       map((list) => this.buildMessage(list))
     );
   }
 
-  private buildMessage(list: AvailableTime[]): string {
+  public buildMessage(list: AvailableTime[]): string {
     const now = new Date();
     const next = this.findNextSlot(list, now);
 
     if (!next) {
-      return 'Nenhum horário disponível no momento';
+      return 'Nenhum horário encontrado no momento. Clique em agendar para mais informações.';
     }
 
     const label = this.formatDayLabel(next.date, now);
     return `Próximo horário disponível: ${label}, às ${next.time}`;
   }
 
-  private findNextSlot(
+  public findNextSlot(
     list: AvailableTime[],
     now: Date
   ): { date: string; time: string } | null {
@@ -55,7 +56,7 @@ export class ScheduleService {
     return null;
   }
 
-  private formatDayLabel(dateStr: string, now: Date): string {
+  public formatDayLabel(dateStr: string, now: Date): string {
     const target = this.parseDate(dateStr);
     if (!target) return dateStr;
 
@@ -80,20 +81,20 @@ export class ScheduleService {
     });
   }
 
-  private parseDate(dateStr: string): Date | null {
+  public parseDate(dateStr: string): Date | null {
     const [y, m, d] = dateStr.split('-').map(Number);
     if (!y || !m || !d) return null;
     return new Date(y, m - 1, d);
   }
 
-  private combineDateAndTime(dateStr: string, time: string): Date | null {
+  public combineDateAndTime(dateStr: string, time: string): Date | null {
     const [y, m, d] = dateStr.split('-').map(Number);
     const [hh, mm] = time.split(':').map(Number);
     if ([y, m, d, hh, mm].some((n) => Number.isNaN(n))) return null;
     return new Date(y, m - 1, d, hh, mm, 0, 0);
   }
 
-  private startOfDay(date: Date): Date {
+   public startOfDay(date: Date): Date {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate());
   }
 }

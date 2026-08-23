@@ -666,19 +666,19 @@
     { "id": "8c417c2a-9b37-4968-8777-a9ad6cb5d256", "date": "2026-09-26" }
   ],
   "availableTimes": [
-    { "date": "2026-08-18", "availableTimes": ["08:00", "09:30", "15:00"] },
-    { "date": "2026-08-19", "availableTimes": ["10:00", "11:30", "15:00"] },
-    { "date": "2026-08-20", "availableTimes": ["09:00", "12:30", "16:00"] },
-    { "date": "2026-08-21", "availableTimes": ["08:00"] },
-    { "date": "2026-08-22", "availableTimes": ["10:45", "14:30"] },
-    { "date": "2026-08-23", "availableTimes": ["08:00", "11:00", "13:15"] },
-    { "date": "2026-08-25", "availableTimes": ["08:00"] },
-    { "date": "2026-08-26", "availableTimes": ["08:00"] },
-    { "date": "2026-08-27", "availableTimes": ["08:00"] },
-    { "date": "2026-08-28", "availableTimes": ["08:00"] },
-    { "date": "2026-08-29", "availableTimes": ["08:00"] },
-    { "date": "2026-08-30", "availableTimes": ["08:00"] },
-    { "date": "2026-08-31", "availableTimes": ["08:00"] }
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-18", "availableTimes": ["08:00", "09:30", "15:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-19", "availableTimes": ["10:00", "11:30", "15:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-20", "availableTimes": ["09:00", "12:30", "16:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-21", "availableTimes": ["08:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-22", "availableTimes": ["10:45", "14:30"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-23", "availableTimes": ["08:00", "11:00", "13:15"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-25", "availableTimes": ["08:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-26", "availableTimes": ["08:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-27", "availableTimes": ["08:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-28", "availableTimes": ["08:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-29", "availableTimes": ["08:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-30", "availableTimes": ["08:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-31", "availableTimes": ["08:00"] }
   ],
   "ufOptions": [
     { "value": "SP", "label": "SP" },
