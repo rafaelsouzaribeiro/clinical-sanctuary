@@ -1,137 +1,168 @@
-    <section class="profile-hero">
-        <div class="profile-hero-content">
-        <img src="{{ doctors.photo }}" alt="{{ doctors.name }}" class="profile-doctor-image" />
-        <div class="experience-circle rotate-12">
-            <div class="experience-content">
-            <strong class="years">{{doctors.experience}}+</strong>
-            <span class="label">ANOS DE<br>EXPERIÊNCIA</span>
-            </div>
-        </div>
-            
-        <div class="profile-info">
-            <p class="profile-kicker">TOP SPECIALIST</p>
-            <h1 class="profile-doctor-name">{{doctors.name}}</h1>
-            <p class="profile-specialty">{{doctors.specialty}} • CRM {{doctors.crm}}</p>
-            <a class="profile-specialty" [href]="'tel:' + doctors.phone">{{doctors.phone}}</a>
-            
-            <p class="profile-description">
-            {{doctors.description}}
-            </p>
+ <section class="profile-hero">
+    <div class="profile-hero-content">
+      <img [src]="doctor().photo" [alt]="doctor().name" class="profile-doctor-image" />
 
-            <div class="profile-stats">
-            <div class="stat-card">
-                <strong class="stat-number">{{doctors.statNumber}}</strong>
-                <span class="stat-label">RATING ({{doctors.rating}}+)</span>
-            </div>
-            <div class="stat-card">
-                <strong class="stat-number">{{doctors.patientNumber}}</strong>
-                <span class="stat-label">PACIENTES</span>
-            </div>
+      <div class="experience-circle rotate-12">
+        <div class="experience-content">
+          <strong class="years">{{ doctor().experience }}+</strong>
+          <span class="label">ANOS DE<br />EXPERIÊNCIA</span>
+        </div>
+      </div>
 
-            </div>
-        </div>
-        </div>
-    </section>
-    <section class="card-perfil">
-        <!-- Serviços + Localização -->
-        <div class="profile-grid">
-        <div class="consult-card profile-services">
-            <h2>Investimento em Saúde</h2>
-            <div class="services-list">
-                @for(s of doctors.servicos; track s.id){
-                    <div class="service-item" [class.popular]="servicoSelecionado?.id === s.id" (click)="setService(s)">
-                        <span>{{s.label}}</span>
-                        <strong>{{s.price}}</strong>
-                    </div>
-                }
-            </div>
-        </div>
-        <div class="location-card">
-            <div class="map-container">
-                <img src="mapa.png" alt="Mapa de Localização" class="map-image">
-            </div>
-            <div class="location-info">
-                <h3>Localização</h3>
-                <p><strong>{{doctors.unidades[0].label}}</strong></p>
-                <p>{{doctors.unidades[0].room}}</p>
-                
-                <button class="location-btn">
-                <span>📍</span> COMO CHEGAR
-                </button>
-            </div>
-            </div>
-        </div>
-    </section>
-    <!-- Convênios e Unidades -->
-    <section class="convenios-unidades">
-        
-        <!-- Convênios Aceitos -->
-        <div class="convenios-card">
-        <div class="section-header">
-            <span class="shield-icon">🛡️</span>
-            <h2>Convênios Aceitos</h2>
-        </div>
-        <div class="convenios-grid">
-            @for(c of doctors.convenios; track c.value){
-                <div class="convenio-badge" [class.convenio-badge-active]="convenioSelecionado?.value === c.value" (click)="setConvenio(c)">{{c.label}}</div>
-            }
-        </div>
-        </div>
+      <div class="profile-info">
+        <p class="profile-kicker">TOP SPECIALIST</p>
+        <h1 class="profile-doctor-name">{{ doctor().name }}</h1>
+        <p class="profile-specialty">
+          {{ doctor().specialty }} • CRM {{ doctor().crm }}
+        </p>
+        <a class="profile-specialty" [href]="'tel:' + doctor().phone">
+          {{ doctor().phone }}
+        </a>
+        <p class="profile-description">{{ doctor().description }}</p>
 
-        <!-- Unidades de Atendimento -->
-        <div class="unidades-card">
-        <h2>Unidades de Atendimento</h2>
-        @for(u of doctors.unidades; track u.value){
-            <div class="unidade-item" (click)="setUnidade(u)">
-                <div class="unidade-icon" [class.main]="unidadeSelecionada?.value === u.value">🏢</div>
-                <div class="unidade-info">
-                <strong>{{u.label}}</strong>
-                <span>{{u.open}}</span>
-                </div>
+        <div class="profile-stats">
+          <div class="stat-card">
+            <strong class="stat-number">{{ doctor().statNumber }}</strong>
+            <span class="stat-label">RATING ({{ doctor().rating }}+)</span>
+          </div>
+          <div class="stat-card">
+            <strong class="stat-number">{{ doctor().patientNumber }}</strong>
+            <span class="stat-label">PACIENTES</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card-perfil">
+    <div class="profile-grid">
+      <div class="consult-card profile-services">
+        <h2>Investimento em Saúde</h2>
+        <div class="services-list">
+          @for (s of doctor().servicos; track s.id) {
+            <div
+              class="service-item"
+              [class.popular]="servicoSelecionado?.id === s.id"
+              (click)="setService(s)"
+            >
+              <span>{{ s.label }}</span>
+              <strong>{{ s.price }}</strong>
             </div>
+          }
+        </div>
+      </div>
+
+      <div class="location-card">
+        <div class="map-container">
+          <img src="mapa.png" alt="Mapa de Localização" class="map-image" />
+        </div>
+        <div class="location-info">
+          <h3>Localização</h3>
+          <p>
+            <strong>{{ doctor().unidades[0]?.label }}</strong>
+          </p>
+          <p>{{ doctor().unidades[0]?.room }}</p>
+          <button class="location-btn">
+            <span>📍</span> COMO CHEGAR
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="convenios-unidades">
+    <div class="convenios-card">
+      <div class="section-header">
+        <span class="shield-icon">🛡️</span>
+        <h2>Convênios Aceitos</h2>
+      </div>
+      <div class="convenios-grid">
+        @for (c of doctor().convenios; track c.value) {
+          <div
+            class="convenio-badge"
+            [class.convenio-badge-active]="convenioSelecionado?.value === c.value"
+            (click)="setConvenio(c)"
+          >
+            {{ c.label }}
+          </div>
         }
-        </div>
+      </div>
+    </div>
 
-    </section>
-    <!-- Avaliações -->
-    <section class="reviews-section">
-        <div class="reviews-header">
-            <h2>Experiência do Paciente</h2>
-            <a href="#" class="view-all">VER TODOS</a>
+    <div class="unidades-card">
+      <h2>Unidades de Atendimento</h2>
+      @for (u of doctor().unidades; track u.value) {
+        <div class="unidade-item" (click)="setUnidade(u)">
+          <div
+            class="unidade-icon"
+            [class.main]="unidadeSelecionada?.value === u.value"
+          >
+            🏢
+          </div>
+          <div class="unidade-info">
+            <strong>{{ u.label }}</strong>
+            <span>{{ u.open }}</span>
+          </div>
         </div>
-        <div class="reviews-grid">
-            @for(r of comments; track r.id){
-                <div class="review-card">
-                    <div class="review-header">
-                    <div class="review-avatar">{{r.avatar}}</div>
-                    <div class="review-info">
-                        <strong>{{r.name}} - </strong>
-                        <small>Consulta em {{r.date}}</small>
-                    </div>
-                    <div class="review-stars">{{ '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) }}</div>
-                    </div>
-                    <p class="review-text">
-                    "{{r.text}}"
-                    </p>
-                </div>
-            }
+      }
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <div class="reviews-header">
+      <h2>Experiência do Paciente</h2>
+      <a href="#" class="view-all">VER TODOS</a>
+    </div>
+    <div class="reviews-grid">
+      @for (r of doctor().comments; track r.id) {
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">{{ r.avatar }}</div>
+            <div class="review-info">
+              <strong>{{ r.name }} - </strong>
+              <small>Consulta em {{ r.date }}</small>
+            </div>
+            <div class="review-stars">
+              {{ '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) }}
+            </div>
+          </div>
+          <p class="review-text">"{{ r.text }}"</p>
         </div>
-    </section>
-<app-alert-modal [(showModal)]="showModal" [message]="'Por favor, selecione um <strong>Investimento em Saúde</strong>, <strong>convênio</strong> e <strong>unidade</strong> antes de prosseguir.'"></app-alert-modal>
- <div class="calendar">
-  <p class="horario-calender">
-    Próximo horário disponível: <strong>Amanhã, às 09:30</strong>
-  </p>
-  <div class="profile-cta">
-    <button (click)="goConsultation()" title="Agendar - Dra. Helena Moreira" class="doctor-card__button schedule-btn">
-      <!-- ícone + texto -->
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-        <line x1="16" y1="2" x2="16" y2="6"></line>
-        <line x1="8" y1="2" x2="8" y2="6"></line>
-        <line x1="3" y1="10" x2="21" y2="10"></line>
-      </svg>
-      AGENDAR AGORA
-    </button>
+      }
+    </div>
+  </section>
+
+  <app-alert-modal
+    [(showModal)]="showModal"
+    [message]="'Por favor, selecione um <strong>Investimento em Saúde</strong>, <strong>convênio</strong> e <strong>unidade</strong> antes de prosseguir.'"
+  ></app-alert-modal>
+
+  <div class="calendar">
+    <p class="horario-calender">
+      Próximo horário disponível: <strong>Amanhã, às 09:30</strong>
+    </p>
+    <div class="profile-cta">
+      <button
+        (click)="goConsultation()"
+        [title]="'Agendar - ' + doctor().name"
+        class="doctor-card__button schedule-btn"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        AGENDAR AGORA
+      </button>
+    </div>
   </div>
-</div>

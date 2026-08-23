@@ -52,6 +52,6 @@ export class DoctorCard {
   }
 
   perfilLink(doctor: Doctor): string[] {
-    return ['/perfil', generateSlug(doctor.specialty), doctor.slug];
+    return ['/perfil',generateSlug(doctor.unidade[0].uf), generateSlug(doctor.unidade[0].city), generateSlug(doctor.specialty), doctor.slug];
   }
 }

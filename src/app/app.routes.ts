@@ -14,6 +14,6 @@ export const routes: Routes = [
     { path: 'pacientes', component: Pacientes },
     { path: 'medicos', component: Medicos },
     { path: 'login', component: Login },
-    { path: 'perfil/:specialty/:slug', component: Perfil },
+    { path: 'perfil/:uf/:city/:specialty/:slug', component: Perfil },
     {path: '**', component: NotFound}
 ];

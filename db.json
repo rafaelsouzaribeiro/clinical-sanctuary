@@ -1,5 +1,6 @@
 {
-  "doctorProfile": {
+ "doctorProfile": [
+  {
     "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
     "slug": "dr-john-smith",
     "name": "Dr. John Smith",
@@ -34,6 +35,245 @@
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 80,00" }
     ]
   },
+  {
+    "id": "2ab456cd-ef12-3456-7890-abcdef123456",
+    "slug": "dr-mary-johnson",
+    "name": "Dr. Mary Johnson",
+    "specialty": "Dermatologista",
+    "phone": "(11) 9876-5432",
+    "crm": "654321-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.8,
+    "rating": 420,
+    "patientNumber": 980,
+    "experience": 12,
+    "description": "Dra. Mary Johnson é especialista em Dermatologia com mais de 12 anos de experiência no diagnóstico e tratamento de doenças de pele, cabelos e unhas. Atua com abordagem moderna e preventiva, sempre priorizando o bem-estar e a autoestima dos pacientes.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "label": "Clínica Central - Sorocaba, SP", "room": "Ala Suldeste, Sala 90", "open": "Seg a Sex" },
+      { "value": "b2c3d4e5-f6a7-8901-bcde-f12345678901", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 210", "open": "Ter e Qui" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 180,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 120,00" }
+    ]
+  },
+  {
+    "id": "3cd789ef-4567-8901-2345-abcdef678901",
+    "slug": "dr-luke-williams",
+    "name": "Dr. Luke Williams",
+    "specialty": "Neurologista",
+    "phone": "(11) 5678-1234",
+    "crm": "987654-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.7,
+    "rating": 310,
+    "patientNumber": 750,
+    "experience": 18,
+    "description": "Dr. Luke Williams é neurologista com 18 anos de experiência no diagnóstico e tratamento de doenças do sistema nervoso. Especializado em cefaleias, epilepsia e doenças neurodegenerativas, oferece atendimento humanizado e baseado em evidências científicas.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "c3d4e5f6-a7b8-9012-cdef-123456789012", "label": "Clínica Central - Pilar do Sul, SP", "room": "Ala Norte, Sala 120", "open": "Seg a Sex" },
+      { "value": "d4e5f6a7-b8c9-0123-def0-234567890123", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 305", "open": "Quartas" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 220,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 150,00" }
+    ]
+  },
+  {
+    "id": "4ef012gh-5678-9012-3456-abcdef890123",
+    "slug": "dr-emily-smith",
+    "name": "Dr. Emily Smith",
+    "specialty": "Pediatra",
+    "phone": "(11) 4321-8765",
+    "crm": "456789-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.9,
+    "rating": 680,
+    "patientNumber": 1500,
+    "experience": 14,
+    "description": "Dra. Emily Smith é pediatra com 14 anos de experiência no cuidado de crianças e adolescentes. Atua com foco em prevenção, desenvolvimento infantil e atendimento acolhedor para toda a família.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "e5f6a7b8-c9d0-1234-ef01-345678901234", "label": "Clínica Central - Salto de Pirapora, SP", "room": "Ala Oeste, Sala 110", "open": "Seg a Sex" },
+      { "value": "f6a7b8c9-d0e1-2345-f012-456789012345", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 408", "open": "Ter e Qui" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 160,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 90,00" }
+    ]
+  },
+  {
+    "id": "5gh345ij-6789-0123-4567-abcdef901234",
+    "slug": "dr-michael-jones",
+    "name": "Dr. Michael Jones",
+    "specialty": "Ortopedista",
+    "phone": "(11) 8765-4321",
+    "crm": "321654-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.6,
+    "rating": 390,
+    "patientNumber": 870,
+    "experience": 16,
+    "description": "Dr. Michael Jones é ortopedista com 16 anos de experiência no tratamento de lesões musculoesqueléticas, fraturas e doenças articulares. Especializado em medicina esportiva e cirurgia minimamente invasiva.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "a7b8c9d0-e1f2-3456-0123-567890123456", "label": "Clínica Central - Votorantim, SP", "room": "Ala Leste, Sala 210", "open": "Seg a Sex" },
+      { "value": "b8c9d0e1-f2a3-4567-1234-678901234567", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 512", "open": "Seg e Qua" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 200,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 130,00" }
+    ]
+  },
+  {
+    "id": "6ij678kl-7890-1234-5678-abcdef012345",
+    "slug": "dr-sarah-brown",
+    "name": "Dr. Sarah Brown",
+    "specialty": "Ginecologista",
+    "phone": "(11) 5432-1098",
+    "crm": "789012-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.8,
+    "rating": 450,
+    "patientNumber": 1100,
+    "experience": 13,
+    "description": "Dra. Sarah Brown é ginecologista e obstetra com 13 anos de experiência. Atua no acompanhamento da saúde da mulher em todas as fases da vida, com foco em prevenção, planejamento familiar e gestação de alto risco.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "c9d0e1f2-a3b4-5678-2345-789012345678", "label": "Clínica Central - Sorocaba, SP", "room": "Ala Norte, Sala 305", "open": "Seg a Sex" },
+      { "value": "d0e1f2a3-b4c5-6789-3456-890123456789", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 615", "open": "Ter e Qui" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 190,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 110,00" }
+    ]
+  },
+  {
+    "id": "7kl901mn-8901-2345-6789-abcdef123456",
+    "slug": "dr-david-wilson",
+    "name": "Dr. David Wilson",
+    "specialty": "Oftalmologista",
+    "phone": "(11) 2109-8765",
+    "crm": "654987-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.9,
+    "rating": 520,
+    "patientNumber": 1350,
+    "experience": 17,
+    "description": "Dr. David Wilson é oftalmologista com 17 anos de experiência no diagnóstico e tratamento de doenças oculares. Especializado em cirurgia de catarata, glaucoma e correção visual a laser, oferece atendimento de alta precisão e tecnologia.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "e1f2a3b4-c5d6-7890-4567-901234567890", "label": "Clínica Central - Sorocaba, SP", "room": "Ala Suldeste, Sala 75", "open": "Seg a Sex" },
+      { "value": "f2a3b4c5-d6e7-8901-5678-012345678901", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 720", "open": "Quartas" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 170,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 100,00" }
+    ]
+  },
+  {
+    "id": "8mn234op-9012-3456-7890-abcdef234567",
+    "slug": "dr-laura-martin",
+    "name": "Dr. Laura Martin",
+    "specialty": "Psiquiatra",
+    "phone": "(11) 1098-5432",
+    "crm": "321098-SP",
+    "photo": "doctor.png",
+    "statNumber": 4.7,
+    "rating": 380,
+    "patientNumber": 920,
+    "experience": 11,
+    "description": "Dra. Laura Martin é psiquiatra com 11 anos de experiência no tratamento de transtornos mentais e emocionais. Atua com abordagem integrada, combinando psicofarmacologia e acompanhamento terapêutico personalizado.",
+    "pagamentos": [
+      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
+      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
+      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
+    ],
+    "convenios": [
+      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
+      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
+      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
+      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
+      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
+    ],
+    "unidades": [
+      { "value": "a3b4c5d6-e7f8-9012-6789-123456789012", "label": "Clínica Central - Pilar do Sul, SP", "room": "Ala Oeste, Sala 150", "open": "Seg a Sex" },
+      { "value": "b4c5d6e7-f8a9-0123-7890-234567890123", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 830", "open": "Ter e Qui" }
+    ],
+    "servicos": [
+      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 250,00" },
+      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 140,00" }
+    ]
+  }
+  ],
   "comments": [
     {
       "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",

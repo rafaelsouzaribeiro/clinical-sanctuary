@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import doctorsData from './doctors.json';
-import commentsData from './comments.json';
+import { Component,inject,signal } from '@angular/core';
 import {Router} from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AlertModal } from '../alert-modal/alert-modal';
-import { Servico, Convenio, Unidade } from './perfil.interface';
+import { Servico, Convenio, Unidade } from './../services/iservice/perfil.interface';
+import { PerfilService } from '../services/impl/perfil.service';
+import { ActivatedRoute } from '@angular/router';
+import { DoctorProfile } from '../services/iservice/perfil.interface';
 
 
 @Component({
@@ -14,21 +15,61 @@ import { Servico, Convenio, Unidade } from './perfil.interface';
   styleUrl: './perfil.css',
 })
 export class Perfil {
-  public doctors = doctorsData;
-  public comments = commentsData;
+  private route = inject(ActivatedRoute);
+  public doctor = signal<DoctorProfile>({
+    id: '',
+    slug: '',
+    name: '',
+    specialty: '',
+    phone: '',
+    crm: '',
+    photo: '',
+    statNumber: 0,
+    rating: 0,
+    patientNumber: 0,
+    experience: 0,
+    description: '',
+    pagamentos: [],
+    convenios: [],
+    unidades: [],
+    servicos: [],
+    comments: []
+  });
   public servicoSelecionado: Servico | null = null;
   public convenioSelecionado: Convenio | null = null;
   public unidadeSelecionada: Unidade | null = null;
   public showModal: boolean = false;
   
-  constructor(private titleService: Title, private router: Router) {
-    this.titleService.setTitle(`Perfil - ${this.doctors.specialty} - ${this.doctors.name}`);
+  constructor(
+      private titleService: Title, 
+      private router: Router,
+      private perfilService: PerfilService
+    ) {
+  }
+
+
+  ngOnInit(): void {
+    const slug = this.route.snapshot.paramMap.get('slug') ?? '';
+    console.log('Slug da rota:', slug);
+
+    this.perfilService.getDoctor(slug).subscribe({
+      next: (doctor) => {
+        console.log('Doctor recebido:', doctor);
+        console.log('Tem id?', doctor?.id);
+        this.doctor.set(doctor);
+        if (doctor) {
+          this.titleService.setTitle(`Perfil - ${doctor.specialty} - ${doctor.name}`);
+        }
+      },
+      error: (err) => console.error(err),
+    });
   }
 
   get consultaLink():string[]{
-    return ['/consultas', this.doctors.slug, this.doctors.id];
+    return ['/consultas', this.doctor().slug, this.doctor().id];
   }
 
+  
   public goConsultation(): void {
 
     if (!this.servicoSelecionado || !this.convenioSelecionado || !this.unidadeSelecionada) {
@@ -37,10 +78,10 @@ export class Perfil {
     }
 
     const doctorFiltrado = {
-      ...this.doctors,
-      servicos: this.servicoSelecionado ? [this.servicoSelecionado] : this.doctors.servicos,
-      convenios: this.convenioSelecionado ? [this.convenioSelecionado] : this.doctors.convenios,
-      unidades: this.unidadeSelecionada ? [this.unidadeSelecionada] : this.doctors.unidades,
+      ...this.doctor(),
+      servicos: this.servicoSelecionado ? [this.servicoSelecionado] : this.doctor().servicos,
+      convenios: this.convenioSelecionado ? [this.convenioSelecionado] : this.doctor().convenios,
+      unidades: this.unidadeSelecionada ? [this.unidadeSelecionada] : this.doctor().unidades,
     };
 
     this.router.navigate(this.consultaLink, {
