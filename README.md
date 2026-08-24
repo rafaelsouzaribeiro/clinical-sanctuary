@@ -43,3 +43,31 @@ npm install
 ng serve
 
 Navegue para `http://localhost:4200/`. A aplicação será recarregada automaticamente se você alterar qualquer arquivo fonte.
+
+## 🗄️ Estrutura do Banco de Dados (`db.json`)
+
+Para que as consultas e agendamentos funcionem corretamente, o arquivo `db.json` deve associar os horários disponíveis (`availableTimes`) ao identificador do perfil do médico (`idDoctor`).
+
+Exemplo da estrutura do `db.json`:
+
+```json
+{
+  "doctorProfile": [
+    {
+      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "name": "Dr. Exemplo",
+      "specialty": "Cardiologia"
+    }
+  ],
+  "availableTimes": [
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-24", "availableTimes": ["08:00", "10:30", "14:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-25", "availableTimes": ["08:00", "09:30", "15:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-26", "availableTimes": ["08:00", "11:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-27", "availableTimes": ["09:00", "13:30", "16:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-28", "availableTimes": ["08:00", "10:00"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-29", "availableTimes": ["09:00", "11:30"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-30", "availableTimes": ["08:30"] },
+    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-31", "availableTimes": ["08:00", "14:00"] }
+  ]
+}
+```json
