@@ -1,1 +1,85 @@
-<p>login works!</p>
+<main class="shell">
+<section class="hero" aria-label="Imagem de clínica médica">
+<div class="hero__overlay"></div>
+
+<header class="brand">
+    <a routerLink="/home" aria-label="Voltar">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14.5 5.5L8 12L14.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    </a>
+    <h1><a routerLink="/home" aria-label="Voltar">Clinical Sanctuary</a></h1>
+</header>
+<div class="hero__copy">
+    <p>Precision &amp; Serenity</p>
+    <h2>A excelência médica começa com a paz de espírito.</h2>
+
+    <div class="hero__divider">
+    <span></span>
+    <p>Portal Profissional</p>
+    </div>
+</div>
+</section>
+
+<section class="panel" aria-label="Formulário de login">
+<div class="panel__content">
+    <header class="panel__header">
+    <h2>Bem-vindo</h2>
+    <p>Acesse sua conta para gerenciar seus pacientes.</p>
+    </header>
+
+    <form class="form"  method="post" novalidate>
+    <label for="usuario">Usuário</label>
+    <div class="field">
+        <span class="icon" aria-hidden="true">👤</span>
+        <input
+        id="usuario"
+        name="usuario"
+        type="text"
+        placeholder="E-mail ou nome de usuário"
+        autocomplete="username"
+        />
+    </div>
+
+    <div class="row-between">
+        <label for="senha">Senha</label>
+        <a href="#" class="forgot">Esqueci a senha</a>
+    </div>
+
+    <div class="field">
+        <span class="icon" aria-hidden="true">🔒</span>
+        <input
+        id="senha"
+        name="senha"
+        type="password"
+        placeholder="••••••••"
+        autocomplete="current-password"
+        />
+        <button class="icon-btn" type="button" aria-label="Mostrar senha">👁</button>
+    </div><br/>
+    <label for="tipo-acesso">Tipo de acesso</label>
+    <div class="field">
+    <select id="tipo-acesso" name="tipo-acesso">
+        <option value="medico">Médico</option>
+        <option value="enfermeiro">Paciente</option>
+        <option value="administrativo">Administrativo</option>
+    </select>
+    </div>
+    <button class="submit" type="submit">Entrar no sistema</button>
+    </form>
+
+    <div class="secure">
+    <div class="secure__title">Acesso seguro</div>
+    <ul>
+        <li>🛡 HIPAA Compliant</li>
+        <li>🛡 SSL 256-bit</li>
+    </ul>
+    </div>
+
+    <footer class="panel__footer">
+    © 2024 Clinical Sanctuary. Todos os direitos reservados.<br />
+    Sistema restrito para profissionais de saúde autorizados.
+    </footer>
+</div>
+</section>
+</main>
