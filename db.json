@@ -659,11 +659,11 @@
     }
   ],
   "datesBooked": [
-   { "id": "0841575d-9371-498c-92b3-e267bc036128", "date": "2026-08-20" },
-    { "id": "6f14fcb3-82ae-4c2c-9fdb-c101d159478e", "date": "2026-08-21" },
-    { "id": "60ce4cd0-409a-424d-8504-6348c7bd1a28", "date": "2026-08-25" },
-    { "id": "cf514e6f-fc07-43fd-893a-a5e96717efc5", "date": "2026-09-27" },
-    { "id": "8c417c2a-9b37-4968-8777-a9ad6cb5d256", "date": "2026-09-26" }
+   { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "id": "0841575d-9371-498c-92b3-e267bc036128", "date": "2026-08-20" },
+    { "idDoctor": "6f14fcb3-82ae-4c2c-9fdb-c101d159478e", "id": "6f14fcb3-82ae-4c2c-9fdb-c101d159478e", "date": "2026-08-21" },
+    { "idDoctor": "60ce4cd0-409a-424d-8504-6348c7bd1a28", "id": "60ce4cd0-409a-424d-8504-6348c7bd1a28", "date": "2026-08-25" },
+    { "idDoctor": "cf514e6f-fc07-43fd-893a-a5e96717efc5", "id": "cf514e6f-fc07-43fd-893a-a5e96717efc5", "date": "2026-09-27" },
+    { "idDoctor": "8c417c2a-9b37-4968-8777-a9ad6cb5d256", "id": "8c417c2a-9b37-4968-8777-a9ad6cb5d256", "date": "2026-09-26" }
   ],
   "availableTimes": [
     { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-18", "availableTimes": ["08:00", "09:30", "15:00"] },
