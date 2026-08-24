@@ -6,9 +6,6 @@ import { SelectEventLocation } from '../select-event-location/select-event-locat
 import { Calendar } from './calendar';
 import { DateCalendar,DateConsultation } from './interface.dia.calendario';
 import{Title} from '@angular/platform-browser';
-import doctors from './doctors.json';
-import datesBooked from './datesBooked.json';
-import availableTimes from './availableTimes.json';
 import { AlertModal } from '../alert-modal/alert-modal';
 import { ConsultasService } from '../services/impl/consultas.service';
  
@@ -47,17 +44,17 @@ export class Consultas implements OnInit {
     public observacoes: string = '';
     public unidadeValue: string = '';
     public showModal: boolean = false;
+    public availableTimes: WritableSignal<DateConsultation[]> = signal([]);
     
-    
-  public calendar:Calendar = new Calendar();
+    public calendar:Calendar = new Calendar();
 
-  weekdays: string[] = [];
-  mesTitulo : string = '';
+    weekdays: string[] = [];
+    mesTitulo : string = '';
 
-  calendarDays: DateCalendar[] = [];
-  horarios: string[] = [];
-  horarioSelecionado: string = '';
-  consultaFocoSelecionado: string | null = null;
+    calendarDays: DateCalendar[] = [];
+    horarios: string[] = [];
+    horarioSelecionado: string = '';
+    consultaFocoSelecionado: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -101,29 +98,30 @@ export class Consultas implements OnInit {
   }
 
     
-console.log('Medico selecionado:', this.medico());
       this.servico = this.medico()?.servicos[0]?.value ?? '';
       this.pagamento = this.medico()?.pagamentos[0]?.value ?? '';
       this.convenio = this.medico()?.convenios[0]?.value ?? '';
       this.unidadeValue = this.medico()?.unidades[0]?.value ?? '';
       this.unidade = this.medico()?.unidades[0]?.label.split(' - ')[0] ?? '';
-      this.city = this.medico()?.unidades[0]?.label.split(' - ')[1] ?? '';
-    
+      this.city = this.medico()?.unidades[0]?.label.split(' - ')[1] ?? ''
 
+   
     
 
     this.horarioSelecionado = this.horarioSelecionado ?? this.horarios[0];
 
-    this.calendar.datesBooked = datesBooked.map((data: string) => {
-      const [ano, mes, dia] = data.split('-').map(Number);
-      return new Date(ano, mes - 1, dia);
-    });
-
     this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${this.medico()?.name}`);
     this.calendar.atualizarTituloMes();
     this.calendar.atualizarDiasDaSemana();
-    this.calendar.atualizarCalendario();
-    this.addHoursToDate(availableTimes);
+
+    this.consultaService.getAvailableTimes(this.medicoId ?? '').subscribe((availableTimes) => {
+        this.availableTimes.set(availableTimes);
+        
+        this.calendar.availableDates.set(availableTimes);
+        this.calendar.atualizarCalendario();
+        
+        this.addHoursToDate(availableTimes);
+    });
   }
 
 public addHoursToDate(items: DateConsultation[]): void {
@@ -150,7 +148,7 @@ public addHoursToDate(items: DateConsultation[]): void {
     this.calendar.calendarDays.forEach((d) => (d.isActive = false));
     diaClicado.isActive = true;
     this.calendar.selecionarData(diaClicado.numero, diaClicado.isMuted,diaClicado.isBooked ?? false);
-    this.addHoursToDate(availableTimes);
+    this.addHoursToDate(this.availableTimes());
   }
 
   public selecionarHorario(horario: string): void {

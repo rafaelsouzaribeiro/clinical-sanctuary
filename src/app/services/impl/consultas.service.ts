@@ -4,12 +4,8 @@ import { Observable, map } from 'rxjs';
 import BASEURL from '../../../app.api';
 import {
   DoctorProfile,
-  DateBooked,
   AvailableTime,
-  SelectOption,
-} from '../iservice/consultas.interface'; // ajuste o path
-
-
+} from '../iservice/consultas.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +19,6 @@ export class ConsultasService {
       .pipe(map((list) => list[0]));
   }
 
-  getDatesBooked(idDoctor: string): Observable<DateBooked[]> {
-    return this.http.get<DateBooked[]>(
-      `${BASEURL}/datesBooked?idDoctor=${idDoctor}`
-    );
-  }
 
   getAvailableTimes(idDoctor: string): Observable<AvailableTime[]> {
     return this.http.get<AvailableTime[]>(

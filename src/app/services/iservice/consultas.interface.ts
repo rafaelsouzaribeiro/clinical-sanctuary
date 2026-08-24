@@ -4,12 +4,6 @@ export interface SelectOption {
   label: string;
 }
 
-export interface DateBooked {
-  idDoctor: string;
-  id: string;
-  date: string;
-}
-
 export interface AvailableTime {
   idDoctor: string;
   date: string;
