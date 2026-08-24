@@ -339,3 +339,89 @@ input::placeholder {
   margin: auto;
   margin-top: 100px;
 }
+
+
+@media (max-width: 768px) {
+  .label {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    margin-top: 200px;
+  }
+
+  .hero {
+    min-height: 440px;
+  }
+
+  .panel {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 10px;
+  }
+
+  .shell {
+    border-radius: 20px;
+    
+  }
+
+  .hero {
+    min-height: 370px;
+    padding: 20px;
+  }
+
+  .hero__copy h2 {
+    font-size: clamp(1.9rem, 9vw, 2.9rem);
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .submit {
+    padding: 16px;
+    font-size: 0.95rem;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .shell {
+    width: min(100%, calc(100% - 24px));
+  }
+
+}
+
+
+@media (max-width: 920px) {
+  .shell {
+    width: min(100%, calc(100% - 24px));
+    padding-top: 104px;
+  }
+
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100%, calc(100% - 22px));
+    padding-top: 12px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .shell {
+    width: min(100%, calc(100% - 16px));
+  }
+}
