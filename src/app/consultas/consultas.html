@@ -89,7 +89,7 @@
 
         <div class="calendar-grid">
             <button
-                    *ngFor="let dia of this.calendar.calendarDays"
+                    *ngFor="let dia of this.calendar.calendarDays()"
                     type="button"
                     class="day"
                     [class.day--muted]="dia.isMuted"

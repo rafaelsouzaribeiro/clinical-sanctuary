@@ -1,15 +1,15 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SelectOption } from '../location-select/interface.sellect-option';
 import { SelectEventLocation } from '../select-event-location/select-event-location';
 import { Calendar } from './calendar';
 import { DateCalendar } from './interface.dia.calendario';
-import{Title} from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { AlertModal } from '../alert-modal/alert-modal';
 import { ConsultasService } from '../services/impl/consultas.service';
 import { AvailableTime } from '../services/iservice/consultas.interface';
- 
+
 interface MedicoConsulta {
   id: string;
   slug: string;
@@ -26,58 +26,56 @@ interface MedicoConsulta {
 }
 
 @Component({
-  viewProviders:[Title],
+  viewProviders: [Title],
   selector: 'app-consultas',
   standalone: true,
-  imports: [CommonModule, SelectEventLocation,AlertModal],
+  imports: [CommonModule, SelectEventLocation, AlertModal],
   templateUrl: './consultas.html',
   styleUrl: './consultas.css',
 })
 export class Consultas implements OnInit {
-    public medicoId:string | null = null;
-    public medico: WritableSignal<MedicoConsulta | null> = signal(null);
+  public medicoId: string | null = null;
 
-    public unidade: string = '';
-    public city: string = '';
-    public servico: string = '';
-    public pagamento: string = '';
-    public convenio: string = '';
-    public observacoes: string = '';
-    public unidadeValue: string = '';
-    public showModal: boolean = false;
-    public availableTimes: WritableSignal<AvailableTime[]> = signal([]);
-    
-    public calendar:Calendar = new Calendar();
+  public unidade: string = '';
+  public city: string = '';
+  public servico: string = '';
+  public pagamento: string = '';
+  public convenio: string = '';
+  public observacoes: string = '';
+  public unidadeValue: string = '';
+  public showModal: boolean = false;
 
-    weekdays: string[] = [];
-    mesTitulo : string = '';
+  public availableTimes = signal<AvailableTime[]>([]);
+  public medico = signal<MedicoConsulta | null>(null);
 
-    calendarDays: DateCalendar[] = [];
-    horarios: string[] = [];
-    horarioSelecionado: string = '';
-    consultaFocoSelecionado: string | null = null;
+  // Instância do novo calendário reativo com Signals
+  public calendar: Calendar = new Calendar();
+
+  horarios: string[] = [];
+  horarioSelecionado: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private title: Title,
-    private consultaService:ConsultasService
+    private consultaService: ConsultasService
   ) {
-   
-  }
-  ngOnInit(): void {
     this.medicoId = this.route.snapshot.paramMap.get('id');
+
     const navigation = this.router.currentNavigation();
     const stateFromNavigation = navigation?.extras?.state?.['doctors'];
-    const stateFromHistory = typeof history !== 'undefined' ? history.state?.['doctors'] : undefined;
-
+    const stateFromHistory =
+      typeof history !== 'undefined' ? history.state?.['doctors'] : undefined;
     const doctorFromState = stateFromNavigation ?? stateFromHistory;
-    this.medico.set(doctorFromState);
-   
-    if (!doctorFromState) {
-      
-      this.consultaService.getDoctorProfile(this.medicoId ?? '').subscribe((doctor) => {
-      
+
+    if (doctorFromState) {
+      this.medico.set(doctorFromState);
+    }
+  }
+
+  ngOnInit(): void {
+    if (!this.medico() && this.medicoId) {
+      this.consultaService.getDoctorProfile(this.medicoId).subscribe((doctor) => {
         this.medico.set({
           id: doctor.id,
           slug: doctor.slug,
@@ -90,65 +88,74 @@ export class Consultas implements OnInit {
           pagamentos: doctor.pagamentos,
           convenios: doctor.convenios,
           unidades: doctor.unidades,
-          servicos: doctor.servicos.map((s) => ({
+          servicos: doctor.servicos.map((s: any) => ({
             value: s.id,
             label: `${s.label} - ${s.price}`,
           })),
         });
       });
-  }
-
+    }
     
-      this.servico = this.medico()?.servicos[0]?.value ?? '';
-      this.pagamento = this.medico()?.pagamentos[0]?.value ?? '';
-      this.convenio = this.medico()?.convenios[0]?.value ?? '';
-      this.unidadeValue = this.medico()?.unidades[0]?.value ?? '';
-      this.unidade = this.medico()?.unidades[0]?.label.split(' - ')[0] ?? '';
-      this.city = this.medico()?.unidades[0]?.label.split(' - ')[1] ?? ''
+    this.inicializarDadosFormulario();
 
-   
-    
-
-    this.horarioSelecionado = this.horarioSelecionado ?? this.horarios[0];
-
-    this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${this.medico()?.name}`);
-    this.calendar.atualizarTituloMes();
-    this.calendar.atualizarDiasDaSemana();
-
-    this.consultaService.getAvailableTimes(this.medicoId ?? '').subscribe((availableTimes) => {
+    if (this.medicoId) {
+      this.consultaService.getAvailableTimes(this.medicoId).subscribe((availableTimes) => {
         this.availableTimes.set(availableTimes);
-        
+
         this.calendar.availableDates.set(availableTimes);
-        this.calendar.atualizarCalendario();
-        
+
         this.addHoursToDate(availableTimes);
-    });
+      });
+    }
   }
 
-public addHoursToDate(items: AvailableTime[]): void {
+  private inicializarDadosFormulario(): void {
+    const medicoAtual = this.medico();
+    if (!medicoAtual) return;
+
+    this.servico = medicoAtual.servicos[0]?.value ?? '';
+    this.pagamento = medicoAtual.pagamentos[0]?.value ?? '';
+    this.convenio = medicoAtual.convenios[0]?.value ?? '';
+    this.unidadeValue = medicoAtual.unidades[0]?.value ?? '';
+    this.unidade = medicoAtual.unidades[0]?.label.split(' - ')[0] ?? '';
+    this.city = medicoAtual.unidades[0]?.label.split(' - ')[1] ?? '';
+
+    this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
+  }
+
+  public addHoursToDate(items: AvailableTime[]): void {
     this.horarios = [];
-    this.horarioSelecionado='';
+    this.horarioSelecionado = '';
+
+    const dataSelecionada = this.calendar.data;
 
     items.forEach((item) => {
       const [year, month, day] = item.date.split('-').map(Number);
       const dateItem = new Date(year, month - 1, day);
 
       const calendarDateSemHorario = new Date(
-        this.calendar.data.getFullYear(),
-        this.calendar.data.getMonth(),
-        this.calendar.data.getDate()
+        dataSelecionada.getFullYear(),
+        dataSelecionada.getMonth(),
+        dataSelecionada.getDate()
       );
 
       if (dateItem.getTime() === calendarDateSemHorario.getTime()) {
         this.horarios = item.availableTimes;
       }
     });
-  } 
+
+    if (this.horarios.length > 0) {
+      this.horarioSelecionado = this.horarios[0];
+    }
+  }
 
   public selecionarDia(diaClicado: DateCalendar): void {
-    this.calendar.calendarDays.forEach((d) => (d.isActive = false));
-    diaClicado.isActive = true;
-    this.calendar.selecionarData(diaClicado.numero, diaClicado.isMuted,diaClicado.isBooked ?? false);
+    this.calendar.selecionarData(
+      diaClicado.numero,
+      diaClicado.isMuted,
+      diaClicado.isBooked ?? false
+    );
+
     this.addHoursToDate(this.availableTimes());
   }
 
@@ -162,7 +169,7 @@ public addHoursToDate(items: AvailableTime[]): void {
     this.unidadeValue = opcaoSelecionada.value;
   }
 
-    public onDescartar(): void {
+  public onDescartar(): void {
     this.router.navigate(['/']);
   }
 
@@ -171,7 +178,7 @@ public addHoursToDate(items: AvailableTime[]): void {
       medicoId: this.medico()?.id,
       medicoNome: this.medico()?.name,
       especialidade: this.medico()?.specialty,
-      unidade:  this.unidadeValue,
+      unidade: this.unidadeValue,
       cidade: this.city,
       data: this.calendar.data,
       horario: this.horarioSelecionado,

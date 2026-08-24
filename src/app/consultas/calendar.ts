@@ -1,25 +1,89 @@
-import { signal } from '@angular/core';
+import { signal, computed, Signal } from '@angular/core';
 import { DateCalendar } from './interface.dia.calendario';
 import { AvailableTime } from '../services/iservice/consultas.interface';
 
 export class Calendar {
-  public data: Date = new Date();
+  public dataSignal = signal<Date>(new Date());
+  public availableDates = signal<AvailableTime[]>([]);
+
+  public calendarDays: Signal<DateCalendar[]> = computed(() => {
+    const dataAtual = this.dataSignal();
+    const ano = dataAtual.getFullYear();
+    const mes = dataAtual.getMonth();
+    const primeiroDiaDoMes = new Date(ano, mes, 1);
+    const ultimoDiaDoMes = new Date(ano, mes + 1, 0);
+    const totalDiasMesAtual = ultimoDiaDoMes.getDate();
+    const diaSemanaPrimeiroDia = primeiroDiaDoMes.getDay();
+    const ultimoDiaMesAnterior = new Date(ano, mes, 0).getDate();
+
+    const dias: DateCalendar[] = [];
+    const hoje = new Date();
+
+    for (let i = diaSemanaPrimeiroDia; i > 0; i--) {
+      dias.push({
+        numero: ultimoDiaMesAnterior - i + 1,
+        isMuted: true,
+        isActive: false,
+        isBooked: true,
+      });
+    }
+
+    // Dias do mês atual
+    for (let dia = 1; dia <= totalDiasMesAtual; dia++) {
+      const isHoje =
+        dia === hoje.getDate() &&
+        mes === hoje.getMonth() &&
+        ano === hoje.getFullYear();
+
+      const isBooked = this.isDateBooked(ano, mes, dia);
+      dias.push({
+        numero: dia,
+        isMuted: false,
+        isActive: isHoje && !isBooked,
+        isBooked,
+      });
+    }
+
+    const totalEspacosGrid = 42;
+    const espacosPreenchidos = diaSemanaPrimeiroDia + totalDiasMesAtual;
+    const diasRestantes = totalEspacosGrid - espacosPreenchidos;
+
+    for (let dia = 1; dia <= diasRestantes; dia++) {
+      dias.push({
+        numero: dia,
+        isMuted: true,
+        isActive: false,
+        isBooked: true,
+      });
+    }
+
+    return dias;
+  });
+
+  public get data(): Date {
+    return this.dataSignal();
+  }
+
   public weekdays: string[] = [];
-  public calendarDays: DateCalendar[] = [];
   public mesTitulo: string = '';
 
-  public availableDates= signal<AvailableTime[]> ([]);
-  
   public monthActive: number = this.data.getMonth();
   public yearActive: number = this.data.getFullYear();
   public dayActive: number = this.data.getDay();
+
+  constructor() {
+    this.atualizarTituloMes();
+    this.atualizarDiasDaSemana();
+  }
 
   public selecionarData(dia: number, isMuted: boolean, isBooked: boolean): void {
     const mesAtual = this.data.getMonth();
     const anoAtual = this.data.getFullYear();
     this.dayActive = dia;
+
     if (!isMuted && !isBooked) {
-      this.data = new Date(anoAtual, mesAtual, dia);
+      const novaData = new Date(anoAtual, mesAtual, dia);
+      this.dataSignal.set(novaData);
     }
   }
 
@@ -39,19 +103,25 @@ export class Calendar {
   }
 
   public mesAnterior(): void {
-    this.monthActive = this.data.getMonth() - 1;
-    this.data.setMonth(this.monthActive);
+    const novaData = new Date(this.data);
+    novaData.setMonth(novaData.getMonth() - 1);
+
+    this.monthActive = novaData.getMonth();
+    this.dataSignal.set(novaData);
+
     this.atualizarTituloMes();
     this.atualizarDiasDaSemana();
-    this.atualizarCalendario();
   }
 
   public proximoMes(): void {
-    this.monthActive = this.data.getMonth() + 1;
-    this.data.setMonth(this.monthActive);
+    const novaData = new Date(this.data);
+    novaData.setMonth(novaData.getMonth() + 1);
+
+    this.monthActive = novaData.getMonth();
+    this.dataSignal.set(novaData);
+
     this.atualizarTituloMes();
     this.atualizarDiasDaSemana();
-    this.atualizarCalendario();
   }
 
   public atualizarTituloMes(): void {
@@ -74,42 +144,5 @@ export class Calendar {
       dataReferencia.setDate(dataReferencia.getDate() + 1);
     }
     this.weekdays = dias;
-  }
-
-  public atualizarCalendario(): void {
-    const ano = this.data.getFullYear();
-    const mes = this.data.getMonth();
-    const primeiroDiaDoMes = new Date(ano, mes, 1);
-    const ultimoDiaDoMes = new Date(ano, mes + 1, 0);
-    const totalDiasMesAtual = ultimoDiaDoMes.getDate();
-    const diaSemanaPrimeiroDia = primeiroDiaDoMes.getDay();
-    const ultimoDiaMesAnterior = new Date(ano, mes, 0).getDate();
-
-    const dias: DateCalendar[] = [];
-    const hoje = new Date();
-
-    for (let i = diaSemanaPrimeiroDia; i > 0; i--) {
-      dias.push({ numero: ultimoDiaMesAnterior - i + 1, isMuted: true, isActive: false, isBooked: true });
-    }
-
-    for (let dia = 1; dia <= totalDiasMesAtual; dia++) {
-      const isHoje =
-        dia === hoje.getDate() &&
-        mes === hoje.getMonth() &&
-        ano === hoje.getFullYear();
-      
-      const isBooked = this.isDateBooked(ano, mes, dia);
-      dias.push({ numero: dia, isMuted: false, isActive: isHoje && !isBooked, isBooked });
-    }
-
-    const totalEspacosGrid = 42;
-    const espacosPreenchidos = diaSemanaPrimeiroDia + totalDiasMesAtual;
-    const diasRestantes = totalEspacosGrid - espacosPreenchidos;
-
-    for (let dia = 1; dia <= diasRestantes; dia++) {
-      dias.push({ numero: dia, isMuted: true, isActive: false, isBooked: true });
-    }
-
-    this.calendarDays = dias;
   }
 }
