@@ -70,4 +70,4 @@ Exemplo da estrutura do `db.json`:
     { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-31", "availableTimes": ["08:00", "14:00"] }
   ]
 }
-```json
+```
