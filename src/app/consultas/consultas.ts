@@ -4,10 +4,11 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { SelectOption } from '../location-select/interface.sellect-option';
 import { SelectEventLocation } from '../select-event-location/select-event-location';
 import { Calendar } from './calendar';
-import { DateCalendar,DateConsultation } from './interface.dia.calendario';
+import { DateCalendar } from './interface.dia.calendario';
 import{Title} from '@angular/platform-browser';
 import { AlertModal } from '../alert-modal/alert-modal';
 import { ConsultasService } from '../services/impl/consultas.service';
+import { AvailableTime } from '../services/iservice/consultas.interface';
  
 interface MedicoConsulta {
   id: string;
@@ -44,7 +45,7 @@ export class Consultas implements OnInit {
     public observacoes: string = '';
     public unidadeValue: string = '';
     public showModal: boolean = false;
-    public availableTimes: WritableSignal<DateConsultation[]> = signal([]);
+    public availableTimes: WritableSignal<AvailableTime[]> = signal([]);
     
     public calendar:Calendar = new Calendar();
 
@@ -124,7 +125,7 @@ export class Consultas implements OnInit {
     });
   }
 
-public addHoursToDate(items: DateConsultation[]): void {
+public addHoursToDate(items: AvailableTime[]): void {
     this.horarios = [];
     this.horarioSelecionado='';
 

@@ -5,9 +5,5 @@ interface DateCalendar {
   isBooked?: boolean; 
 }
 
-interface DateConsultation{
-  date: string;
-  availableTimes: string[];
-}
 
-export type { DateCalendar, DateConsultation };
+export type { DateCalendar };

@@ -1,13 +1,14 @@
-import { signal, WritableSignal } from '@angular/core';
-import { DateCalendar, DateConsultation } from './interface.dia.calendario';
+import { signal } from '@angular/core';
+import { DateCalendar } from './interface.dia.calendario';
+import { AvailableTime } from '../services/iservice/consultas.interface';
 
 export class Calendar {
   public data: Date = new Date();
   public weekdays: string[] = [];
   public calendarDays: DateCalendar[] = [];
   public mesTitulo: string = '';
-  
-  public availableDates: WritableSignal<DateConsultation[]> = signal([]);
+
+  public availableDates= signal<AvailableTime[]> ([]);
   
   public monthActive: number = this.data.getMonth();
   public yearActive: number = this.data.getFullYear();

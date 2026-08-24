@@ -20,7 +20,7 @@ export class ConsultasService {
   }
 
 
-  getAvailableTimes(idDoctor: string): Observable<AvailableTime[]> {
+  getAvailableTimes(idDoctor: string): Observable<AvailableTime[]> {       
     return this.http.get<AvailableTime[]>(
       `${BASEURL}/availableTimes?idDoctor=${idDoctor}`
     );
