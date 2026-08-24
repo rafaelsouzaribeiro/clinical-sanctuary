@@ -28,7 +28,6 @@ export class Calendar {
       });
     }
 
-    // Dias do mês atual
     for (let dia = 1; dia <= totalDiasMesAtual; dia++) {
       const isHoje =
         dia === hoje.getDate() &&

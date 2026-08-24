@@ -48,7 +48,6 @@ export class Consultas implements OnInit {
   public availableTimes = signal<AvailableTime[]>([]);
   public medico = signal<MedicoConsulta | null>(null);
 
-  // Instância do novo calendário reativo com Signals
   public calendar: Calendar = new Calendar();
 
   horarios: string[] = [];
