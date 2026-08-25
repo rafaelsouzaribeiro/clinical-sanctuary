@@ -58,7 +58,9 @@ export class Consultas implements OnInit {
     private router: Router,
     private title: Title,
     private consultaService: ConsultasService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.medicoId = this.route.snapshot.paramMap.get('id');
 
     const navigation = this.router.currentNavigation();
@@ -69,11 +71,10 @@ export class Consultas implements OnInit {
 
     if (doctorFromState) {
       this.medico.set(doctorFromState);
+      this.inicializarDadosFormulario();
     }
-  }
-
-  ngOnInit(): void {
-    if (!this.medico() && this.medicoId) {
+    
+    if (!this.medico()) {
       this.consultaService.getDoctorProfile(this.medicoId).subscribe((doctor) => {
         this.medico.set({
           id: doctor.id,
@@ -92,32 +93,33 @@ export class Consultas implements OnInit {
             label: `${s.label} - ${s.price}`,
           })),
         });
+
       });
     }
-    
-    this.inicializarDadosFormulario();
 
-    if (this.medicoId) {
       this.consultaService.getAvailableTimes(this.medicoId).subscribe((availableTimes) => {
         this.availableTimes.set(availableTimes);
-
         this.calendar.availableDates.set(availableTimes);
-
         this.addHoursToDate(availableTimes);
       });
-    }
+
+      this.inicializarDadosFormulario();
   }
 
   private inicializarDadosFormulario(): void {
     const medicoAtual = this.medico();
-    if (!medicoAtual) return;
+    if (!medicoAtual || !medicoAtual.unidades?.length) return;
+
+    const primeiraUnidade = medicoAtual.unidades[0];
+    const partesLabel = primeiraUnidade.label.split(' - ');
 
     this.servico = medicoAtual.servicos[0]?.value ?? '';
     this.pagamento = medicoAtual.pagamentos[0]?.value ?? '';
     this.convenio = medicoAtual.convenios[0]?.value ?? '';
-    this.unidadeValue = medicoAtual.unidades[0]?.value ?? '';
-    this.unidade = medicoAtual.unidades[0]?.label.split(' - ')[0] ?? '';
-    this.city = medicoAtual.unidades[0]?.label.split(' - ')[1] ?? '';
+    this.unidadeValue = primeiraUnidade.value;
+    
+    this.unidade = partesLabel[0] ?? '';
+    this.city = partesLabel[1] ?? '';
 
     this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
   }
@@ -163,8 +165,9 @@ export class Consultas implements OnInit {
   }
 
   public onUnidadeChange(opcaoSelecionada: SelectOption): void {
-    this.unidade = opcaoSelecionada.label.split(' - ')[0];
-    this.city = opcaoSelecionada.label.split(' - ')[1];
+    const partesLabel = opcaoSelecionada.label.split(' - ');
+    this.unidade = partesLabel[0] ?? '';
+    this.city = partesLabel[1] ?? '';
     this.unidadeValue = opcaoSelecionada.value;
   }
 
