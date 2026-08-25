@@ -176,23 +176,41 @@ export class Medicos {
     }
   }
 
-  private obterErrosDoFormulario(formGroup: FormGroup | FormArray, errosEncontrados: Set<string> = new Set()): Set<string> {
-    Object.keys(formGroup.controls).forEach(key => {
-      const control = formGroup.get(key);
-
-      if (control instanceof FormGroup || control instanceof FormArray) {
-        this.obterErrosDoFormulario(control, errosEncontrados);
-      } else if (control && control.invalid) {
-        const labelAmigavel = this.labelsCampos[key] || key;
-        errosEncontrados.add(labelAmigavel);
-      }
-    });
-
+  private obterErrosDoFormulario(
+    formGroup: FormGroup | FormArray, 
+    errosEncontrados: Set<string> = new Set()
+  ): Set<string> {
     if (formGroup.hasError('senhasDiferentes')) {
       errosEncontrados.add('Confirmar Senha (não confere com a senha)');
     }
 
+    for (const [key, control] of Object.entries(formGroup.controls)) {
+      if (!control) continue;
+
+      if (control instanceof FormGroup || control instanceof FormArray) {
+        this.obterErrosDoFormulario(control, errosEncontrados);
+        continue;
+      }
+
+      if (control.invalid) {
+        const labelAmigavel = this.labelsCampos[key] ?? key;
+        errosEncontrados.add(labelAmigavel);
+      }
+    }
+
     return errosEncontrados;
+  }
+
+  private focarPrimeiroCampoInvalido(): void {
+    const primeiroCampoInvalido = document.querySelector<HTMLElement>(
+      'form .ng-invalid:not(form):not(div):not(section)'
+    );
+
+    if (primeiroCampoInvalido) {
+      primeiroCampoInvalido.focus();
+
+      primeiroCampoInvalido.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 
   onSubmit(): void {
@@ -202,6 +220,7 @@ export class Medicos {
       const erros = Array.from(this.obterErrosDoFormulario(this.medicoForm));
       
       this.message = erros.map(campo => `• <strong>${campo}</strong>`).join('<br />');
+      this.focarPrimeiroCampoInvalido();
       this.showModal = true;
       return; 
     }
