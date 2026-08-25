@@ -1,1 +1,366 @@
-<p>medicos works!</p>
+<main class="shell-main">
+  <section class="profile-intro" aria-label="Introdução">
+    <h1>Cadastro de Médico</h1>
+    <p>Preencha os campos abaixo para cadastrar um novo médico no sistema.</p>
+  </section>
+
+  <form class="profile-form" [formGroup]="medicoForm" (ngSubmit)="onSubmit()" novalidate>
+    
+    <div class="profile-grid-top">
+      <aside class="upload-card" aria-label="Foto do paciente">
+        <label class="upload-card__target" for="foto-paciente">
+          <span class="upload-avatar" aria-hidden="true">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3.1" stroke="currentColor" stroke-width="1.8" />
+              <path d="M5.6 18C7.2 15.9 9.3 14.8 12 14.8C14.7 14.8 16.8 15.9 18.4 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="upload-title">Foto do Médico</span>
+          <span class="upload-info">Formatos suportados: JPG, PNG. Máx 5MB.</span>
+        </label>
+        <input id="foto-paciente" formControlName="fotoPaciente" type="file" accept=".jpg,.jpeg,.png" />
+      </aside>
+
+      <section class="profile-card" aria-label="Dados pessoais">
+        <div class="profile-field profile-field--full">
+          <label for="nome">Nome Completo</label>
+          <div class="profile-control">
+            <input id="nome" formControlName="nome" type="text" placeholder="Ex: Ana Maria Silva" />
+          </div>
+          @if (isCampoInvalido('nome')) {
+            <small style="color: #d93025; font-size: 12px;">Nome completo é obrigatório.</small>
+          }
+        </div>
+
+        <div class="profile-field">
+          <label for="nascimento">Data de Nascimento</label>
+          <div class="profile-control profile-control--icon">
+            <input id="nascimento" formControlName="nascimento" type="date" />
+          </div>
+          @if (isCampoInvalido('nascimento')) {
+            <small style="color: #d93025; font-size: 12px;">Data de nascimento é obrigatória.</small>
+          }
+        </div>
+
+        <div class="profile-field">
+          <label for="email">Email de Contato</label>
+          <div class="profile-control">
+            <input id="email" formControlName="email" type="email" placeholder="paciente@exemplo.com" />
+          </div>
+          @if (isCampoInvalido('email')) {
+            <small style="color: #d93025; font-size: 12px;">Informe um e-mail válido.</small>
+          }
+        </div>
+
+        <div class="profile-field">
+          <label for="crmm">CRM</label>
+          <div class="profile-control">
+            <input id="crm" formControlName="crm" type="text" placeholder="CRM 000000-XX" />
+          </div>
+          @if (isCampoInvalido('crm')) {
+            <small style="color: #d93025; font-size: 12px;">CRM é obrigatório.</small>
+          }
+        </div>
+
+        <div class="profile-field">
+          <label for="especialidade">Especialidade Médica</label>
+          <div class="profile-control">
+            <select id="especialidade" formControlName="especialidade">
+              <option value="">Selecione a especialidade</option>
+              <option value="cardiologia">Cardiologia</option>
+              <option value="dermatologia">Dermatologia</option>
+              <option value="neurologia">Neurologia</option>
+              <option value="pediatria">Pediatria</option>
+              <option value="ortopedia">Ortopedia</option>
+              <option value="ginecologia">Ginecologia</option>
+              <option value="oftalmologia">Oftalmologia</option>
+              <option value="psiquiatria">Psiquiatria</option>
+              <option value="endocrinologia">Endocrinologia</option>
+              <option value="urologia">Urologia</option>
+            </select>
+          </div>
+          @if (isCampoInvalido('especialidade')) {
+            <small style="color: #d93025; font-size: 12px;">Selecione uma especialidade.</small>
+          }
+        </div>
+
+        <div class="profile-field--full">
+          <label for="descricao-medico">Descrição</label>
+          <div class="profile-control profile-control--icon">
+            <textarea id="descricao-medico" rows="5" formControlName="descricao" placeholder="Descrição do médico"></textarea>
+          </div>
+        </div>           
+      </section>
+    </div>
+
+    <section class="profile-card profile-card--address" aria-label="Investimento em Saúde">
+      <div class="profile-card__heading">
+        <h2>Serviços e preços</h2>
+      </div>
+
+      <div class="content-valores" formArrayName="servicos">
+        @for (item of servicos.controls; track item) {
+          <div class="address-grid" [formGroupName]="$index">
+            <div class="profile-field profile-field--logradouro">
+              <label>Nome do campo</label>
+              <div class="profile-control">
+                <input formControlName="campo" type="text" placeholder="Ex: Consulta de retorno" />
+              </div>
+              @if (servicos.controls[$index].get('campo')?.invalid && servicos.controls[$index].get('campo')?.touched) {
+                    <small style="color: #d93025; font-size: 12px;">O nome do serviço é obrigatório.</small>
+             }
+            </div>
+            <div class="profile-field">
+              <label>Valor do campo</label>
+              <div class="profile-control">
+                <input formControlName="campo_valor" type="text" placeholder="Ex: R$ 100,00" />
+                @if (servicos.length > 1) {
+                  <svg width="24" height="24" (click)="removerServico($index)" class="excluir-valores icon-excluir delete-user-adm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7"></path>
+                    <path d="M10 11v6"></path>
+                    <path d="M14 11v6"></path>
+                    <path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"></path>
+                  </svg>
+                }
+              </div>
+              @if (servicos.controls[$index].get('campo_valor')?.invalid && servicos.controls[$index].get('campo_valor')?.touched) {
+                <small style="color: #d93025; font-size: 12px;">O valor do serviço é obrigatório.</small>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <svg width="52" height="52" (click)="adicionarServico()" class="add-valor add-icon" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="25" stroke="#0b7e88" stroke-width="3"/>
+        <path d="M26 16V36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+        <path d="M16 26H36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </section>
+
+    <section class="profile-card profile-card--address" aria-label="Investimento em Saúde">
+      <div class="profile-card__heading">
+        <h2>Modalidades de pagamento (visitas privadas)</h2>
+      </div>
+
+      <div class="content-valores" formArrayName="modalidades">
+        @for (item of modalidades.controls; track item) {
+          <div class="address-grid" [formGroupName]="$index">
+            <div class="profile-field profile-field--logradouro">
+              <label>Modalidade de pagamento</label>
+              <div class="profile-control">
+                <select formControlName="modalidadePagamento">
+                  <option value="PIX">PIX</option>
+                  <option value="Cartão de Crédito">Cartão de Crédito</option>
+                  <option value="Cartão de Débito">Cartão de Débito</option>
+                  <option value="Dinheiro">Dinheiro</option>
+                  <option value="Transferência Bancária">Transferência Bancária</option>
+                </select>
+              </div>
+            </div>
+            <div class="profile-field">
+              @if (modalidades.length > 1) {
+                <svg width="24" height="24" (click)="removerModalidade($index)" style="margin-top: 40px;" class="excluir-modalidade icon-excluir delete-user-adm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7"></path>
+                  <path d="M10 11v6"></path>
+                  <path d="M14 11v6"></path>
+                  <path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"></path>
+                </svg>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <svg width="52" height="52" (click)="adicionarModalidade()" class="add-icon add-valor" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="25" stroke="#0b7e88" stroke-width="3"/>
+        <path d="M26 16V36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+        <path d="M16 26H36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </section>
+
+    <section class="profile-card profile-card--address" aria-label="Localização e endereço">
+      <div class="profile-card__heading">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 21C12 21 6 15.54 6 10.5C6 7.19 8.69 4.5 12 4.5C15.31 4.5 18 7.19 18 10.5C18 15.54 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" />
+          <circle cx="12" cy="10.5" r="2" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <h2>Unidades de atendimento</h2>
+      </div>
+
+      <div formArrayName="unidades">
+        @for (item of unidades.controls; track item) {
+          <div class="unidade-item" [formGroupName]="$index">
+            @if (unidades.length > 1) {
+              <svg width="24" height="24" (click)="removerUnidade($index)" class="excluir-unidade icon-excluir delete-user-adm" style="margin-top: 40px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7"></path>
+                <path d="M10 11v6"></path>
+                <path d="M14 11v6"></path>
+                <path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"></path>
+              </svg>
+            }
+
+            <div class="address-grid">
+              <div class="profile-field profile-field--logradouro">
+                <label>Nome da Unidade</label>
+                <div class="profile-control">
+                  <input formControlName="nomeUnidade" type="text" placeholder="Nome da Unidade" />
+                </div>
+              </div>
+              
+              <div class="profile-field">
+                <label>CEP</label>
+                <div class="profile-control">
+                  <input formControlName="cep" type="text" placeholder="00000-000" />
+                </div>
+              </div>
+
+              <div class="profile-field profile-field--logradouro">
+                <label>Rua / Logradouro</label>
+                <div class="profile-control">
+                  <input formControlName="logradouro" type="text" placeholder="Av. das Flores" />
+                </div>
+              </div>
+
+              <div class="profile-field">
+                <label>Número</label>
+                <div class="profile-control">
+                  <input formControlName="numero" type="text" placeholder="123" />
+                </div>
+              </div>
+
+              <div class="profile-field profile-field--logradouro">
+                <label>Complemento</label>
+                <div class="profile-control">
+                  <input formControlName="complemento" type="text" placeholder="Apto 42, Bloco B" />
+                </div>
+              </div>
+
+              <div class="profile-field">
+                <label>Bairro</label>
+                <div class="profile-control">
+                  <input formControlName="bairro" type="text" placeholder="Centro" />
+                </div>
+              </div>
+
+              <div class="profile-field profile-field--uf">
+                <label>UF</label>
+                <div class="profile-control">
+                  <select formControlName="uf">
+                    <option value="SP">SP</option>
+                    <option value="RJ">RJ</option>
+                    <option value="MG">MG</option>
+                    <option value="PR">PR</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="profile-field profile-field--cidade">
+                <label>Cidade</label>
+                <div class="profile-control">
+                  <input formControlName="cidade" type="text" placeholder="São Paulo" />
+                </div>
+              </div>
+
+              <div class="profile-field">
+                <label>Link google maps</label>
+                <div class="profile-control">
+                  <input formControlName="googleMaps" type="text" placeholder="https://maps.google.com/..." />
+                </div>
+              </div>
+
+              <div class="profile-field profile-field--cidade">
+                <label>Telefone</label>
+                <div class="profile-control">
+                  <input formControlName="telefone" type="text" placeholder="(11) 1234-5678" />
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <svg width="52" height="52" (click)="adicionarUnidade()" class="add-valor add-icon" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="25" stroke="#0b7e88" stroke-width="3"/>
+        <path d="M26 16V36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+        <path d="M16 26H36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </section>
+
+    <section class="profile-card profile-card--address" aria-label="Investimento em Saúde">
+      <div class="profile-card__heading">
+        <h2>Convênios</h2>
+      </div>
+
+      <div class="content-valores" formArrayName="convenios">
+        @for (item of convenios.controls; track $index) {
+          <div class="address-grid" [formGroupName]="$index">
+            <div class="profile-field profile-field--logradouro">
+              <label>Convênio</label>
+              <div class="profile-control">
+                <select formControlName="convenio">
+                  <option value="UNIMED">UNIMED</option>
+                  <option value="Bradesco Saúde">Bradesco Saúde</option>
+                  <option value="Amil">Amil</option>
+                  <option value="Porto Seguro">Porto Seguro</option>
+                  <option value="SulAmérica">SulAmérica</option>
+                </select>
+              </div>
+            </div>
+            <div class="profile-field">
+              @if (convenios.length > 1) {
+                <svg width="24" height="24" (click)="removerConvenio($index)" style="margin-top: 40px;" class="excluir-convenio icon-excluir delete-user-adm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7"></path>
+                  <path d="M10 11v6"></path>
+                  <path d="M14 11v6"></path>
+                  <path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"></path>
+                </svg>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <svg width="52" height="52" (click)="adicionarConvenio()" class="add-valor add-icon" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="25" stroke="#0b7e88" stroke-width="3"/>
+        <path d="M26 16V36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+        <path d="M16 26H36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </section>
+
+    <section class="profile-card profile-card--address" aria-label="Investimento em Saúde">
+      <div class="profile-card__heading">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <h2>Senha</h2>
+      </div>
+      <div class="address-grid">
+        <div class="profile-field profile-field--logradouro">
+          <label for="senha">Senha</label>
+          <div class="profile-control">
+            <input type="password" id="senha" formControlName="senha" placeholder="Digite sua senha">
+          </div>
+          @if (isCampoInvalido('senha')) {
+            <small style="color: #d93025; font-size: 12px;">A senha deve ter no mínimo 6 caracteres.</small>
+          }
+        </div>
+        <div class="profile-field">
+          <label for="confirmar-senha">Confirmar Senha</label>
+          <div class="profile-control">
+            <input type="password" id="confirmar-senha" formControlName="confirmarSenha" placeholder="Confirme sua senha">
+          </div>
+          @if (medicoForm.hasError('senhasDiferentes') && (medicoForm.get('confirmarSenha')?.touched || medicoForm.get('confirmarSenha')?.dirty)) {
+            <small style="color: #d93025; font-size: 12px;">As senhas não coincidem.</small>
+          }
+        </div>
+      </div>
+    </section>
+    <app-alert-modal [(showModal)]="showModal" [message]="'Por favor, Preencha os campos <strong>obrigatórios</strong><br /><br />' + message"></app-alert-modal>
+    <div class="profile-actions">
+      <button class="profile-btn profile-btn--ghost" type="button">Cancelar</button>
+      <button class="profile-btn profile-btn--primary" type="submit">Finalizar Cadastro</button>
+    </div>
+  </form>
+</main>

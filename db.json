@@ -138,7 +138,7 @@
       { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 220,00" },
       { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 150,00" }
     ],
-        "comments":[
+    "comments":[
     {
       "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
       "avatar": "MC",
@@ -587,6 +587,7 @@
     { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-29", "availableTimes": ["09:00"] },
     { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-30", "availableTimes": ["08:00", "10:30"] },
     { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-31", "availableTimes": ["13:00", "16:00"] },
+     { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-02", "availableTimes": ["13:00", "16:00"] },
 
     { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-24", "availableTimes": ["10:00", "15:00"] },
     { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-25", "availableTimes": ["08:00", "11:30"] },
