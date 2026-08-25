@@ -28,7 +28,7 @@
             <input id="nome" formControlName="nome" type="text" placeholder="Ex: Ana Maria Silva" />
           </div>
           @if (isCampoInvalido('nome')) {
-            <small style="color: #d93025; font-size: 12px;">Nome completo é obrigatório.</small>
+            <small class="alert-message">Nome completo é obrigatório.</small>
           }
         </div>
 
@@ -38,7 +38,7 @@
             <input id="nascimento" formControlName="nascimento" type="date" />
           </div>
           @if (isCampoInvalido('nascimento')) {
-            <small style="color: #d93025; font-size: 12px;">Data de nascimento é obrigatória.</small>
+            <small class="alert-message">Data de nascimento é obrigatória.</small>
           }
         </div>
 
@@ -48,7 +48,7 @@
             <input id="email" formControlName="email" type="email" placeholder="paciente@exemplo.com" />
           </div>
           @if (isCampoInvalido('email')) {
-            <small style="color: #d93025; font-size: 12px;">Informe um e-mail válido.</small>
+            <small class="alert-message">Informe um e-mail válido.</small>
           }
         </div>
 
@@ -58,7 +58,7 @@
             <input id="crm" formControlName="crm" type="text" placeholder="CRM 000000-XX" />
           </div>
           @if (isCampoInvalido('crm')) {
-            <small style="color: #d93025; font-size: 12px;">CRM é obrigatório.</small>
+            <small class="alert-message">CRM é obrigatório.</small>
           }
         </div>
 
@@ -80,7 +80,7 @@
             </select>
           </div>
           @if (isCampoInvalido('especialidade')) {
-            <small style="color: #d93025; font-size: 12px;">Selecione uma especialidade.</small>
+            <small class="alert-message">Selecione uma especialidade.</small>
           }
         </div>
 
@@ -107,8 +107,8 @@
                 <input formControlName="campo" type="text" placeholder="Ex: Consulta de retorno" />
               </div>
               @if (servicos.controls[$index].get('campo')?.invalid && servicos.controls[$index].get('campo')?.touched) {
-                    <small style="color: #d93025; font-size: 12px;">O nome do serviço é obrigatório.</small>
-             }
+                <small class="alert-message">O nome do serviço é obrigatório.</small>
+              }
             </div>
             <div class="profile-field">
               <label>Valor do campo</label>
@@ -124,7 +124,7 @@
                 }
               </div>
               @if (servicos.controls[$index].get('campo_valor')?.invalid && servicos.controls[$index].get('campo_valor')?.touched) {
-                <small style="color: #d93025; font-size: 12px;">O valor do serviço é obrigatório.</small>
+                <small class="alert-message">O valor do serviço é obrigatório.</small>
               }
             </div>
           </div>
@@ -206,6 +206,9 @@
                 <div class="profile-control">
                   <input formControlName="nomeUnidade" type="text" placeholder="Nome da Unidade" />
                 </div>
+                @if (unidades.controls[$index].get('nomeUnidade')?.invalid && unidades.controls[$index].get('nomeUnidade')?.touched) {
+                  <small class="alert-message">O nome da unidade é obrigatório.</small>
+                }
               </div>
               
               <div class="profile-field">
@@ -213,6 +216,9 @@
                 <div class="profile-control">
                   <input formControlName="cep" type="text" placeholder="00000-000" />
                 </div>
+                @if (unidades.controls[$index].get('cep')?.invalid && unidades.controls[$index].get('cep')?.touched) {
+                  <small class="alert-message">O CEP da unidade é obrigatório.</small>
+                }
               </div>
 
               <div class="profile-field profile-field--logradouro">
@@ -220,6 +226,9 @@
                 <div class="profile-control">
                   <input formControlName="logradouro" type="text" placeholder="Av. das Flores" />
                 </div>
+                @if (unidades.controls[$index].get('logradouro')?.invalid && unidades.controls[$index].get('logradouro')?.touched) {
+                  <small class="alert-message">O logradouro da unidade é obrigatório.</small>
+                } 
               </div>
 
               <div class="profile-field">
@@ -227,6 +236,9 @@
                 <div class="profile-control">
                   <input formControlName="numero" type="text" placeholder="123" />
                 </div>
+                @if (unidades.controls[$index].get('numero')?.invalid && unidades.controls[$index].get('numero')?.touched) {
+                  <small class="alert-message">O número da unidade é obrigatório.</small>
+                }
               </div>
 
               <div class="profile-field profile-field--logradouro">
@@ -234,6 +246,9 @@
                 <div class="profile-control">
                   <input formControlName="complemento" type="text" placeholder="Apto 42, Bloco B" />
                 </div>
+                @if (unidades.controls[$index].get('complemento')?.invalid && unidades.controls[$index].get('complemento')?.touched) {
+                  <small class="alert-message">O complemento da unidade é obrigatório.</small>
+                }
               </div>
 
               <div class="profile-field">
@@ -241,6 +256,9 @@
                 <div class="profile-control">
                   <input formControlName="bairro" type="text" placeholder="Centro" />
                 </div>
+                @if (unidades.controls[$index].get('bairro')?.invalid && unidades.controls[$index].get('bairro')?.touched) {
+                  <small class="alert-message">O bairro da unidade é obrigatório.</small>
+                }
               </div>
 
               <div class="profile-field profile-field--uf">
@@ -253,6 +271,9 @@
                     <option value="PR">PR</option>
                   </select>
                 </div>
+                @if (unidades.controls[$index].get('uf')?.invalid && unidades.controls[$index].get('uf')?.touched) {
+                  <small class="alert-message">O UF da unidade é obrigatório.</small>
+                }               
               </div>
 
               <div class="profile-field profile-field--cidade">
@@ -260,6 +281,9 @@
                 <div class="profile-control">
                   <input formControlName="cidade" type="text" placeholder="São Paulo" />
                 </div>
+                @if (unidades.controls[$index].get('cidade')?.invalid && unidades.controls[$index].get('cidade')?.touched) {
+                  <small class="alert-message">A cidade da unidade é obrigatória.</small>
+                }               
               </div>
 
               <div class="profile-field">
@@ -267,6 +291,9 @@
                 <div class="profile-control">
                   <input formControlName="googleMaps" type="text" placeholder="https://maps.google.com/..." />
                 </div>
+                @if (unidades.controls[$index].get('googleMaps')?.invalid && unidades.controls[$index].get('googleMaps')?.touched) {
+                  <small class="alert-message">O link do Google Maps da unidade é obrigatório.</small>
+                }               
               </div>
 
               <div class="profile-field profile-field--cidade">
@@ -274,6 +301,9 @@
                 <div class="profile-control">
                   <input formControlName="telefone" type="text" placeholder="(11) 1234-5678" />
                 </div>
+                @if (unidades.controls[$index].get('telefone')?.invalid && unidades.controls[$index].get('telefone')?.touched) {
+                  <small class="alert-message">O telefone da unidade é obrigatório.</small>
+                }   
               </div>
             </div>
           </div>
@@ -293,7 +323,7 @@
       </div>
 
       <div class="content-valores" formArrayName="convenios">
-        @for (item of convenios.controls; track $index) {
+        @for (item of convenios.controls; track item) {
           <div class="address-grid" [formGroupName]="$index">
             <div class="profile-field profile-field--logradouro">
               <label>Convênio</label>
@@ -343,7 +373,7 @@
             <input type="password" id="senha" formControlName="senha" placeholder="Digite sua senha">
           </div>
           @if (isCampoInvalido('senha')) {
-            <small style="color: #d93025; font-size: 12px;">A senha deve ter no mínimo 6 caracteres.</small>
+            <small class="alert-message">A senha deve ter no mínimo 6 caracteres.</small>
           }
         </div>
         <div class="profile-field">
@@ -352,12 +382,14 @@
             <input type="password" id="confirmar-senha" formControlName="confirmarSenha" placeholder="Confirme sua senha">
           </div>
           @if (medicoForm.hasError('senhasDiferentes') && (medicoForm.get('confirmarSenha')?.touched || medicoForm.get('confirmarSenha')?.dirty)) {
-            <small style="color: #d93025; font-size: 12px;">As senhas não coincidem.</small>
+            <small class="alert-message">As senhas não coincidem.</small>
           }
         </div>
       </div>
     </section>
+
     <app-alert-modal [(showModal)]="showModal" [message]="'Por favor, Preencha os campos <strong>obrigatórios</strong><br /><br />' + message"></app-alert-modal>
+    
     <div class="profile-actions">
       <button class="profile-btn profile-btn--ghost" type="button">Cancelar</button>
       <button class="profile-btn profile-btn--primary" type="submit">Finalizar Cadastro</button>

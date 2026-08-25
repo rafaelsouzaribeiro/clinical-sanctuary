@@ -38,6 +38,8 @@ export class Medicos {
     bairro: 'Bairro',
     uf: 'UF',
     cidade: 'Cidade',
+    complemento: 'Complemento',
+    googleMaps: 'Link do Google Maps',
     telefone: 'Telefone',
     convenio: 'Convênio'
   };
@@ -119,11 +121,11 @@ export class Medicos {
       cep: ['', Validators.required],
       logradouro: ['', Validators.required],
       numero: ['', Validators.required],
-      complemento: [''], // opcional
+      complemento: ['', Validators.required], 
       bairro: ['', Validators.required],
       uf: ['SP', Validators.required],
       cidade: ['', Validators.required],
-      googleMaps: [''],
+      googleMaps: ['', Validators.required],
       telefone: ['', Validators.required]
     });
   }
