@@ -70,12 +70,11 @@ export class Consultas implements OnInit {
     const doctorFromState = stateFromNavigation ?? stateFromHistory;
 
     if (doctorFromState) {
-      this.medico.set(doctorFromState);
-      this.inicializarDadosFormulario();
+      this.medicoId = doctorFromState.id;
     }
-    
-    if (!this.medico()) {
-      this.consultaService.getDoctorProfile(this.medicoId).subscribe((doctor) => {
+
+
+    this.consultaService.getDoctorProfile(this.medicoId ?? "").subscribe((doctor) => {
         this.medico.set({
           id: doctor.id,
           slug: doctor.slug,
@@ -94,20 +93,24 @@ export class Consultas implements OnInit {
           })),
         });
 
+       this.inicializarDadosFormulario(doctorFromState);
       });
-    }
 
+
+    if (this.medicoId) {
       this.consultaService.getAvailableTimes(this.medicoId).subscribe((availableTimes) => {
         this.availableTimes.set(availableTimes);
         this.calendar.availableDates.set(availableTimes);
         this.addHoursToDate(availableTimes);
       });
+    }
 
-      this.inicializarDadosFormulario();
   }
 
-  private inicializarDadosFormulario(): void {
-    const medicoAtual = this.medico();
+  private inicializarDadosFormulario(doctorFromState: MedicoConsulta): void {
+    let medicoAtual = this.medico();
+    if (doctorFromState) medicoAtual = doctorFromState;
+    
     if (!medicoAtual || !medicoAtual.unidades?.length) return;
 
     const primeiraUnidade = medicoAtual.unidades[0];

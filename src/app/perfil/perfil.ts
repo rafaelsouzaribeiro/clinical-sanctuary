@@ -78,11 +78,22 @@ export class Perfil {
       return;
     }
 
+    let service=[]
+    if(this.servicoSelecionado){
+      service.push(this.servicoSelecionado);
+    }
+
+    service=service.map((s: any) => ({
+        value: s.id,
+        label: `${s.label} - ${s.price}`,
+     }));
+        
+
     const doctorFiltrado = {
       ...this.doctor(),
-      servicos: this.servicoSelecionado ? [this.servicoSelecionado] : this.doctor().servicos,
-      convenios: this.convenioSelecionado ? [this.convenioSelecionado] : this.doctor().convenios,
-      unidades: this.unidadeSelecionada ? [this.unidadeSelecionada] : this.doctor().unidades,
+      servicos: service,
+      convenios: [this.convenioSelecionado],
+      unidades: [this.unidadeSelecionada] ,
     };
 
     this.router.navigate(this.consultaLink, {
