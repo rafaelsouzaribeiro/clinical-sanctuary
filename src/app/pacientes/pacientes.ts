@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { AlertModal } from '../alert-modal/alert-modal'; // Ajuste o caminho conforme seu projeto
+import { AlertModal } from '../alert-modal/alert-modal'; 
 
 @Component({
   selector: 'app-pacientes',
