@@ -208,6 +208,11 @@
   box-shadow: 0 10px 24px rgba(10, 118, 130, 0.3);
 }
 
+.alert-message {
+  color: #d93025; 
+  font-size: 12px;
+}
+
 
 @media (max-width: 1024px) {
 
