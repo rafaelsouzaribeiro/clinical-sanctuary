@@ -81,6 +81,7 @@ export class Pacientes {
     }
 
     console.log('Dados do Paciente:', this.pacienteForm.value);
+    alert('Formulário enviado com sucesso!');
   }
 
   isCampoInvalido(campo: string): boolean {
