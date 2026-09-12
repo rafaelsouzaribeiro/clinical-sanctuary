@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SelectCidades } from '../../home/cidades/cidades.interface';
+import { StateOutput,CityOutput } from '../../home/cidades/cidades.interface';
 import BASEURL from '../../../app.api';
 import { Doctor,IHomeService } from '../iservice/home.interface';
 
@@ -13,14 +13,14 @@ export class HomeService implements IHomeService {
   constructor(private http: HttpClient) {}
 
   getDoctors(id: string): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(`${BASEURL}/homeDoctors?cityId=${id}`);
+    return this.http.get<Doctor[]>(`${BASEURL}/homeDoctors?city_id=${id}`);
   }
 
-  getUfOptions(): Observable<SelectCidades[]> {
-    return this.http.get<SelectCidades[]>(`${BASEURL}/ufOptions`);
+  getUfOptions(): Observable<StateOutput[]> {
+    return this.http.get<StateOutput[]>(`${BASEURL}/states`);
   }
 
-  getCityOptions(uf: string): Observable<SelectCidades[]> {
-    return this.http.get<SelectCidades[]>(`${BASEURL}/cityOptions?uf=${uf}`);
+  getCityOptions(id: string): Observable<CityOutput[]> {
+    return this.http.get<CityOutput[]>(`${BASEURL}/cities?state_id=${id}`);
   }
 }

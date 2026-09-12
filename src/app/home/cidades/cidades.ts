@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, output } from '@angular/core';
-import { SelectCidades } from "./cidades.interface";
+import { CityOutput,StateOutput } from "./cidades.interface";
 import { HomeService } from '../../services/impl/home.service';
+import { UUID } from 'node:crypto';
 
 @Component({
   selector: 'app-cidades',
@@ -12,10 +13,10 @@ export class Cidades implements OnInit {
     @Output() cityChange = new EventEmitter<string>();
     @Output() searchChange = new EventEmitter<string>();
 
-    public ufOptions: SelectCidades[] = [];
-    public cityOptions: SelectCidades[] = [];
+    public ufOptions: StateOutput[] = [];
+    public cityOptions: CityOutput[] = [];
 
-    public selectedUf = '';
+    public selectedID = '';
     public selectedCity = '';
     public searchTerm = '';
 
@@ -24,25 +25,25 @@ export class Cidades implements OnInit {
     ngOnInit(): void {
         this.homeService.getUfOptions().subscribe((options) => {
             this.ufOptions = options;
-            this.selectedUf = this.ufOptions[0]?.value ?? '';
-            this.loadCities(this.selectedUf);
+            this.selectedID = this.ufOptions[0]?.state_id ?? '';
+            this.loadCities(this.selectedID);
         });
     }
 
-    private loadCities(uf: string): void {
+    private loadCities(state_id: string): void {
         this.cityOptions = [];
         this.selectedCity = '';
 
-        this.homeService.getCityOptions(uf).subscribe((options) => {
+        this.homeService.getCityOptions(state_id).subscribe((options) => {
             this.cityOptions = options;
-            this.selectedCity = options[0]?.id ?? '';
+            this.selectedCity = options[0]?.city_id ?? '';
             this.cityChange.emit(this.selectedCity);
         });
     }
 
     onUfSelect(event: Event): void {
         const value = (event.target as HTMLSelectElement).value;
-        this.selectedUf = value;
+        this.selectedID = value;
         this.loadCities(value);
     }
 

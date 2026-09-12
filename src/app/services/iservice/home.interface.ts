@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { SelectCidades } from '../../home/cidades/cidades.interface';
+import { CityOutput,StateOutput } from '../../home/cidades/cidades.interface';
 
 export interface Doctor {
   id: string;
@@ -20,6 +20,6 @@ export interface Doctor {
 
 export interface IHomeService {
   getDoctors(searchTerm: string,id: string): Observable<Doctor[]>;
-  getUfOptions(): Observable<SelectCidades[]>;
-  getCityOptions(uf: string): Observable<SelectCidades[]>;
+  getUfOptions(): Observable<StateOutput[]>;
+  getCityOptions(uf: string): Observable<CityOutput[]>;
 }

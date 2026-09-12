@@ -2,10 +2,10 @@
 <div class="container-search">
     <div class="width-uf">
         <div class="profile-control">
-            <select id="uf" name="uf" [value]="selectedUf" (change)="onUfSelect($event)">
-                @for (option of ufOptions; track option.value) {
-                    <option [value]="option.value" [selected]="option.value === selectedUf">
-                        {{ option.label }}
+            <select id="uf" name="uf" [value]="selectedID" (change)="onUfSelect($event)">
+                @for (option of ufOptions; track option.state_id) {
+                    <option [value]="option.state_id" [selected]="option.state_id === selectedID">
+                        {{ option.name }}
                     </option>
                 }
             </select>
@@ -14,9 +14,9 @@
     <div class="width-city">
         <div class="profile-control">
             <select id="city" name="city" [value]="selectedCity" (change)="onCitySelect($event)">
-                @for (option of cityOptions; track option.id) {
-                    <option [value]="option.id" [selected]="option.id === selectedCity">
-                        {{ option.label }}
+                @for (option of cityOptions; track option.city_id) {
+                    <option [value]="option.city_id" [selected]="option.city_id === selectedCity">
+                        {{ option.name_city }}
                     </option>
                 }
             </select>
