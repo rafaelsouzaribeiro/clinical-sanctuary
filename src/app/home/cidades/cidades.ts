@@ -24,6 +24,7 @@ export class Cidades implements OnInit {
 
   public cityInputValue = '';
   public isCityDropdownOpen = false;
+  public selectedCityName = '';
 
   constructor(private homeService: HomeService) {}
 
@@ -40,6 +41,7 @@ export class Cidades implements OnInit {
     this.filteredCityOptions = [];
     this.selectedCity = '';
     this.cityInputValue = '';
+    this.selectedCityName = '';
 
     this.homeService.getCityOptions(state_id).subscribe((options) => {
       this.cityOptions = options;
@@ -49,6 +51,7 @@ export class Cidades implements OnInit {
       if (first) {
         this.selectedCity = first.city_id;
         this.cityInputValue = first.name_city;
+        this.selectedCityName = first.name_city;
         this.cityChange.emit(this.selectedCity);
       }
     });
@@ -74,6 +77,7 @@ export class Cidades implements OnInit {
   onCityInputFocus(): void {
     this.isCityDropdownOpen = true;
     this.filteredCityOptions = this.cityOptions;
+    this.cityInputValue = ''; 
   }
 
   onCityInputBlur(): void {
@@ -82,10 +86,11 @@ export class Cidades implements OnInit {
 
   selectCity(option: CityOutput): void {
     this.selectedCity = option.city_id;
+    this.selectedCityName = option.name_city;
     this.cityInputValue = option.name_city;
     this.isCityDropdownOpen = false;
     this.cityChange.emit(this.selectedCity);
-  }
+ }
 
   onSearchChange(event: Event): void {
     const value = (event.target as HTMLInputElement).value;

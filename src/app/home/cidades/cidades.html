@@ -13,15 +13,15 @@
 
   <div class="width-city">
     <div class="profile-control city-combobox">
-      <input
-        id="city"
-        type="text"
-        autocomplete="off"
-        placeholder="Buscar cidade..."
-        [value]="cityInputValue"
-        (input)="onCityInputChange($event)"
-        (focus)="onCityInputFocus()"
-        (blur)="onCityInputBlur()" />
+    <input
+    id="city"
+    type="text"
+    autocomplete="off"
+    [placeholder]="selectedCityName || 'Buscar cidade...'"
+    [value]="cityInputValue"
+    (input)="onCityInputChange($event)"
+    (focus)="onCityInputFocus()"
+    (blur)="onCityInputBlur()" />
 
       @if (isCityDropdownOpen && filteredCityOptions.length) {
         <ul class="city-dropdown">
