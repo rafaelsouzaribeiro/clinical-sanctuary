@@ -1,12 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { CityOutput, StateOutput } from "./cidades.interface";
 import { HomeService } from '../../services/impl/home.service';
 
 @Component({
   selector: 'app-cidades',
-  imports: [CommonModule, FormsModule],
+  imports: [],
   templateUrl: './cidades.html',
   styleUrl: './cidades.css',
 })
