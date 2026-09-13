@@ -77,7 +77,7 @@ export class Cidades implements OnInit {
   }
 
   onCityInputBlur(): void {
-    setTimeout(() => (this.isCityDropdownOpen = false), 150);
+    this.isCityDropdownOpen = false
   }
 
   selectCity(option: CityOutput): void {
