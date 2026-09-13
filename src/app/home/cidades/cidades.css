@@ -57,3 +57,39 @@
   font-size: 1.05rem;
   outline: none;
 }
+
+.city-combobox {
+  position: relative;
+}
+
+.city-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 220px;
+  overflow-y: auto;
+  margin: 4px 0 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.city-dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.city-dropdown li:hover,
+.city-dropdown li.selected {
+  background: #f0f0f0;
+}
+
+.city-dropdown li.no-results {
+  color: #999;
+  cursor: default;
+}
