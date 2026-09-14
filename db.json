@@ -1,424 +1,1261 @@
 {
- "doctorProfile": [
-  {
-    "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-    "slug": "dr-john-smith",
-    "name": "Dr. John Smith",
-    "specialty": "Cardiologista",
-    "phone": "(11) 1234-5678",
-    "crm": "123456-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.9,
-    "rating": 500,
-    "patientNumber": 1200,
-    "experience": 15,
-    "description": "Dr. John Smith é um renomado cardiologista com mais de 15 anos de experiência no tratamento de doenças cardíacas. Ele é conhecido por sua abordagem centrada no paciente e por utilizar as mais recentes tecnologias em cardiologia para oferecer o melhor cuidado possível.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "c2887ecc-b011-43fc-8d82-e5bccbf183e4", "label": "Clínica Central - Salto de Pirapora, SP", "room": "Edifício Clinical Sanctuary, Sala 1205", "open": "Seg a Sex" },
-      { "value": "6f9b2fe4-76b4-4d18-bf68-6751683ba837", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 1206", "open": "Apenas Terças" },
-      { "value": "82b1f7ec-34f9-4afc-a953-6e3952dace6e", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 1207", "open": "Apenas Quintas" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 150,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 80,00" }
-    ],
-    "comments":[
+  "doctors": [
     {
       "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+      "slug": "dr-john-smith",
+      "email": "dr-john-smith@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. John Smith",
+      "phone": "(11) 1234-5678",
+      "crm": "123456-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.9,
+      "experience": 15,
+      "description": "Dr. John Smith é um renomado cardiologista com mais de 15 anos de experiência no tratamento de doenças cardíacas. Ele é conhecido por sua abordagem centrada no paciente e por utilizar as mais recentes tecnologias em cardiologia para oferecer o melhor cuidado possível.",
+      "rating": 500,
+      "patient_number": 1200,
+      "specialties": [
+        {
+          "id": "1c13cf52-f05f-4184-962d-d49a8c416d33",
+          "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+          "speciality_name": "Cardiologista",
+          "speciality_slug": "cardiologista"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "c2887ecc-b011-43fc-8d82-e5bccbf183e4",
+          "name": "Clínica Central - Salto de Pirapora, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 1205",
+          "city": "Salto de Pirapora",
+          "open": "Seg a Sex",
+          "city_id": "177d8c35-11fc-4732-b310-94fc493ced9a"
+        },
+        {
+          "id": "6f9b2fe4-76b4-4d18-bf68-6751683ba837",
+          "name": "Clínica Norte - São Paulo, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 1206",
+          "city": "São Paulo",
+          "open": "Apenas Terças",
+          "city_id": "9dfe48d3-7657-42de-a0c6-b80dae81bee9"
+        },
+        {
+          "id": "82b1f7ec-34f9-4afc-a953-6e3952dace6e",
+          "name": "Clínica Sul - Campinas, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 1207",
+          "city": "Campinas",
+          "open": "Apenas Quintas",
+          "city_id": "e114e375-6bbd-4e63-8d43-e64dd39b3bd2"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     },
     {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-    }
-  ]
-  },
-  {
-    "id": "2ab456cd-ef12-3456-7890-abcdef123456",
-    "slug": "dr-mary-johnson",
-    "name": "Dr. Mary Johnson",
-    "specialty": "Dermatologista",
-    "phone": "(11) 9876-5432",
-    "crm": "654321-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.8,
-    "rating": 420,
-    "patientNumber": 980,
-    "experience": 12,
-    "description": "Dra. Mary Johnson é especialista em Dermatologia com mais de 12 anos de experiência no diagnóstico e tratamento de doenças de pele, cabelos e unhas. Atua com abordagem moderna e preventiva, sempre priorizando o bem-estar e a autoestima dos pacientes.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "label": "Clínica Central - Sorocaba, SP", "room": "Ala Suldeste, Sala 90", "open": "Seg a Sex" },
-      { "value": "b2c3d4e5-f6a7-8901-bcde-f12345678901", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 210", "open": "Ter e Qui" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 180,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 120,00" }
-    ],
-    "comments":[
-    {
-      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+      "id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "slug": "dr-mary-johnson",
+      "email": "dr-mary-johnson@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. Mary Johnson",
+      "phone": "(11) 9876-5432",
+      "crm": "654321-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.8,
+      "experience": 12,
+      "description": "Dra. Mary Johnson é especialista em Dermatologia com mais de 12 anos de experiência no diagnóstico e tratamento de doenças de pele, cabelos e unhas. Atua com abordagem moderna e preventiva, sempre priorizando o bem-estar e a autoestima dos pacientes.",
+      "rating": 420,
+      "patient_number": 980,
+      "specialties": [
+        {
+          "id": "d2ed47a1-d95f-48c0-8662-0879cb4b0f35",
+          "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+          "speciality_name": "Dermatologista",
+          "speciality_slug": "dermatologista"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "name": "Clínica Central - Sorocaba, SP",
+          "street": "Ala Suldeste, Sala 90",
+          "city": "Sorocaba",
+          "open": "Seg a Sex",
+          "city_id": "0dede741-d7ef-427d-8209-73cfee8e19d4"
+        },
+        {
+          "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+          "name": "Clínica Norte - São Paulo, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 210",
+          "city": "São Paulo",
+          "open": "Ter e Qui",
+          "city_id": "9dfe48d3-7657-42de-a0c6-b80dae81bee9"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     },
     {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-    }
-  ]
-  },
-  {
-    "id": "3cd789ef-4567-8901-2345-abcdef678901",
-    "slug": "dr-luke-williams",
-    "name": "Dr. Luke Williams",
-    "specialty": "Neurologista",
-    "phone": "(11) 5678-1234",
-    "crm": "987654-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.7,
-    "rating": 310,
-    "patientNumber": 750,
-    "experience": 18,
-    "description": "Dr. Luke Williams é neurologista com 18 anos de experiência no diagnóstico e tratamento de doenças do sistema nervoso. Especializado em cefaleias, epilepsia e doenças neurodegenerativas, oferece atendimento humanizado e baseado em evidências científicas.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "c3d4e5f6-a7b8-9012-cdef-123456789012", "label": "Clínica Central - Pilar do Sul, SP", "room": "Ala Norte, Sala 120", "open": "Seg a Sex" },
-      { "value": "d4e5f6a7-b8c9-0123-def0-234567890123", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 305", "open": "Quartas" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 220,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 150,00" }
-    ],
-    "comments":[
-    {
-      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+      "id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "slug": "dr-luke-williams",
+      "email": "dr-luke-williams@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. Luke Williams",
+      "phone": "(11) 5678-1234",
+      "crm": "987654-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.7,
+      "experience": 18,
+      "description": "Dr. Luke Williams é neurologista com 18 anos de experiência no diagnóstico e tratamento de doenças do sistema nervoso. Especializado em cefaleias, epilepsia e doenças neurodegenerativas, oferece atendimento humanizado e baseado em evidências científicas.",
+      "rating": 310,
+      "patient_number": 750,
+      "specialties": [
+        {
+          "id": "619b8bcb-b730-4370-a6ec-738d78beba0e",
+          "speciality_id": "d0cfe51b-39db-56eb-a9e1-cf0fa118869d",
+          "speciality_name": "Neurologista",
+          "speciality_slug": "neurologista"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+          "name": "Clínica Central - Pilar do Sul, SP",
+          "street": "Ala Norte, Sala 120",
+          "city": "Pilar do Sul",
+          "open": "Seg a Sex",
+          "city_id": "1b8951b0-898e-4d2a-8c98-760add865e24"
+        },
+        {
+          "id": "d4e5f6a7-b8c9-0123-def0-234567890123",
+          "name": "Clínica Sul - Campinas, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 305",
+          "city": "Campinas",
+          "open": "Quartas",
+          "city_id": "e114e375-6bbd-4e63-8d43-e64dd39b3bd2"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     },
     {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-    }
-  ]
-  },
-  {
-    "id": "4ef012gh-5678-9012-3456-abcdef890123",
-    "slug": "dr-emily-smith",
-    "name": "Dr. Emily Smith",
-    "specialty": "Pediatra",
-    "phone": "(11) 4321-8765",
-    "crm": "456789-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.9,
-    "rating": 680,
-    "patientNumber": 1500,
-    "experience": 14,
-    "description": "Dra. Emily Smith é pediatra com 14 anos de experiência no cuidado de crianças e adolescentes. Atua com foco em prevenção, desenvolvimento infantil e atendimento acolhedor para toda a família.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "e5f6a7b8-c9d0-1234-ef01-345678901234", "label": "Clínica Central - Salto de Pirapora, SP", "room": "Ala Oeste, Sala 110", "open": "Seg a Sex" },
-      { "value": "f6a7b8c9-d0e1-2345-f012-456789012345", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 408", "open": "Ter e Qui" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 160,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 90,00" }
-    ],
-    "comments":[
-    {
-      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+      "id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "slug": "dr-emily-smith",
+      "email": "dr-emily-smith@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. Emily Smith",
+      "phone": "(11) 4321-8765",
+      "crm": "456789-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.9,
+      "experience": 14,
+      "description": "Dra. Emily Smith é pediatra com 14 anos de experiência no cuidado de crianças e adolescentes. Atua com foco em prevenção, desenvolvimento infantil e atendimento acolhedor para toda a família.",
+      "rating": 680,
+      "patient_number": 1500,
+      "specialties": [
+        {
+          "id": "13d0445b-4843-4617-be64-5303797610eb",
+          "speciality_id": "b3a8829b-2b81-5ce6-9939-2ba1115311a4",
+          "speciality_name": "Pediatra",
+          "speciality_slug": "pediatra"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "e5f6a7b8-c9d0-1234-ef01-345678901234",
+          "name": "Clínica Central - Salto de Pirapora, SP",
+          "street": "Ala Oeste, Sala 110",
+          "city": "Salto de Pirapora",
+          "open": "Seg a Sex",
+          "city_id": "177d8c35-11fc-4732-b310-94fc493ced9a"
+        },
+        {
+          "id": "f6a7b8c9-d0e1-2345-f012-456789012345",
+          "name": "Clínica Norte - São Paulo, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 408",
+          "city": "São Paulo",
+          "open": "Ter e Qui",
+          "city_id": "9dfe48d3-7657-42de-a0c6-b80dae81bee9"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     },
     {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-    }
-  ]
-  },
-  {
-    "id": "5gh345ij-6789-0123-4567-abcdef901234",
-    "slug": "dr-michael-jones",
-    "name": "Dr. Michael Jones",
-    "specialty": "Ortopedista",
-    "phone": "(11) 8765-4321",
-    "crm": "321654-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.6,
-    "rating": 390,
-    "patientNumber": 870,
-    "experience": 16,
-    "description": "Dr. Michael Jones é ortopedista com 16 anos de experiência no tratamento de lesões musculoesqueléticas, fraturas e doenças articulares. Especializado em medicina esportiva e cirurgia minimamente invasiva.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "a7b8c9d0-e1f2-3456-0123-567890123456", "label": "Clínica Central - Votorantim, SP", "room": "Ala Leste, Sala 210", "open": "Seg a Sex" },
-      { "value": "b8c9d0e1-f2a3-4567-1234-678901234567", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 512", "open": "Seg e Qua" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 200,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 130,00" }
-    ],
-    "comments":[
-    {
-      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+      "id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "slug": "dr-michael-jones",
+      "email": "dr-michael-jones@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. Michael Jones",
+      "phone": "(11) 8765-4321",
+      "crm": "321654-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.6,
+      "experience": 16,
+      "description": "Dr. Michael Jones é ortopedista com 16 anos de experiência no tratamento de lesões musculoesqueléticas, fraturas e doenças articulares. Especializado em medicina esportiva e cirurgia minimamente invasiva.",
+      "rating": 390,
+      "patient_number": 870,
+      "specialties": [
+        {
+          "id": "8ac6f4e0-5816-482a-9ff4-ad922f923148",
+          "speciality_id": "477f09a7-85ae-59c4-a868-1994029b6405",
+          "speciality_name": "Ortopedista",
+          "speciality_slug": "ortopedista"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "a7b8c9d0-e1f2-3456-0123-567890123456",
+          "name": "Clínica Central - Votorantim, SP",
+          "street": "Ala Leste, Sala 210",
+          "city": "Votorantim",
+          "open": "Seg a Sex",
+          "city_id": "9f67a54e-7e4b-4307-9766-bf8cfd1b937b"
+        },
+        {
+          "id": "b8c9d0e1-f2a3-4567-1234-678901234567",
+          "name": "Clínica Sul - Campinas, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 512",
+          "city": "Campinas",
+          "open": "Seg e Qua",
+          "city_id": "e114e375-6bbd-4e63-8d43-e64dd39b3bd2"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     },
     {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-    }
-  ]
-  },
-  {
-    "id": "6ij678kl-7890-1234-5678-abcdef012345",
-    "slug": "dr-sarah-brown",
-    "name": "Dr. Sarah Brown",
-    "specialty": "Ginecologista",
-    "phone": "(11) 5432-1098",
-    "crm": "789012-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.8,
-    "rating": 450,
-    "patientNumber": 1100,
-    "experience": 13,
-    "description": "Dra. Sarah Brown é ginecologista e obstetra com 13 anos de experiência. Atua no acompanhamento da saúde da mulher em todas as fases da vida, com foco em prevenção, planejamento familiar e gestação de alto risco.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "c9d0e1f2-a3b4-5678-2345-789012345678", "label": "Clínica Central - Sorocaba, SP", "room": "Ala Norte, Sala 305", "open": "Seg a Sex" },
-      { "value": "d0e1f2a3-b4c5-6789-3456-890123456789", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 615", "open": "Ter e Qui" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 190,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 110,00" }
-    ],
-    "comments":[
-    {
-      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+      "id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "slug": "dr-sarah-brown",
+      "email": "dr-sarah-brown@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. Sarah Brown",
+      "phone": "(11) 5432-1098",
+      "crm": "789012-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.8,
+      "experience": 13,
+      "description": "Dra. Sarah Brown é ginecologista e obstetra com 13 anos de experiência. Atua no acompanhamento da saúde da mulher em todas as fases da vida, com foco em prevenção, planejamento familiar e gestação de alto risco.",
+      "rating": 450,
+      "patient_number": 1100,
+      "specialties": [
+        {
+          "id": "d0634884-327c-40a1-a45c-27ecc3d564a1",
+          "speciality_id": "63f129b3-1c80-5513-8dbc-8f57c2e9bc2a",
+          "speciality_name": "Ginecologista",
+          "speciality_slug": "ginecologista"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "c9d0e1f2-a3b4-5678-2345-789012345678",
+          "name": "Clínica Central - Sorocaba, SP",
+          "street": "Ala Norte, Sala 305",
+          "city": "Sorocaba",
+          "open": "Seg a Sex",
+          "city_id": "0dede741-d7ef-427d-8209-73cfee8e19d4"
+        },
+        {
+          "id": "d0e1f2a3-b4c5-6789-3456-890123456789",
+          "name": "Clínica Norte - São Paulo, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 615",
+          "city": "São Paulo",
+          "open": "Ter e Qui",
+          "city_id": "9dfe48d3-7657-42de-a0c6-b80dae81bee9"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     },
     {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-    }
-  ]
-  },
-  {
-    "id": "7kl901mn-8901-2345-6789-abcdef123456",
-    "slug": "dr-david-wilson",
-    "name": "Dr. David Wilson",
-    "specialty": "Oftalmologista",
-    "phone": "(11) 2109-8765",
-    "crm": "654987-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.9,
-    "rating": 520,
-    "patientNumber": 1350,
-    "experience": 17,
-    "description": "Dr. David Wilson é oftalmologista com 17 anos de experiência no diagnóstico e tratamento de doenças oculares. Especializado em cirurgia de catarata, glaucoma e correção visual a laser, oferece atendimento de alta precisão e tecnologia.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "e1f2a3b4-c5d6-7890-4567-901234567890", "label": "Clínica Central - Sorocaba, SP", "room": "Ala Suldeste, Sala 75", "open": "Seg a Sex" },
-      { "value": "f2a3b4c5-d6e7-8901-5678-012345678901", "label": "Clínica Norte - São Paulo, SP", "room": "Edifício Clinical Sanctuary, Sala 720", "open": "Quartas" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 170,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 100,00" }
-    ],
-    "comments":[
-    {
-      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+      "id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "slug": "dr-david-wilson",
+      "email": "dr-david-wilson@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. David Wilson",
+      "phone": "(11) 2109-8765",
+      "crm": "654987-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.9,
+      "experience": 17,
+      "description": "Dr. David Wilson é oftalmologista com 17 anos de experiência no diagnóstico e tratamento de doenças oculares. Especializado em cirurgia de catarata, glaucoma e correção visual a laser, oferece atendimento de alta precisão e tecnologia.",
+      "rating": 520,
+      "patient_number": 1350,
+      "specialties": [
+        {
+          "id": "0791b3fd-43f2-4054-9d3d-96d8e40222ed",
+          "speciality_id": "9ed89f35-4386-5729-bbf4-b0b8105f8710",
+          "speciality_name": "Oftalmologista",
+          "speciality_slug": "oftalmologista"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "e1f2a3b4-c5d6-7890-4567-901234567890",
+          "name": "Clínica Central - Sorocaba, SP",
+          "street": "Ala Suldeste, Sala 75",
+          "city": "Sorocaba",
+          "open": "Seg a Sex",
+          "city_id": "0dede741-d7ef-427d-8209-73cfee8e19d4"
+        },
+        {
+          "id": "f2a3b4c5-d6e7-8901-5678-012345678901",
+          "name": "Clínica Norte - São Paulo, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 720",
+          "city": "São Paulo",
+          "open": "Quartas",
+          "city_id": "9dfe48d3-7657-42de-a0c6-b80dae81bee9"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     },
     {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+      "id": "8mn234op-9012-3456-7890-abcdef234567",
+      "slug": "dr-laura-martin",
+      "email": "dr-laura-martin@clinica.com",
+      "password": "changeme123",
+      "name": "Dr. Laura Martin",
+      "phone": "(11) 1098-5432",
+      "crm": "321098-SP",
+      "photo": "doctor.png",
+      "stat_number": 4.7,
+      "experience": 11,
+      "description": "Dra. Laura Martin é psiquiatra com 11 anos de experiência no tratamento de transtornos mentais e emocionais. Atua com abordagem integrada, combinando psicofarmacologia e acompanhamento terapêutico personalizado.",
+      "rating": 380,
+      "patient_number": 920,
+      "specialties": [
+        {
+          "id": "a36e14dc-be93-4206-af21-8ad87053e926",
+          "speciality_id": "ab486406-8ffd-5e8d-a67a-901e2980d5eb",
+          "speciality_name": "Psiquiatra",
+          "speciality_slug": "psiquiatra"
+        }
+      ],
+      "payments": [
+        {
+          "id": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb",
+          "name": "Cartão de Crédito"
+        },
+        {
+          "id": "144fdfee-eb76-43eb-bca1-f96caeaf23f2",
+          "name": "Boleto Bancário"
+        },
+        {
+          "id": "871e6f34-7015-4faa-9a60-9384cfcc053b",
+          "name": "PIX"
+        }
+      ],
+      "units": [
+        {
+          "id": "a3b4c5d6-e7f8-9012-6789-123456789012",
+          "name": "Clínica Central - Pilar do Sul, SP",
+          "street": "Ala Oeste, Sala 150",
+          "city": "Pilar do Sul",
+          "open": "Seg a Sex",
+          "city_id": "1b8951b0-898e-4d2a-8c98-760add865e24"
+        },
+        {
+          "id": "b4c5d6e7-f8a9-0123-7890-234567890123",
+          "name": "Clínica Sul - Campinas, SP",
+          "street": "Edifício Clinical Sanctuary, Sala 830",
+          "city": "Campinas",
+          "open": "Ter e Qui",
+          "city_id": "e114e375-6bbd-4e63-8d43-e64dd39b3bd2"
+        }
+      ],
+      "health": [
+        {
+          "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+          "name": "Particular"
+        },
+        {
+          "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+          "name": "Unimed"
+        },
+        {
+          "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+          "name": "Amil"
+        },
+        {
+          "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+          "name": "Bradesco Saúde"
+        },
+        {
+          "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+          "name": "SulAmérica"
+        }
+      ]
     }
-  ]
-  },
-  {
-    "id": "8mn234op-9012-3456-7890-abcdef234567",
-    "slug": "dr-laura-martin",
-    "name": "Dr. Laura Martin",
-    "specialty": "Psiquiatra",
-    "phone": "(11) 1098-5432",
-    "crm": "321098-SP",
-    "photo": "doctor.png",
-    "statNumber": 4.7,
-    "rating": 380,
-    "patientNumber": 920,
-    "experience": 11,
-    "description": "Dra. Laura Martin é psiquiatra com 11 anos de experiência no tratamento de transtornos mentais e emocionais. Atua com abordagem integrada, combinando psicofarmacologia e acompanhamento terapêutico personalizado.",
-    "pagamentos": [
-      { "value": "4623f917-ca86-4e1f-bf5c-c9138c4d28eb", "label": "Cartão de Crédito" },
-      { "value": "144fdfee-eb76-43eb-bca1-f96caeaf23f2", "label": "Boleto Bancário" },
-      { "value": "871e6f34-7015-4faa-9a60-9384cfcc053b", "label": "PIX" }
-    ],
-    "convenios": [
-      { "value": "6f0058af-a645-4005-87c5-9d2844eed4b9", "label": "Particular" },
-      { "value": "7cbb5876-ffc8-4d65-b786-633e24200765", "label": "Unimed" },
-      { "value": "8a63cdab-121e-4d81-aa15-44544a2fb301", "label": "Amil" },
-      { "value": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff", "label": "Bradesco Saúde" },
-      { "value": "6abb1b68-729c-4785-8882-b66fdf4d14b9", "label": "SulAmérica" }
-    ],
-    "unidades": [
-      { "value": "a3b4c5d6-e7f8-9012-6789-123456789012", "label": "Clínica Central - Pilar do Sul, SP", "room": "Ala Oeste, Sala 150", "open": "Seg a Sex" },
-      { "value": "b4c5d6e7-f8a9-0123-7890-234567890123", "label": "Clínica Sul - Campinas, SP", "room": "Edifício Clinical Sanctuary, Sala 830", "open": "Ter e Qui" }
-    ],
-    "servicos": [
-      { "id": "03ec8f12-bfbd-4a3b-a79f-accb750f0d50", "label": "Consulta", "price": "R$ 250,00" },
-      { "id": "c4251825-b156-45be-b643-843f04722c3e", "label": "Exame", "price": "R$ 140,00" }
-    ],
-    "comments":[
-    {
-      "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "MC",
-      "name": "Mariana Costa",
-      "date": "Consulta em 12 Out 2023",
-      "stars": 5,
-      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
-    },
-    {
-     "id": "2ef335ed-c98f-4f2a-a5ec-2461615a147b",
-      "avatar": "RP",
-      "name": "Ricardo Pereira",
-      "date": "Consulta em 05 Set 2023",
-      "stars": 4,
-      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
-    }
-  ]
-  }
   ],
-  "homeDoctors": [
+  "specialities": [
+    {
+      "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+      "speciality_name": "Cardiologista",
+      "speciality_slug": "cardiologista"
+    },
+    {
+      "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+      "speciality_name": "Dermatologista",
+      "speciality_slug": "dermatologista"
+    },
+    {
+      "speciality_id": "d0cfe51b-39db-56eb-a9e1-cf0fa118869d",
+      "speciality_name": "Neurologista",
+      "speciality_slug": "neurologista"
+    },
+    {
+      "speciality_id": "b3a8829b-2b81-5ce6-9939-2ba1115311a4",
+      "speciality_name": "Pediatra",
+      "speciality_slug": "pediatra"
+    },
+    {
+      "speciality_id": "477f09a7-85ae-59c4-a868-1994029b6405",
+      "speciality_name": "Ortopedista",
+      "speciality_slug": "ortopedista"
+    },
+    {
+      "speciality_id": "63f129b3-1c80-5513-8dbc-8f57c2e9bc2a",
+      "speciality_name": "Ginecologista",
+      "speciality_slug": "ginecologista"
+    },
+    {
+      "speciality_id": "9ed89f35-4386-5729-bbf4-b0b8105f8710",
+      "speciality_name": "Oftalmologista",
+      "speciality_slug": "oftalmologista"
+    },
+    {
+      "speciality_id": "ab486406-8ffd-5e8d-a67a-901e2980d5eb",
+      "speciality_name": "Psiquiatra",
+      "speciality_slug": "psiquiatra"
+    }
+  ],
+  "doctor_services_by_health_and_speciality": [
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "speciality_name": "Cardiologista",
+      "price": 150.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "speciality_name": "Cardiologista",
+      "price": 150.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "speciality_name": "Cardiologista",
+      "price": 150.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "speciality_name": "Cardiologista",
+      "price": 150.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "speciality_name": "Cardiologista",
+      "price": 150.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "speciality_name": "Dermatologista",
+      "price": 180.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "speciality_name": "Dermatologista",
+      "price": 180.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "speciality_name": "Dermatologista",
+      "price": 180.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "speciality_name": "Dermatologista",
+      "price": 180.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "speciality_name": "Dermatologista",
+      "price": 180.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "d0cfe51b-39db-56eb-a9e1-cf0fa118869d",
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "speciality_name": "Neurologista",
+      "price": 220.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "d0cfe51b-39db-56eb-a9e1-cf0fa118869d",
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "speciality_name": "Neurologista",
+      "price": 220.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "d0cfe51b-39db-56eb-a9e1-cf0fa118869d",
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "speciality_name": "Neurologista",
+      "price": 220.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "d0cfe51b-39db-56eb-a9e1-cf0fa118869d",
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "speciality_name": "Neurologista",
+      "price": 220.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "d0cfe51b-39db-56eb-a9e1-cf0fa118869d",
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "speciality_name": "Neurologista",
+      "price": 220.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "b3a8829b-2b81-5ce6-9939-2ba1115311a4",
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "speciality_name": "Pediatra",
+      "price": 160.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "b3a8829b-2b81-5ce6-9939-2ba1115311a4",
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "speciality_name": "Pediatra",
+      "price": 160.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "b3a8829b-2b81-5ce6-9939-2ba1115311a4",
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "speciality_name": "Pediatra",
+      "price": 160.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "b3a8829b-2b81-5ce6-9939-2ba1115311a4",
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "speciality_name": "Pediatra",
+      "price": 160.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "b3a8829b-2b81-5ce6-9939-2ba1115311a4",
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "speciality_name": "Pediatra",
+      "price": 160.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "477f09a7-85ae-59c4-a868-1994029b6405",
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "speciality_name": "Ortopedista",
+      "price": 200.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "477f09a7-85ae-59c4-a868-1994029b6405",
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "speciality_name": "Ortopedista",
+      "price": 200.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "477f09a7-85ae-59c4-a868-1994029b6405",
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "speciality_name": "Ortopedista",
+      "price": 200.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "477f09a7-85ae-59c4-a868-1994029b6405",
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "speciality_name": "Ortopedista",
+      "price": 200.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "477f09a7-85ae-59c4-a868-1994029b6405",
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "speciality_name": "Ortopedista",
+      "price": 200.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "63f129b3-1c80-5513-8dbc-8f57c2e9bc2a",
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "speciality_name": "Ginecologista",
+      "price": 190.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "63f129b3-1c80-5513-8dbc-8f57c2e9bc2a",
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "speciality_name": "Ginecologista",
+      "price": 190.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "63f129b3-1c80-5513-8dbc-8f57c2e9bc2a",
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "speciality_name": "Ginecologista",
+      "price": 190.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "63f129b3-1c80-5513-8dbc-8f57c2e9bc2a",
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "speciality_name": "Ginecologista",
+      "price": 190.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "63f129b3-1c80-5513-8dbc-8f57c2e9bc2a",
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "speciality_name": "Ginecologista",
+      "price": 190.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "9ed89f35-4386-5729-bbf4-b0b8105f8710",
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "speciality_name": "Oftalmologista",
+      "price": 170.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "9ed89f35-4386-5729-bbf4-b0b8105f8710",
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "speciality_name": "Oftalmologista",
+      "price": 170.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "9ed89f35-4386-5729-bbf4-b0b8105f8710",
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "speciality_name": "Oftalmologista",
+      "price": 170.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "9ed89f35-4386-5729-bbf4-b0b8105f8710",
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "speciality_name": "Oftalmologista",
+      "price": 170.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "9ed89f35-4386-5729-bbf4-b0b8105f8710",
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "speciality_name": "Oftalmologista",
+      "price": 170.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
+      "health_insurance_name": "Particular",
+      "speciality_id": "ab486406-8ffd-5e8d-a67a-901e2980d5eb",
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "speciality_name": "Psiquiatra",
+      "price": 250.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "7cbb5876-ffc8-4d65-b786-633e24200765",
+      "health_insurance_name": "Unimed",
+      "speciality_id": "ab486406-8ffd-5e8d-a67a-901e2980d5eb",
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "speciality_name": "Psiquiatra",
+      "price": 250.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
+      "health_insurance_name": "Amil",
+      "speciality_id": "ab486406-8ffd-5e8d-a67a-901e2980d5eb",
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "speciality_name": "Psiquiatra",
+      "price": 250.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
+      "health_insurance_name": "Bradesco Saúde",
+      "speciality_id": "ab486406-8ffd-5e8d-a67a-901e2980d5eb",
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "speciality_name": "Psiquiatra",
+      "price": 250.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
+    {
+      "health_insurance_id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
+      "health_insurance_name": "SulAmérica",
+      "speciality_id": "ab486406-8ffd-5e8d-a67a-901e2980d5eb",
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "speciality_name": "Psiquiatra",
+      "price": 250.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    }
+  ],
+  "doctor_comments": [
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "comment_id": "4f1ac768-c4a2-40c3-bef9-ae1487f494a6",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "comment_id": "6e7d0ef2-ed4c-49af-b461-3d9ac99aeba7",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "comment_id": "64f89ca7-6664-4767-95df-e04a9625ce02",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "comment_id": "b67e99eb-0877-4476-9ed5-b5342d49e547",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "comment_id": "c18ed07e-81b0-4203-bb74-2c0a6b1013fc",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "comment_id": "d91121b2-ddbe-4ad6-9310-fb7873342626",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "comment_id": "7830f5f1-48a3-40e6-8852-d84a2e722c33",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "comment_id": "a0dbcf04-54a5-4a75-8a4c-cc5f11f37602",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "comment_id": "beadfb8b-3ff7-4d38-b783-79ca0cf97d8f",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "comment_id": "19bd7422-5ba1-424e-b3f5-80a0877227bd",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "comment_id": "83c1d945-7ddc-4d12-816f-fefa61b4df6a",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "comment_id": "ac5649f6-39e1-4ff5-be23-e2bf7018fd79",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "comment_id": "e91872ec-f367-4dac-8f33-44905ca2a254",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "comment_id": "6a83b56b-f827-4871-8778-4a6be1a4e3a1",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "comment_id": "af51dcd7-a5ad-48f7-abda-aba84e8851fd",
+      "avatar": "MC",
+      "name": "Mariana Costa",
+      "date": "Consulta em 12 Out 2023",
+      "stars": 5,
+      "text": "A Dra. Helena é extremamente atenciosa. Nunca me senti tão ouvida em uma consulta médica. Ela explicou cada detalhe do meu tratamento com muita clareza."
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "comment_id": "1e5a4a91-ff7b-4a43-8535-c8eb769635fe",
+      "avatar": "RP",
+      "name": "Ricardo Pereira",
+      "date": "Consulta em 05 Set 2023",
+      "stars": 4,
+      "text": "Excelente profissional. O consultório é impecável e o atendimento na recepção também foi muito ágil."
+    }
+  ],
+  "home_doctors": [
     {
       "id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
       "slug": "dr-john-smith",
@@ -532,80 +1369,79 @@
       "crm": "321098-SP"
     }
   ],
-  
-"availableTimes": [
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-24", "availableTimes": ["08:00", "10:30", "14:00"] },
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-25", "availableTimes": ["08:00", "09:30", "15:00"] },
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-26", "availableTimes": ["08:00", "11:00"] },
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-27", "availableTimes": ["09:00", "13:30", "16:00"] },
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-28", "availableTimes": ["08:00", "10:00"] },
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-29", "availableTimes": ["09:00", "11:30"] },
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-30", "availableTimes": ["08:30"] },
-    { "idDoctor": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-08-31", "availableTimes": ["08:00", "14:00"] },
+  "availableTimes": [
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-14", "availableTimes": ["08:00", "10:30", "14:00"] },
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-15", "availableTimes": ["08:00", "09:30", "15:00"] },
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-16", "availableTimes": ["08:00", "11:00"] },
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-17", "availableTimes": ["09:00", "13:30", "16:00"] },
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-18", "availableTimes": ["08:00", "10:00"] },
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-19", "availableTimes": ["09:00", "11:30"] },
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-20", "availableTimes": ["08:30"] },
+    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-21", "availableTimes": ["08:00", "14:00"] },
 
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-24", "availableTimes": ["09:00", "11:00"] },
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-25", "availableTimes": ["10:00", "14:30", "16:00"] },
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-26", "availableTimes": ["08:30", "13:00"] },
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-27", "availableTimes": ["09:30", "15:00"] },
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-28", "availableTimes": ["10:00", "11:30"] },
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-29", "availableTimes": ["08:00", "10:00"] },
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-30", "availableTimes": ["09:00"] },
-    { "idDoctor": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-08-31", "availableTimes": ["11:00", "15:30"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-14", "availableTimes": ["09:00", "11:00"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-15", "availableTimes": ["10:00", "14:30", "16:00"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-16", "availableTimes": ["08:30", "13:00"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-17", "availableTimes": ["09:30", "15:00"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-18", "availableTimes": ["10:00", "11:30"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-19", "availableTimes": ["08:00", "10:00"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-20", "availableTimes": ["09:00"] },
+    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-21", "availableTimes": ["11:00", "15:30"] },
 
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-24", "availableTimes": ["08:00", "13:00"] },
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-25", "availableTimes": ["09:00", "10:30"] },
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-26", "availableTimes": ["14:00", "16:00"] },
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-27", "availableTimes": ["08:30", "11:00"] },
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-28", "availableTimes": ["09:30", "15:00"] },
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-29", "availableTimes": ["10:00"] },
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-30", "availableTimes": ["08:00", "09:30"] },
-    { "idDoctor": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-08-31", "availableTimes": ["13:30", "16:30"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-14", "availableTimes": ["08:00", "13:00"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-15", "availableTimes": ["09:00", "10:30"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-16", "availableTimes": ["14:00", "16:00"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-17", "availableTimes": ["08:30", "11:00"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-18", "availableTimes": ["09:30", "15:00"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-19", "availableTimes": ["10:00"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-20", "availableTimes": ["08:00", "09:30"] },
+    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-21", "availableTimes": ["13:30", "16:30"] },
 
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-24", "availableTimes": ["08:00", "09:30", "15:00"] },
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-25", "availableTimes": ["10:00", "11:30"] },
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-26", "availableTimes": ["08:30", "14:00"] },
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-27", "availableTimes": ["09:00", "16:00"] },
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-28", "availableTimes": ["10:30", "13:30"] },
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-29", "availableTimes": ["08:00", "11:00"] },
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-30", "availableTimes": ["09:30"] },
-    { "idDoctor": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-08-31", "availableTimes": ["08:00", "10:00", "15:00"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-14", "availableTimes": ["08:00", "09:30", "15:00"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-15", "availableTimes": ["10:00", "11:30"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-16", "availableTimes": ["08:30", "14:00"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-17", "availableTimes": ["09:00", "16:00"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-18", "availableTimes": ["10:30", "13:30"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-19", "availableTimes": ["08:00", "11:00"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-20", "availableTimes": ["09:30"] },
+    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-21", "availableTimes": ["08:00", "10:00", "15:00"] },
 
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-24", "availableTimes": ["09:00", "14:00"] },
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-25", "availableTimes": ["08:00", "10:30"] },
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-26", "availableTimes": ["11:00", "15:30"] },
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-27", "availableTimes": ["08:30", "13:00"] },
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-28", "availableTimes": ["09:00", "16:00"] },
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-29", "availableTimes": ["10:00", "11:30"] },
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-30", "availableTimes": ["08:00"] },
-    { "idDoctor": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-08-31", "availableTimes": ["09:30", "14:30"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-14", "availableTimes": ["09:00", "14:00"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-15", "availableTimes": ["08:00", "10:30"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-16", "availableTimes": ["11:00", "15:30"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-17", "availableTimes": ["08:30", "13:00"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-18", "availableTimes": ["09:00", "16:00"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-19", "availableTimes": ["10:00", "11:30"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-20", "availableTimes": ["08:00"] },
+    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-21", "availableTimes": ["09:30", "14:30"] },
 
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-24", "availableTimes": ["08:30", "11:00"] },
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-25", "availableTimes": ["09:00", "13:30"] },
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-26", "availableTimes": ["10:00", "16:00"] },
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-27", "availableTimes": ["08:00", "14:00"] },
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-28", "availableTimes": ["11:30", "15:00"] },
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-29", "availableTimes": ["09:00"] },
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-30", "availableTimes": ["08:00", "10:30"] },
-    { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-08-31", "availableTimes": ["13:00", "16:00"] },
-     { "idDoctor": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-02", "availableTimes": ["13:00", "16:00"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-14", "availableTimes": ["08:30", "11:00"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-15", "availableTimes": ["09:00", "13:30"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-16", "availableTimes": ["10:00", "16:00"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-17", "availableTimes": ["08:00", "14:00"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-18", "availableTimes": ["11:30", "15:00"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-19", "availableTimes": ["09:00"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-20", "availableTimes": ["08:00", "10:30"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-21", "availableTimes": ["13:00", "16:00"] },
+    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-22", "availableTimes": ["13:00", "16:00"] },
 
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-24", "availableTimes": ["10:00", "15:00"] },
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-25", "availableTimes": ["08:00", "11:30"] },
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-26", "availableTimes": ["09:30", "14:00"] },
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-27", "availableTimes": ["10:30", "16:00"] },
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-28", "availableTimes": ["08:30", "13:30"] },
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-29", "availableTimes": ["09:00", "11:00"] },
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-30", "availableTimes": ["10:00"] },
-    { "idDoctor": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-08-31", "availableTimes": ["08:00", "14:30"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-14", "availableTimes": ["10:00", "15:00"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-15", "availableTimes": ["08:00", "11:30"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-16", "availableTimes": ["09:30", "14:00"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-17", "availableTimes": ["10:30", "16:00"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-18", "availableTimes": ["08:30", "13:30"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-19", "availableTimes": ["09:00", "11:00"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-20", "availableTimes": ["10:00"] },
+    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-21", "availableTimes": ["08:00", "14:30"] },
 
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-24", "availableTimes": ["08:00", "11:00"] },
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-25", "availableTimes": ["09:30", "14:00"] },
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-26", "availableTimes": ["10:00", "15:30"] },
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-27", "availableTimes": ["08:30", "12:00"] },
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-28", "availableTimes": ["09:00", "16:00"] },
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-29", "availableTimes": ["10:30"] },
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-30", "availableTimes": ["08:00", "11:30"] },
-    { "idDoctor": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-08-31", "availableTimes": ["09:00", "13:30"] }
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-14", "availableTimes": ["08:00", "11:00"] },
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-15", "availableTimes": ["09:30", "14:00"] },
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-16", "availableTimes": ["10:00", "15:30"] },
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-17", "availableTimes": ["08:30", "12:00"] },
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-18", "availableTimes": ["09:00", "16:00"] },
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-19", "availableTimes": ["10:30"] },
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-20", "availableTimes": ["08:00", "11:30"] },
+    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-21", "availableTimes": ["09:00", "13:30"] }
   ],
   "states": [
     { "state_id": "b1a1a1a1-0001-4a1a-8a1a-000000000001", "name": "São Paulo", "uf": "SP" },
@@ -667,6 +1503,12 @@
       "name_city": "Curitiba",
       "state_id": "b1a1a1a1-0004-4a1a-8a1a-000000000004",
       "state_name": "Paraná"
+    },
+    {
+      "city_id": "e114e375-6bbd-4e63-8d43-e64dd39b3bd2",
+      "name_city": "Campinas",
+      "state_id": "b1a1a1a1-0001-4a1a-8a1a-000000000001",
+      "state_name": "São Paulo"
     }
   ]
-} 
+}

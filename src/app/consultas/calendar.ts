@@ -1,10 +1,10 @@
 import { signal, computed, Signal } from '@angular/core';
 import { DateCalendar } from './interface.dia.calendario';
-import { AvailableTime } from '../services/iservice/consultas.interface';
+import { AvailableTimeSlot } from '../services/iservice/consultas.interface';
 
 export class Calendar {
   public dataSignal = signal<Date>(new Date());
-  public availableDates = signal<AvailableTime[]>([]);
+  public availableDates = signal<AvailableTimeSlot[]>([]);
 
   public calendarDays: Signal<DateCalendar[]> = computed(() => {
     const dataAtual = this.dataSignal();

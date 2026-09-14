@@ -13,7 +13,7 @@ export class HomeService implements IHomeService {
   constructor(private http: HttpClient) {}
 
   getDoctors(id: string): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(`${BASEURL}/homeDoctors?city_id=${id}`);
+    return this.http.get<Doctor[]>(`${BASEURL}/home_doctors?city_id=${id}`);
   }
 
   getUfOptions(): Observable<StateOutput[]> {

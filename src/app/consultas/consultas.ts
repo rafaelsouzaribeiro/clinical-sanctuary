@@ -1,35 +1,19 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SelectOption } from '../location-select/interface.sellect-option';
-import { SelectEventLocation } from '../select-event-location/select-event-location';
 import { Calendar } from './calendar';
 import { DateCalendar } from './interface.dia.calendario';
 import { Title } from '@angular/platform-browser';
 import { AlertModal } from '../alert-modal/alert-modal';
 import { ConsultasService } from '../services/impl/consultas.service';
-import { AvailableTime } from '../services/iservice/consultas.interface';
+import { Doctor,AvailableTimeSlot } from '../services/iservice/consultas.interface';
 
-interface MedicoConsulta {
-  id: string;
-  slug: string;
-  acronym?: string;
-  name: string;
-  status?: string;
-  specialty: string;
-  phone: string;
-  crm: string;
-  pagamentos: SelectOption[];
-  convenios: SelectOption[];
-  unidades: { value: string; label: string; room?: string; open?: string }[];
-  servicos: SelectOption[];
-}
 
 @Component({
   viewProviders: [Title],
   selector: 'app-consultas',
   standalone: true,
-  imports: [CommonModule, SelectEventLocation, AlertModal],
+  imports: [CommonModule, AlertModal],
   templateUrl: './consultas.html',
   styleUrl: './consultas.css',
 })
@@ -45,8 +29,8 @@ export class Consultas implements OnInit {
   public unidadeValue: string = '';
   public showModal: boolean = false;
 
-  public availableTimes = signal<AvailableTime[]>([]);
-  public medico = signal<MedicoConsulta | null>(null);
+  public availableTimes = signal<AvailableTimeSlot[]>([]);
+  public medico = signal<Doctor | null>(null);
 
   public calendar: Calendar = new Calendar();
 
@@ -74,26 +58,28 @@ export class Consultas implements OnInit {
     }
 
 
-    this.consultaService.getDoctorProfile(this.medicoId ?? "").subscribe((doctor) => {
+    this.consultaService.getDoctorByID(this.medicoId ?? "").subscribe((doctor) => {
         this.medico.set({
           id: doctor.id,
           slug: doctor.slug,
           acronym: doctor.acronym ?? '',
           name: doctor.name,
           status: doctor.status ?? 'Ativo',
-          specialty: doctor.specialty,
+          specialties: doctor.specialties,
           phone: doctor.phone,
           crm: doctor.crm,
-          pagamentos: doctor.pagamentos,
-          convenios: doctor.convenios,
-          unidades: doctor.unidades,
-          servicos: doctor.servicos.map((s: any) => ({
-            value: s.id,
-            label: `${s.label} - ${s.price}`,
-          })),
+          payments: doctor.payments,
+          health: doctor.health,
+          units: doctor.units,
+          photo: doctor.photo,
+          stat_number: doctor.stat_number,
+          experience: doctor.experience,
+          description: doctor.description,
+          rating: doctor.rating,
+          patient_number: doctor.patient_number,
+          email: doctor.email,
         });
-
-       this.inicializarDadosFormulario(doctorFromState);
+        this.inicializarDadosFormulario(doctorFromState);
       });
 
 
@@ -107,27 +93,34 @@ export class Consultas implements OnInit {
 
   }
 
-  private inicializarDadosFormulario(doctorFromState: MedicoConsulta): void {
-    let medicoAtual = this.medico();
-    if (doctorFromState) medicoAtual = doctorFromState;
-    
-    if (!medicoAtual || !medicoAtual.unidades?.length) return;
+private inicializarDadosFormulario(doctorFromState: Doctor): void {
+  let medicoAtual = this.medico();
+  if (doctorFromState) medicoAtual = doctorFromState;
 
-    const primeiraUnidade = medicoAtual.unidades[0];
-    const partesLabel = primeiraUnidade.label.split(' - ');
+  if (!medicoAtual) return;
 
-    this.servico = medicoAtual.servicos[0]?.value ?? '';
-    this.pagamento = medicoAtual.pagamentos[0]?.value ?? '';
-    this.convenio = medicoAtual.convenios[0]?.value ?? '';
-    this.unidadeValue = primeiraUnidade.value;
-    
-    this.unidade = partesLabel[0] ?? '';
-    this.city = partesLabel[1] ?? '';
-
-    this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
+  const primeiraUnidade = medicoAtual.units?.[0];
+  if (primeiraUnidade) {
+    this.unidade = primeiraUnidade.name ?? '';
+    this.city = primeiraUnidade.city ?? '';
+    this.unidadeValue = primeiraUnidade.id ?? primeiraUnidade.name ?? '';
   }
 
-  public addHoursToDate(items: AvailableTime[]): void {
+  this.pagamento =
+    medicoAtual.payments?.[0]?.id ?? medicoAtual.payments?.[0]?.name ?? '';
+
+  this.convenio = medicoAtual.health?.[0]?.id ?? medicoAtual.health?.[0]?.name ?? '';
+
+  this.servico =
+    medicoAtual.specialties?.[0]?.speciality_id ??
+    medicoAtual.specialties?.[0]?.id ??
+    medicoAtual.health?.[0]?.id ??
+    '';
+
+  this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
+}
+
+  public addHoursToDate(items: AvailableTimeSlot[]): void {
     this.horarios = [];
     this.horarioSelecionado = '';
 
@@ -167,11 +160,17 @@ export class Consultas implements OnInit {
     this.horarioSelecionado = horario;
   }
 
-  public onUnidadeChange(opcaoSelecionada: SelectOption): void {
-    const partesLabel = opcaoSelecionada.label.split(' - ');
-    this.unidade = partesLabel[0] ?? '';
-    this.city = partesLabel[1] ?? '';
-    this.unidadeValue = opcaoSelecionada.value;
+  public onUnidadeChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedId = selectElement.value;
+
+    const opcaoSelecionada = this.medico()?.units?.find(unit => unit.id === selectedId);
+
+    if (opcaoSelecionada) {
+      this.unidade = opcaoSelecionada.name ?? '';
+      this.city = opcaoSelecionada.city ?? '';
+      this.unidadeValue = opcaoSelecionada.id ?? opcaoSelecionada.name ?? '';
+    }
   }
 
   public onDescartar(): void {
@@ -182,7 +181,7 @@ export class Consultas implements OnInit {
     const agendamento = {
       medicoId: this.medico()?.id,
       medicoNome: this.medico()?.name,
-      especialidade: this.medico()?.specialty,
+      especialidade: this.medico()?.specialties[0]?.speciality_name,
       unidade: this.unidadeValue,
       cidade: this.city,
       data: this.calendar.data,
@@ -200,17 +199,19 @@ export class Consultas implements OnInit {
 
     console.log('Agendamento confirmado:', agendamento);
   }
-
-  public onServicoChange(opcaoSelecionada: SelectOption): void {
-    this.servico = opcaoSelecionada.value;
+  public onServicoChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    this.servico = selectElement.value;
   }
 
-  public onPagamentoChange(opcaoSelecionada: SelectOption): void {
-    this.pagamento = opcaoSelecionada.value;
+  public onPagamentoChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    this.pagamento = selectElement.value;
   }
 
-  public onConvenioChange(opcaoSelecionada: SelectOption): void {
-    this.convenio = opcaoSelecionada.value;
+  public onConvenioChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    this.convenio = selectElement.value;
   }
 
   public onObservacoesChange(event: Event): void {

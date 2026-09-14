@@ -1,5 +1,5 @@
 <main class="shell-main">
- <section class="profile-hero">
+  <section class="profile-hero">
     <div class="profile-hero-content">
       <img [src]="doctor().photo" [alt]="doctor().name" class="profile-doctor-image" />
 
@@ -14,7 +14,10 @@
         <p class="profile-kicker">TOP SPECIALIST</p>
         <h1 class="profile-doctor-name">{{ doctor().name }}</h1>
         <p class="profile-specialty">
-          {{ doctor().specialty }} • CRM {{ doctor().crm }}
+          @for (s of doctor().specialties; track s.speciality_id; let last = $last) {
+            {{ s.speciality_name }}{{ !last ? ', ' : '' }}
+          }
+          • CRM {{ doctor().crm }}
         </p>
         <a class="profile-specialty" [href]="'tel:' + doctor().phone">
           {{ doctor().phone }}
@@ -23,11 +26,11 @@
 
         <div class="profile-stats">
           <div class="stat-card">
-            <strong class="stat-number">{{ doctor().statNumber }}</strong>
+            <strong class="stat-number">{{ doctor().stat_number }}</strong>
             <span class="stat-label">RATING ({{ doctor().rating }}+)</span>
           </div>
           <div class="stat-card">
-            <strong class="stat-number">{{ doctor().patientNumber }}</strong>
+            <strong class="stat-number">{{ doctor().patient_number }}</strong>
             <span class="stat-label">PACIENTES</span>
           </div>
         </div>
@@ -40,14 +43,14 @@
       <div class="consult-card profile-services">
         <h2>Investimento em Saúde</h2>
         <div class="services-list">
-          @for (s of doctor().servicos; track s.id) {
+          @for (s of services(); track s.health_insurance_id) {
             <div
               class="service-item"
-              [class.popular]="servicoSelecionado?.id === s.id"
+              [class.popular]="servicoSelecionado?.health_insurance_id === s.health_insurance_id"
               (click)="setService(s)"
             >
-              <span>{{ s.label }}</span>
-              <strong>{{ s.price }}</strong>
+              <span>Consulta - {{ s.health_insurance_name }}</span>
+              <strong>R$ {{ s.price }}</strong>
             </div>
           }
         </div>
@@ -60,9 +63,9 @@
         <div class="location-info">
           <h3>Localização</h3>
           <p>
-            <strong>{{ doctor().unidades[0]?.label }}</strong>
+            <strong>{{ doctor().units[0]?.name }}</strong>
           </p>
-          <p>{{ doctor().unidades[0]?.room }}</p>
+          <p>{{ doctor().units[0]?.street }}</p>
           <button class="location-btn">
             <span>📍</span> COMO CHEGAR
           </button>
@@ -78,13 +81,13 @@
         <h2>Convênios Aceitos</h2>
       </div>
       <div class="convenios-grid">
-        @for (c of doctor().convenios; track c.value) {
+        @for (c of doctor().health; track c.id) {
           <div
             class="convenio-badge"
-            [class.convenio-badge-active]="convenioSelecionado?.value === c.value"
+            [class.convenio-badge-active]="convenioSelecionado?.id === c.id"
             (click)="setConvenio(c)"
           >
-            {{ c.label }}
+            {{ c.name }}
           </div>
         }
       </div>
@@ -92,16 +95,16 @@
 
     <div class="unidades-card">
       <h2>Unidades de Atendimento</h2>
-      @for (u of doctor().unidades; track u.value) {
+      @for (u of doctor().units; track u.id) {
         <div class="unidade-item" (click)="setUnidade(u)">
           <div
             class="unidade-icon"
-            [class.main]="unidadeSelecionada?.value === u.value"
+            [class.main]="unidadeSelecionada?.id === u.id"
           >
             🏢
           </div>
           <div class="unidade-info">
-            <strong>{{ u.label }}</strong>
+            <strong>{{ u.name }}</strong>
             <span>{{ u.open }}</span>
           </div>
         </div>
@@ -115,13 +118,13 @@
       <a href="#" class="view-all">VER TODOS</a>
     </div>
     <div class="reviews-grid">
-      @for (r of doctor().comments; track r.id) {
+      @for (r of comments(); track r.comment_id) {
         <div class="review-card">
           <div class="review-header">
             <div class="review-avatar">{{ r.avatar }}</div>
             <div class="review-info">
               <strong>{{ r.name }} - </strong>
-              <small>Consulta em {{ r.date }}</small>
+              <small>{{ r.date }}</small>
             </div>
             <div class="review-stars">
               {{ '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) }}
@@ -140,7 +143,7 @@
 
   <div class="calendar">
     <p class="horario-calender">
-     {{ nextSlotMessage() }}
+      {{ nextSlotMessage() }}
     </p>
     <div class="profile-cta">
       <button

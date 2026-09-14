@@ -27,50 +27,49 @@
         </span>
         </a>
     </div>
-    <div class="consult-field-group">
-        <label for="medico">Serviços e preços</label>
-        <app-select-event-location
-            id="servicos"
-            name="servicos"
-            type="servicos"
-            [options]="medico()?.servicos ?? []"
-            [selectedValue]="servico"
-            (selectionChange)="onServicoChange($event)">
-        </app-select-event-location>
-    </div>
-    <div class="consult-field-group">
-        <label for="medico">Modalidade de pagamento</label>
-        <app-select-event-location
-            id="pagamento"
-            name="pagamento"
-            type="pagamento"
-            [options]="medico()?.pagamentos ?? []"
-            [selectedValue]="pagamento"
-            (selectionChange)="onPagamentoChange($event)">
-        </app-select-event-location>
-    </div>
+      <div class="consult-field-group">
+        <label for="servicos">Serviços e preços</label>
+         <div class="profile-control">
+            <select id="servicos" name="servicos" (change)="onServicoChange($event)">
+            @for (option of medico()?.specialties ?? []; track option.id) {
+                <option [value]="option.speciality_id ?? option.id">
+                {{ option.speciality_name ?? option.speciality_slug }}
+                </option>
+            }
+            </select>
+         </div>
+      </div>
+     <div class="consult-field-group">
+        <label for="pagamento">Modalidade de pagamento</label>
+        <div class="profile-control">
+            <select id="pagamento" name="pagamento" (change)="onPagamentoChange($event)">
+            @for (option of medico()?.payments ?? []; track option.id) {
+                <option [value]="option.id ?? option.name">{{ option.name }}</option>
+            }
+            </select>
+        </div>
+      </div>
         <div class="consult-field-group">
-        <label for="medico">Convenio</label>
-        <app-select-event-location
-            id="convenio"
-            name="convenio"
-            type="convenio"
-            [options]="medico()?.convenios ?? []"
-            [selectedValue]="convenio"
-            (selectionChange)="onConvenioChange($event)">
-        </app-select-event-location>
-    </div>
-    <div class="consult-field-group">
+        <label for="convenio">Convênio</label>
+        <div class="profile-control">
+            <select id="convenio" name="convenio" (change)="onConvenioChange($event)">
+            @for (option of medico()?.health ?? []; track option.id) {
+                <option [value]="option.id ?? option.name">{{ option.name }}</option>
+            }
+            </select>
+        </div>
+      </div>
+     <div class="consult-field-group">
         <label for="unidade">Unidade</label>
-        <app-select-event-location
-            id="unidade"
-            name="unidade"
-            type="unidade"
-            [options]="medico()?.unidades ?? []"
-            [selectedValue]="unidadeValue"
-            (selectionChange)="onUnidadeChange($event)">
-        </app-select-event-location>
-    </div>
+        <div class="profile-control">
+            <select id="unidade" name="unidade" (change)="onUnidadeChange($event)">
+            @for (option of medico()?.units ?? []; track option.id) {
+                <option [value]="option.id">{{ option.name }}</option>
+            }
+            </select>
+        </div>
+      </div>
+
     </div>
 
 
@@ -168,7 +167,9 @@
         <div>
         <span class="summary-label">Especialista</span>
         <strong>{{ medico()?.name }}</strong>
-        <p>{{ medico()?.specialty }}</p>
+        @for (option of medico()?.specialties ?? []; track option.id) {
+             <p>{{ option?.speciality_name }}</p>
+        }
         </div>
     </div>
     <div class="summary-item">

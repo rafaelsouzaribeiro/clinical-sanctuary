@@ -1,13 +1,16 @@
-import { Component,inject,signal } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AlertModal } from '../alert-modal/alert-modal';
-import { Servico, Convenio, Unidade } from './../services/iservice/perfil.interface';
+import {
+  DoctorProfile,
+  DoctorComment,
+  DoctorService,
+  HealthInsurance,
+  ClinicUnit,
+} from '../services/iservice/perfil.interface';
 import { PerfilService } from '../services/impl/perfil.service';
-import { ActivatedRoute } from '@angular/router';
-import { DoctorProfile } from '../services/iservice/perfil.interface';
 import { ScheduleService } from '../services/impl/schedule.service';
-
 
 @Component({
   selector: 'app-perfil',
@@ -17,83 +20,90 @@ import { ScheduleService } from '../services/impl/schedule.service';
 })
 export class Perfil {
   private route = inject(ActivatedRoute);
+
   public doctor = signal<DoctorProfile>({
     id: '',
     slug: '',
     name: '',
-    specialty: '',
+    specialties: [],
     phone: '',
     crm: '',
     photo: '',
-    statNumber: 0,
+    stat_number: 0,
     rating: 0,
-    patientNumber: 0,
+    patient_number: 0,
     experience: 0,
+    email: '',
+    password: '',
     description: '',
-    pagamentos: [],
-    convenios: [],
-    unidades: [],
-    servicos: [],
-    comments: []
+    payments: [],
+    health: [],
+    units: [],
   });
-  public servicoSelecionado: Servico | null = null;
-  public convenioSelecionado: Convenio | null = null;
-  public unidadeSelecionada: Unidade | null = null;
+
+  public comments = signal<DoctorComment[]>([]);
+  public services = signal<DoctorService[]>([]);
+
+  public servicoSelecionado: DoctorService | null = null;
+  public convenioSelecionado: HealthInsurance | null = null;
+  public unidadeSelecionada: ClinicUnit | null = null;
   public showModal: boolean = false;
   public nextSlotMessage = signal<string>('Carregando horário...');
-  
-  constructor(
-      private titleService: Title, 
-      private router: Router,
-      private perfilService: PerfilService,
-      private scheduleService: ScheduleService  
-    ) {
-  }
 
+  constructor(
+    private titleService: Title,
+    private router: Router,
+    private perfilService: PerfilService,
+    private scheduleService: ScheduleService
+  ) {}
 
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';
 
-    this.perfilService.getDoctor(slug).subscribe((doctor)=>{
-          this.doctor.set(doctor);
-          this.titleService.setTitle(`Perfil - ${doctor.specialty} - ${doctor.name}`);
+    this.perfilService.getDoctor(slug).subscribe((doctor) => {
+      this.doctor.set(doctor);
 
-          this.scheduleService.getNextAvailableMessage(doctor.id).subscribe((msg) => {
-            this.nextSlotMessage.set(msg);
-          });
+      const specialtiesLabel = doctor.specialties
+        .map((s) => s.speciality_name)
+        .join(', ');
+
+      this.titleService.setTitle(`Perfil - ${specialtiesLabel} - ${doctor.name}`);
+
+      this.scheduleService.getNextAvailableMessage(doctor.id).subscribe((msg) => {
+        this.nextSlotMessage.set(msg);
+      });
+
+      this.perfilService.getComments(doctor.id).subscribe((comments) => {
+        this.comments.set(comments);
+      });
+
+      this.perfilService.getServices(doctor.id).subscribe((services) => {
+        this.services.set(services);
+      });
     });
-
-    
   }
 
-  get consultaLink():string[]{
+  get consultaLink(): string[] {
     return ['/consultas', this.doctor().slug, this.doctor().id];
   }
 
-  
   public goConsultation(): void {
-
     if (!this.servicoSelecionado || !this.convenioSelecionado || !this.unidadeSelecionada) {
       this.showModal = true;
       return;
     }
 
-    let service=[]
-    if(this.servicoSelecionado){
-      service.push(this.servicoSelecionado);
-    }
-
-    service=service.map((s: any) => ({
-        value: s.id,
-        label: `${s.label} - ${s.price}`,
-     }));
-        
+    const servico = {
+      id: this.servicoSelecionado.exam_id,
+      label: 'Consulta',
+      price: this.servicoSelecionado.price,
+    };
 
     const doctorFiltrado = {
       ...this.doctor(),
-      servicos: service,
-      convenios: [this.convenioSelecionado],
-      unidades: [this.unidadeSelecionada] ,
+      servicos: [servico],
+      health: [this.convenioSelecionado],
+      units: [this.unidadeSelecionada],
     };
 
     this.router.navigate(this.consultaLink, {
@@ -101,17 +111,15 @@ export class Perfil {
     });
   }
 
-  public setService(servico: Servico): void {
+  public setService(servico: DoctorService): void {
     this.servicoSelecionado = servico;
   }
 
-  public setConvenio(convenio: Convenio):void{
+  public setConvenio(convenio: HealthInsurance): void {
     this.convenioSelecionado = convenio;
   }
 
-  public setUnidade(unidade: Unidade):void{
+  public setUnidade(unidade: ClinicUnit): void {
     this.unidadeSelecionada = unidade;
   }
-
-
 }

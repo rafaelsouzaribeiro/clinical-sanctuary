@@ -336,6 +336,16 @@
   pointer-events: none;
 }
 
+.profile-control {
+  min-height: 62px;
+  border-radius: 10px;
+  background: #c8d0d4;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+
 @media (max-width: 1180px) {
   .consult-layout {
     grid-template-columns: 1fr;
