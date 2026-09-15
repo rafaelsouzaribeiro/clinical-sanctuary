@@ -133,7 +133,6 @@ this.consultaService.getDoctorByID(this.medicoId ?? "").subscribe((doctor) => {
 
     this.convenio = medicoAtual.health?.[0]?.id ?? medicoAtual.health?.[0]?.name ?? '';
 
-    this.servico = medicoAtual.specialties?.[0]?.speciality_id ?? '';
     this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
   }
 

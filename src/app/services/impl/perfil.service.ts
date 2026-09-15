@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import BASEURL from '../../../app.api';
-import { DoctorComment, DoctorProfile, DoctorService } from '../iservice/perfil.interface';
+import { Doctor,DoctorServiceByHealthAndSpeciality,DoctorComment } from '../iservice/consultas.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +10,10 @@ import { DoctorComment, DoctorProfile, DoctorService } from '../iservice/perfil.
 export class PerfilService {
   constructor(private http: HttpClient) {}
 
-  getDoctor(slug: string): Observable<DoctorProfile> {
+  getDoctor(slug: string): Observable<Doctor> {
     const url = `${BASEURL}/doctors?slug=${slug}`;
 
-    return this.http.get<DoctorProfile[]>(url).pipe(
+    return this.http.get<Doctor[]>(url).pipe(
       map((lista) => lista[0])
     );
   }
@@ -23,8 +23,8 @@ export class PerfilService {
     return this.http.get<DoctorComment[]>(url);
   }
 
-  getServices(doctorId: string): Observable<DoctorService[]> {
+  getServices(doctorId: string): Observable<DoctorServiceByHealthAndSpeciality[]> {
     const url = `${BASEURL}/doctor_services_by_health_and_speciality?doctor_id=${doctorId}`;
-    return this.http.get<DoctorService[]>(url);
+    return this.http.get<DoctorServiceByHealthAndSpeciality[]>(url);
   }
 }
