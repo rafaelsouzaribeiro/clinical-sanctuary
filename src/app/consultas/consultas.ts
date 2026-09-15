@@ -28,6 +28,7 @@ export class Consultas implements OnInit {
   public observacoes: string = '';
   public unidadeValue: string = '';
   public showModal: boolean = false;
+  public specialityId: string = '';
 
   public availableTimes = signal<AvailableTimeSlot[]>([]);
   public medico = signal<Doctor | null>(null);
@@ -79,11 +80,11 @@ this.consultaService.getDoctorByID(this.medicoId ?? "").subscribe((doctor) => {
       patient_number: doctor.patient_number,
       email: doctor.email,
     });
+    this.specialityId = doctor.specialties?.[0]?.speciality_id ?? '';
+     
     this.inicializarDadosFormulario(doctorFromState);
+    this.carregarServiceDetails();  
 
-    if (!doctorFromState?.services?.length) {
-      this.carregarServiceDetails();
-    }
   });
 
 
@@ -98,12 +99,12 @@ this.consultaService.getDoctorByID(this.medicoId ?? "").subscribe((doctor) => {
   }
 
   private carregarServiceDetails(): void {
-    if (!this.medicoId || !this.convenio || !this.servico) {
+    if (!this.medicoId || !this.convenio || !this.specialityId) {
       return;
     }
 
     this.consultaService
-      .getServiceDetails(this.medicoId, this.convenio, this.servico)
+      .getServiceDetails(this.medicoId, this.convenio, this.specialityId)
       .subscribe(healthAndSpecialityServices => {
         this.medico.update(medicoAtual =>
           medicoAtual
@@ -133,7 +134,6 @@ this.consultaService.getDoctorByID(this.medicoId ?? "").subscribe((doctor) => {
     this.convenio = medicoAtual.health?.[0]?.id ?? medicoAtual.health?.[0]?.name ?? '';
 
     this.servico = medicoAtual.specialties?.[0]?.speciality_id ?? '';
-
     this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
   }
 
