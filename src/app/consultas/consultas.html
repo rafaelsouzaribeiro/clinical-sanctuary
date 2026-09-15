@@ -52,7 +52,7 @@
         <div class="consult-field-group">
         <label for="convenio">Convênio</label>
         <div class="profile-control">
-            <select id="convenio" name="convenio" (change)="onConvenioChange($event)">
+            <select id="convenio" name="convenio" [value]="convenio" (change)="onConvenioChange($event)">
             @for (option of medico()?.health ?? []; track option.id) {
                 <option [value]="option.id ?? option.name">{{ option.name }}</option>
             }
@@ -62,7 +62,7 @@
      <div class="consult-field-group">
         <label for="unidade">Unidade</label>
         <div class="profile-control">
-            <select id="unidade" name="unidade" (change)="onUnidadeChange($event)">
+            <select id="unidade" name="unidade" [value]="unidadeValue" (change)="onUnidadeChange($event)">
             @for (option of medico()?.units ?? []; track option.id) {
                 <option [value]="option.id">{{ option.name }}</option>
             }

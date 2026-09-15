@@ -101,7 +101,7 @@ export class Perfil {
 
     const doctorFiltrado = {
       ...this.doctor(),
-      servicos: [servico],
+      services: [this.servicoSelecionado],
       health: [this.convenioSelecionado],
       units: [this.unidadeSelecionada],
     };

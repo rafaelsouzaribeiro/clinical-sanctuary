@@ -57,31 +57,34 @@ export class Consultas implements OnInit {
       this.medicoId = doctorFromState.id;
     }
 
+this.consultaService.getDoctorByID(this.medicoId ?? "").subscribe((doctor) => {
+    this.medico.set({
+      id: doctor.id,
+      slug: doctor.slug,
+      acronym: doctor.acronym ?? '',
+      name: doctor.name,
+      status: doctor.status ?? 'Ativo',
+      specialties: doctor.specialties,
+      phone: doctor.phone,
+      crm: doctor.crm,
+      payments: doctor.payments,
+      health: doctorFromState?.health ?? doctor.health,
+      units: doctorFromState?.units ?? doctor.units,
+      services: doctorFromState?.services ?? [],
+      photo: doctor.photo,
+      stat_number: doctor.stat_number,
+      experience: doctor.experience,
+      description: doctor.description,
+      rating: doctor.rating,
+      patient_number: doctor.patient_number,
+      email: doctor.email,
+    });
+    this.inicializarDadosFormulario(doctorFromState);
 
-    this.consultaService.getDoctorByID(this.medicoId ?? "").subscribe((doctor) => {
-        this.medico.set({
-          id: doctor.id,
-          slug: doctor.slug,
-          acronym: doctor.acronym ?? '',
-          name: doctor.name,
-          status: doctor.status ?? 'Ativo',
-          specialties: doctor.specialties,
-          phone: doctor.phone,
-          crm: doctor.crm,
-          payments: doctor.payments,
-          health: doctor.health,
-          units: doctor.units,
-          photo: doctor.photo,
-          stat_number: doctor.stat_number,
-          experience: doctor.experience,
-          description: doctor.description,
-          rating: doctor.rating,
-          patient_number: doctor.patient_number,
-          email: doctor.email,
-        });
-        this.inicializarDadosFormulario(doctorFromState);
-        this.carregarServiceDetails();
-      });
+    if (!doctorFromState?.services?.length) {
+      this.carregarServiceDetails();
+    }
+  });
 
 
     if (this.medicoId) {
