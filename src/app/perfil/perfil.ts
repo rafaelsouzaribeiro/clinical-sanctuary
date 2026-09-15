@@ -93,12 +93,6 @@ export class Perfil {
       return;
     }
 
-    const servico = {
-      id: this.servicoSelecionado.exam_id,
-      label: 'Consulta',
-      price: this.servicoSelecionado.price,
-    };
-
     const doctorFiltrado = {
       ...this.doctor(),
       services: [this.servicoSelecionado],

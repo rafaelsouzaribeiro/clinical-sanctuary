@@ -20,6 +20,12 @@
           "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
           "speciality_name": "Cardiologista",
           "speciality_slug": "cardiologista"
+        },
+        {
+          "id": "d2ed47a1-d95f-48c0-8662-0879cb4b0f35",
+          "speciality_id": "984f4b77-23d4-5a37-b16d-60f0373265dc",
+          "speciality_name": "Dermatologista",
+          "speciality_slug": "dermatologista"
         }
       ],
       "payments": [
@@ -668,6 +674,17 @@
     }
   ],
   "doctor_services_by_health_and_speciality": [
+      {
+      "health_insurance_id": "e7c856d5-c9eb-4fcf-a917-b48f34d78f7f",
+      "health_insurance_name": "Particular",
+      "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "speciality_name": "Dermatologista",
+      "price": 2000.0,
+      "age": "Adulto",
+      "exam_id": "c4251825-b156-45be-b643-843f04722c3e",
+      "exam_type": "Exame"
+    },
     {
       "health_insurance_id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
       "health_insurance_name": "Particular",

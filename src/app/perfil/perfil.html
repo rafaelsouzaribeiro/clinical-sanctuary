@@ -49,7 +49,7 @@
               [class.popular]="servicoSelecionado?.health_insurance_id === s.health_insurance_id"
               (click)="setService(s)"
             >
-              <span>Consulta - {{ s.health_insurance_name }}</span>
+              <span>Consulta - {{s.speciality_name}}/{{ s.health_insurance_name }}</span>
               <strong>R$ {{ s.price }}</strong>
             </div>
           }

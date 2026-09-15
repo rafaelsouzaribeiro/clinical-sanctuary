@@ -33,7 +33,7 @@
             <select id="servicos" name="servicos" (change)="onServicoChange($event)">
             @for (option of medico()?.services ?? []; track option.health_insurance_id) {
                 <option [value]="option.health_insurance_id">
-                {{ option.health_insurance_name}} - R$ {{ option.price | number: '1.2-2' }}
+                {{option.speciality_name}}/{{ option.health_insurance_name}} - R$ {{ option.price | number: '1.2-2' }}
                 </option>
             }
             </select>
