@@ -70,24 +70,28 @@
       ],
       "health": [
         {
+          "id": "e7c856d5-c9eb-4fcf-a917-b48f34d78f7f",
+          "name": "Dermatologista/Particular"
+        },
+        {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Cardiologista/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Cardiologista/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Cardiologista/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Cardiologista/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Cardiologista/SulAmérica"
         }
       ]
     },
@@ -148,23 +152,23 @@
       "health": [
         {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Dermatologista/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Dermatologista/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Dermatologista/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Dermatologista/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Dermatologista/SulAmérica"
         }
       ]
     },
@@ -225,23 +229,23 @@
       "health": [
         {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Neurologista/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Neurologista/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Neurologista/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Neurologista/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Neurologista/SulAmérica"
         }
       ]
     },
@@ -302,23 +306,23 @@
       "health": [
         {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Pediatra/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Pediatra/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Pediatra/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Pediatra/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Pediatra/SulAmérica"
         }
       ]
     },
@@ -379,23 +383,23 @@
       "health": [
         {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Ortopedista/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Ortopedista/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Ortopedista/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Ortopedista/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Ortopedista/SulAmérica"
         }
       ]
     },
@@ -456,23 +460,23 @@
       "health": [
         {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Ginecologista/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Ginecologista/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Ginecologista/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Ginecologista/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Ginecologista/SulAmérica"
         }
       ]
     },
@@ -533,23 +537,23 @@
       "health": [
         {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Oftalmologista/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Oftalmologista/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Oftalmologista/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Oftalmologista/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Oftalmologista/SulAmérica"
         }
       ]
     },
@@ -610,23 +614,23 @@
       "health": [
         {
           "id": "6f0058af-a645-4005-87c5-9d2844eed4b9",
-          "name": "Particular"
+          "name": "Psiquiatra/Particular"
         },
         {
           "id": "7cbb5876-ffc8-4d65-b786-633e24200765",
-          "name": "Unimed"
+          "name": "Psiquiatra/Unimed"
         },
         {
           "id": "8a63cdab-121e-4d81-aa15-44544a2fb301",
-          "name": "Amil"
+          "name": "Psiquiatra/Amil"
         },
         {
           "id": "6b32be18-a78c-428a-80d9-ae2b4b77d3ff",
-          "name": "Bradesco Saúde"
+          "name": "Psiquiatra/Bradesco Saúde"
         },
         {
           "id": "6abb1b68-729c-4785-8882-b66fdf4d14b9",
-          "name": "SulAmérica"
+          "name": "Psiquiatra/SulAmérica"
         }
       ]
     }
@@ -674,7 +678,7 @@
     }
   ],
   "doctor_services_by_health_and_speciality": [
-      {
+    {
       "health_insurance_id": "e7c856d5-c9eb-4fcf-a917-b48f34d78f7f",
       "health_insurance_name": "Particular",
       "speciality_id": "92881813-b0cf-5dc0-b713-1190b8a80e8f",
@@ -1283,7 +1287,11 @@
       "phone": "(11) 1234-5678",
       "city_id": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
-        { "address": "Ala Norte, Sala 402", "city": "Sorocaba", "uf": "SP" }
+        {
+          "address": "Ala Norte, Sala 402",
+          "city": "Sorocaba",
+          "uf": "SP"
+        }
       ],
       "crm": "123456-SP"
     },
@@ -1297,7 +1305,11 @@
       "phone": "(11) 9876-5432",
       "city_id": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
-        { "address": "Ala Suldeste, Sala 90", "city": "Sorocaba", "uf": "SP" }
+        {
+          "address": "Ala Suldeste, Sala 90",
+          "city": "Sorocaba",
+          "uf": "SP"
+        }
       ],
       "crm": "654321-SP"
     },
@@ -1311,7 +1323,11 @@
       "phone": "(11) 5678-1234",
       "city_id": "1b8951b0-898e-4d2a-8c98-760add865e24",
       "unidade": [
-        { "address": "Ala Norte, Sala 120", "city": "Pilar do Sul", "uf": "SP" }
+        {
+          "address": "Ala Norte, Sala 120",
+          "city": "Pilar do Sul",
+          "uf": "SP"
+        }
       ],
       "crm": "987654-SP"
     },
@@ -1325,7 +1341,11 @@
       "phone": "(11) 4321-8765",
       "city_id": "177d8c35-11fc-4732-b310-94fc493ced9a",
       "unidade": [
-        { "address": "Ala Oeste, Sala 110", "city": "Salto de Pirapora", "uf": "SP" }
+        {
+          "address": "Ala Oeste, Sala 110",
+          "city": "Salto de Pirapora",
+          "uf": "SP"
+        }
       ],
       "crm": "456789-SP"
     },
@@ -1339,7 +1359,11 @@
       "phone": "(11) 8765-4321",
       "city_id": "9f67a54e-7e4b-4307-9766-bf8cfd1b937b",
       "unidade": [
-        { "address": "Ala Leste, Sala 210", "city": "Votorantim", "uf": "SP" }
+        {
+          "address": "Ala Leste, Sala 210",
+          "city": "Votorantim",
+          "uf": "SP"
+        }
       ],
       "crm": "321654-SP"
     },
@@ -1353,7 +1377,11 @@
       "phone": "(11) 5432-1098",
       "city_id": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
-        { "address": "Ala Norte, Sala 305", "city": "Sorocaba", "uf": "SP" }
+        {
+          "address": "Ala Norte, Sala 305",
+          "city": "Sorocaba",
+          "uf": "SP"
+        }
       ],
       "crm": "789012-SP"
     },
@@ -1367,7 +1395,11 @@
       "phone": "(11) 2109-8765",
       "city_id": "0dede741-d7ef-427d-8209-73cfee8e19d4",
       "unidade": [
-        { "address": "Ala Suldeste, Sala 75", "city": "Sorocaba", "uf": "SP" }
+        {
+          "address": "Ala Suldeste, Sala 75",
+          "city": "Sorocaba",
+          "uf": "SP"
+        }
       ],
       "crm": "654987-SP"
     },
@@ -1381,90 +1413,556 @@
       "phone": "(11) 1098-5432",
       "city_id": "1b8951b0-898e-4d2a-8c98-760add865e24",
       "unidade": [
-        { "address": "Ala Oeste, Sala 150", "city": "Pilar do Sul", "uf": "SP" }
+        {
+          "address": "Ala Oeste, Sala 150",
+          "city": "Pilar do Sul",
+          "uf": "SP"
+        }
       ],
       "crm": "321098-SP"
     }
   ],
   "availableTimes": [
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-14", "availableTimes": ["08:00", "10:30", "14:00"] },
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-15", "availableTimes": ["08:00", "09:30", "15:00"] },
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-16", "availableTimes": ["08:00", "11:00"] },
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-17", "availableTimes": ["09:00", "13:30", "16:00"] },
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-18", "availableTimes": ["08:00", "10:00"] },
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-19", "availableTimes": ["09:00", "11:30"] },
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-20", "availableTimes": ["08:30"] },
-    { "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b", "date": "2026-09-21", "availableTimes": ["08:00", "14:00"] },
-
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-14", "availableTimes": ["09:00", "11:00"] },
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-15", "availableTimes": ["10:00", "14:30", "16:00"] },
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-16", "availableTimes": ["08:30", "13:00"] },
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-17", "availableTimes": ["09:30", "15:00"] },
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-18", "availableTimes": ["10:00", "11:30"] },
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-19", "availableTimes": ["08:00", "10:00"] },
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-20", "availableTimes": ["09:00"] },
-    { "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456", "date": "2026-09-21", "availableTimes": ["11:00", "15:30"] },
-
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-14", "availableTimes": ["08:00", "13:00"] },
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-15", "availableTimes": ["09:00", "10:30"] },
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-16", "availableTimes": ["14:00", "16:00"] },
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-17", "availableTimes": ["08:30", "11:00"] },
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-18", "availableTimes": ["09:30", "15:00"] },
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-19", "availableTimes": ["10:00"] },
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-20", "availableTimes": ["08:00", "09:30"] },
-    { "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901", "date": "2026-09-21", "availableTimes": ["13:30", "16:30"] },
-
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-14", "availableTimes": ["08:00", "09:30", "15:00"] },
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-15", "availableTimes": ["10:00", "11:30"] },
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-16", "availableTimes": ["08:30", "14:00"] },
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-17", "availableTimes": ["09:00", "16:00"] },
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-18", "availableTimes": ["10:30", "13:30"] },
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-19", "availableTimes": ["08:00", "11:00"] },
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-20", "availableTimes": ["09:30"] },
-    { "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123", "date": "2026-09-21", "availableTimes": ["08:00", "10:00", "15:00"] },
-
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-14", "availableTimes": ["09:00", "14:00"] },
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-15", "availableTimes": ["08:00", "10:30"] },
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-16", "availableTimes": ["11:00", "15:30"] },
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-17", "availableTimes": ["08:30", "13:00"] },
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-18", "availableTimes": ["09:00", "16:00"] },
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-19", "availableTimes": ["10:00", "11:30"] },
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-20", "availableTimes": ["08:00"] },
-    { "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234", "date": "2026-09-21", "availableTimes": ["09:30", "14:30"] },
-
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-14", "availableTimes": ["08:30", "11:00"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-15", "availableTimes": ["09:00", "13:30"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-16", "availableTimes": ["10:00", "16:00"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-17", "availableTimes": ["08:00", "14:00"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-18", "availableTimes": ["11:30", "15:00"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-19", "availableTimes": ["09:00"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-20", "availableTimes": ["08:00", "10:30"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-21", "availableTimes": ["13:00", "16:00"] },
-    { "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345", "date": "2026-09-22", "availableTimes": ["13:00", "16:00"] },
-
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-14", "availableTimes": ["10:00", "15:00"] },
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-15", "availableTimes": ["08:00", "11:30"] },
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-16", "availableTimes": ["09:30", "14:00"] },
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-17", "availableTimes": ["10:30", "16:00"] },
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-18", "availableTimes": ["08:30", "13:30"] },
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-19", "availableTimes": ["09:00", "11:00"] },
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-20", "availableTimes": ["10:00"] },
-    { "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456", "date": "2026-09-21", "availableTimes": ["08:00", "14:30"] },
-
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-14", "availableTimes": ["08:00", "11:00"] },
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-15", "availableTimes": ["09:30", "14:00"] },
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-16", "availableTimes": ["10:00", "15:30"] },
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-17", "availableTimes": ["08:30", "12:00"] },
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-18", "availableTimes": ["09:00", "16:00"] },
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-19", "availableTimes": ["10:30"] },
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-20", "availableTimes": ["08:00", "11:30"] },
-    { "doctor_id": "8mn234op-9012-3456-7890-abcdef234567", "date": "2026-09-21", "availableTimes": ["09:00", "13:30"] }
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "08:00",
+        "10:30",
+        "14:00"
+      ]
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "08:00",
+        "09:30",
+        "15:00"
+      ]
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "08:00",
+        "11:00"
+      ]
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "09:00",
+        "13:30",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "08:00",
+        "10:00"
+      ]
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "09:00",
+        "11:30"
+      ]
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "08:30"
+      ]
+    },
+    {
+      "doctor_id": "1ef335ed-c98f-4f2a-a5ec-2461615a147b",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "08:00",
+        "14:00"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "09:00",
+        "11:00"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "10:00",
+        "14:30",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "08:30",
+        "13:00"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "09:30",
+        "15:00"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "10:00",
+        "11:30"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "08:00",
+        "10:00"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "09:00"
+      ]
+    },
+    {
+      "doctor_id": "2ab456cd-ef12-3456-7890-abcdef123456",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "11:00",
+        "15:30"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "08:00",
+        "13:00"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "09:00",
+        "10:30"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "14:00",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "08:30",
+        "11:00"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "09:30",
+        "15:00"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "10:00"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "08:00",
+        "09:30"
+      ]
+    },
+    {
+      "doctor_id": "3cd789ef-4567-8901-2345-abcdef678901",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "13:30",
+        "16:30"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "08:00",
+        "09:30",
+        "15:00"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "10:00",
+        "11:30"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "08:30",
+        "14:00"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "09:00",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "10:30",
+        "13:30"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "08:00",
+        "11:00"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "09:30"
+      ]
+    },
+    {
+      "doctor_id": "4ef012gh-5678-9012-3456-abcdef890123",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "08:00",
+        "10:00",
+        "15:00"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "09:00",
+        "14:00"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "08:00",
+        "10:30"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "11:00",
+        "15:30"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "08:30",
+        "13:00"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "09:00",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "10:00",
+        "11:30"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "08:00"
+      ]
+    },
+    {
+      "doctor_id": "5gh345ij-6789-0123-4567-abcdef901234",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "09:30",
+        "14:30"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "08:30",
+        "11:00"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "09:00",
+        "13:30"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "10:00",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "08:00",
+        "14:00"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "11:30",
+        "15:00"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "09:00"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "08:00",
+        "10:30"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "13:00",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "6ij678kl-7890-1234-5678-abcdef012345",
+      "date": "2026-09-22",
+      "availableTimes": [
+        "13:00",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "10:00",
+        "15:00"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "08:00",
+        "11:30"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "09:30",
+        "14:00"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "10:30",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "08:30",
+        "13:30"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "09:00",
+        "11:00"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "10:00"
+      ]
+    },
+    {
+      "doctor_id": "7kl901mn-8901-2345-6789-abcdef123456",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "08:00",
+        "14:30"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-14",
+      "availableTimes": [
+        "08:00",
+        "11:00"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-15",
+      "availableTimes": [
+        "09:30",
+        "14:00"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-16",
+      "availableTimes": [
+        "10:00",
+        "15:30"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-17",
+      "availableTimes": [
+        "08:30",
+        "12:00"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-18",
+      "availableTimes": [
+        "09:00",
+        "16:00"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-19",
+      "availableTimes": [
+        "10:30"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-20",
+      "availableTimes": [
+        "08:00",
+        "11:30"
+      ]
+    },
+    {
+      "doctor_id": "8mn234op-9012-3456-7890-abcdef234567",
+      "date": "2026-09-21",
+      "availableTimes": [
+        "09:00",
+        "13:30"
+      ]
+    }
   ],
   "states": [
-    { "state_id": "b1a1a1a1-0001-4a1a-8a1a-000000000001", "name": "São Paulo", "uf": "SP" },
-    { "state_id": "b1a1a1a1-0002-4a1a-8a1a-000000000002", "name": "Rio de Janeiro", "uf": "RJ" },
-    { "state_id": "b1a1a1a1-0003-4a1a-8a1a-000000000003", "name": "Minas Gerais", "uf": "MG" },
-    { "state_id": "b1a1a1a1-0004-4a1a-8a1a-000000000004", "name": "Paraná", "uf": "PR" }
+    {
+      "state_id": "b1a1a1a1-0001-4a1a-8a1a-000000000001",
+      "name": "São Paulo",
+      "uf": "SP"
+    },
+    {
+      "state_id": "b1a1a1a1-0002-4a1a-8a1a-000000000002",
+      "name": "Rio de Janeiro",
+      "uf": "RJ"
+    },
+    {
+      "state_id": "b1a1a1a1-0003-4a1a-8a1a-000000000003",
+      "name": "Minas Gerais",
+      "uf": "MG"
+    },
+    {
+      "state_id": "b1a1a1a1-0004-4a1a-8a1a-000000000004",
+      "name": "Paraná",
+      "uf": "PR"
+    }
   ],
   "cities": [
     {
