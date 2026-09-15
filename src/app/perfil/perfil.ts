@@ -113,10 +113,26 @@ export class Perfil {
 
   public setService(servico: DoctorService): void {
     this.servicoSelecionado = servico;
+
+    const convenioCorrespondente = this.doctor().health?.find(
+      (c) => c.id === servico.health_insurance_id
+    );
+
+    if (convenioCorrespondente) {
+      this.convenioSelecionado = convenioCorrespondente;
+    }
   }
 
   public setConvenio(convenio: HealthInsurance): void {
     this.convenioSelecionado = convenio;
+
+    const servicoCorrespondente = this.services().find(
+      (s) => s.health_insurance_id === convenio.id
+    );
+
+    if (servicoCorrespondente) {
+      this.servicoSelecionado = servicoCorrespondente;
+    }
   }
 
   public setUnidade(unidade: ClinicUnit): void {

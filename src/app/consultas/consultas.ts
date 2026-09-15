@@ -80,6 +80,7 @@ export class Consultas implements OnInit {
           email: doctor.email,
         });
         this.inicializarDadosFormulario(doctorFromState);
+        this.carregarServiceDetails();
       });
 
 
@@ -93,32 +94,45 @@ export class Consultas implements OnInit {
 
   }
 
-private inicializarDadosFormulario(doctorFromState: Doctor): void {
-  let medicoAtual = this.medico();
-  if (doctorFromState) medicoAtual = doctorFromState;
+  private carregarServiceDetails(): void {
+    if (!this.medicoId || !this.convenio || !this.servico) {
+      return;
+    }
 
-  if (!medicoAtual) return;
-
-  const primeiraUnidade = medicoAtual.units?.[0];
-  if (primeiraUnidade) {
-    this.unidade = primeiraUnidade.name ?? '';
-    this.city = primeiraUnidade.city ?? '';
-    this.unidadeValue = primeiraUnidade.id ?? primeiraUnidade.name ?? '';
+    this.consultaService
+      .getServiceDetails(this.medicoId, this.convenio, this.servico)
+      .subscribe(healthAndSpecialityServices => {
+        this.medico.update(medicoAtual =>
+          medicoAtual
+            ? { ...medicoAtual, services: healthAndSpecialityServices ?? undefined }
+            : medicoAtual
+        );
+      });
   }
 
-  this.pagamento =
-    medicoAtual.payments?.[0]?.id ?? medicoAtual.payments?.[0]?.name ?? '';
 
-  this.convenio = medicoAtual.health?.[0]?.id ?? medicoAtual.health?.[0]?.name ?? '';
+  private inicializarDadosFormulario(doctorFromState: Doctor): void {
+    let medicoAtual = this.medico();
+    if (doctorFromState) medicoAtual = doctorFromState;
 
-  this.servico =
-    medicoAtual.specialties?.[0]?.speciality_id ??
-    medicoAtual.specialties?.[0]?.id ??
-    medicoAtual.health?.[0]?.id ??
-    '';
+    if (!medicoAtual) return;
 
-  this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
-}
+    const primeiraUnidade = medicoAtual.units?.[0];
+    if (primeiraUnidade) {
+      this.unidade = primeiraUnidade.name ?? '';
+      this.city = primeiraUnidade.city ?? '';
+      this.unidadeValue = primeiraUnidade.id ?? primeiraUnidade.name ?? '';
+    }
+
+    this.pagamento =
+      medicoAtual.payments?.[0]?.id ?? medicoAtual.payments?.[0]?.name ?? '';
+
+    this.convenio = medicoAtual.health?.[0]?.id ?? medicoAtual.health?.[0]?.name ?? '';
+
+    this.servico = medicoAtual.specialties?.[0]?.speciality_id ?? '';
+
+    this.title.setTitle(`Nova Consulta - Clinical Sanctuary - ${medicoAtual.name}`);
+  }
 
   public addHoursToDate(items: AvailableTimeSlot[]): void {
     this.horarios = [];
@@ -202,6 +216,7 @@ private inicializarDadosFormulario(doctorFromState: Doctor): void {
   public onServicoChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     this.servico = selectElement.value;
+    this.carregarServiceDetails();
   }
 
   public onPagamentoChange(event: Event): void {
@@ -212,6 +227,7 @@ private inicializarDadosFormulario(doctorFromState: Doctor): void {
   public onConvenioChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     this.convenio = selectElement.value;
+    this.carregarServiceDetails();
   }
 
   public onObservacoesChange(event: Event): void {

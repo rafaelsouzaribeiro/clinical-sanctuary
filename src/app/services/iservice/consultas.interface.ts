@@ -44,6 +44,7 @@ export interface Doctor {
   payments: PaymentMethod[];
   units: DoctorUnit[];
   health: HealthInsurance[];
+  services?: DoctorServiceByHealthAndSpeciality[];
 }
 
 export interface DoctorServiceByHealthAndSpeciality {

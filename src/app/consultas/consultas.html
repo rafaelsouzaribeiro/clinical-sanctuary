@@ -31,9 +31,9 @@
         <label for="servicos">Serviços e preços</label>
          <div class="profile-control">
             <select id="servicos" name="servicos" (change)="onServicoChange($event)">
-            @for (option of medico()?.specialties ?? []; track option.id) {
-                <option [value]="option.speciality_id ?? option.id">
-                {{ option.speciality_name ?? option.speciality_slug }}
+            @for (option of medico()?.services ?? []; track option.health_insurance_id) {
+                <option [value]="option.health_insurance_id">
+                {{ option.health_insurance_name}} - R$ {{ option.price | number: '1.2-2' }}
                 </option>
             }
             </select>
