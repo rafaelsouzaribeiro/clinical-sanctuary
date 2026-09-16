@@ -226,7 +226,7 @@
   padding: 10px 14px;
   border: 1px solid #d0d5dd;
   border-radius: 8px;
-  background: white;
+  background: #C8D0D4;
   cursor: pointer;
   min-height: 42px;
 }
@@ -236,7 +236,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: white;
+  background: #C8D0D4;
   border: 1px solid #d0d5dd;
   border-radius: 8px;
   margin-top: 4px;
