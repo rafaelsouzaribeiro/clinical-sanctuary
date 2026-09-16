@@ -63,24 +63,35 @@
         </div>
 
         <div class="profile-field">
-          <label for="especialidade">Especialidade Médica</label>
-          <div class="profile-control">
-            <select id="especialidade" formControlName="especialidade">
-              <option value="">Selecione a especialidade</option>
-              <option value="cardiologia">Cardiologia</option>
-              <option value="dermatologia">Dermatologia</option>
-              <option value="neurologia">Neurologia</option>
-              <option value="pediatria">Pediatria</option>
-              <option value="ortopedia">Ortopedia</option>
-              <option value="ginecologia">Ginecologia</option>
-              <option value="oftalmologia">Oftalmologia</option>
-              <option value="psiquiatria">Psiquiatria</option>
-              <option value="endocrinologia">Endocrinologia</option>
-              <option value="urologia">Urologia</option>
-            </select>
+          <label>Especialidades Médicas</label>
+
+          <div class="multi-select" [class.open]="isEspecialidadeOpen">
+            <div class="multi-select__trigger" (click)="toggleEspecialidade(); $event.stopPropagation()">
+              <span *ngIf="especialidadesSelecionadas.length === 0">Selecione as especialidades</span>
+              <span *ngIf="especialidadesSelecionadas.length > 0">
+                {{ especialidadesSelecionadas.length }} especialidade(s) selecionada(s)
+              </span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+
+            <div class="multi-select__dropdown" *ngIf="isEspecialidadeOpen">
+              @for (esp of listaEspecialidades; track esp.value) {
+                <label class="multi-select__option">
+                  <input
+                    type="checkbox"
+                    [checked]="isEspecialidadeSelecionada(esp.value)"
+                    (change)="toggleEspecialidadeItem(esp.value, $event)"
+                  />
+                  <span>{{ esp.label }}</span>
+                </label>
+              }
+            </div>
           </div>
-          @if (isCampoInvalido('especialidade')) {
-            <small class="alert-message">Selecione uma especialidade.</small>
+
+          @if (medicoForm.get('especialidades')?.invalid && medicoForm.get('especialidades')?.touched) {
+            <small class="alert-message">Selecione pelo menos uma especialidade.</small>
           }
         </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -18,7 +18,22 @@ export class Medicos {
   public medicoForm!: FormGroup;
   public showModal: boolean = false;
   public message: string = '';
+  public isEspecialidadeOpen = false;
 
+  public listaEspecialidades = [
+    { value: 'cardiologia', label: 'Cardiologia' },
+    { value: 'dermatologia', label: 'Dermatologia' },
+    { value: 'neurologia', label: 'Neurologia' },
+    { value: 'pediatria', label: 'Pediatria' },
+    { value: 'ortopedia', label: 'Ortopedia' },
+    { value: 'ginecologia', label: 'Ginecologia' },
+    { value: 'oftalmologia', label: 'Oftalmologia' },
+    { value: 'psiquiatria', label: 'Psiquiatria' },
+    { value: 'endocrinologia', label: 'Endocrinologia' },
+    { value: 'urologia', label: 'Urologia' },
+  ];
+
+  public especialidadesSelecionadas: string[] = [];
   private labelsCampos: Record<string, string> = {
     nome: 'Nome',
     nascimento: 'Data de Nascimento',
@@ -62,7 +77,7 @@ export class Medicos {
       nascimento: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       crm: ['', Validators.required],
-      especialidade: ['', Validators.required],
+      especialidades: [[], Validators.required],
       descricao: [''],
       
       servicos: this.fb.array([this.criarGrupoServico()]),
@@ -227,5 +242,36 @@ export class Medicos {
 
     console.log('Formulário válido! Enviando dados:', this.medicoForm.value);
     alert('Formulário enviado com sucesso!');
+  }
+
+
+  toggleEspecialidade() {
+    this.isEspecialidadeOpen = !this.isEspecialidadeOpen;
+  }
+
+  isEspecialidadeSelecionada(value: string): boolean {
+    return this.especialidadesSelecionadas.includes(value);
+  }
+
+  toggleEspecialidadeItem(value: string, event: Event) {
+    const checked = (event.target as HTMLInputElement).checked;
+
+    if (checked) {
+      this.especialidadesSelecionadas = [...this.especialidadesSelecionadas, value];
+    } else {
+      this.especialidadesSelecionadas = this.especialidadesSelecionadas.filter(v => v !== value);
+    }
+
+    this.medicoForm.get('especialidades')?.setValue(this.especialidadesSelecionadas);
+    this.medicoForm.get('especialidades')?.markAsTouched();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement | null;
+    if (!target) return;
+    if (!target.closest('.multi-select')) {
+      this.isEspecialidadeOpen = false;
+    }
   }
 }
