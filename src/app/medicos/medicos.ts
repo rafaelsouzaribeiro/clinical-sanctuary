@@ -33,6 +33,7 @@ export class Medicos {
     { value: 'urologia', label: 'Urologia' },
   ];
 
+  public healthSpeciality: Map<string,string> = new Map<string,string>();
   public especialidadesSelecionadas: string[] = [];
   private labelsCampos: Record<string, string> = {
     nome: 'Nome',
@@ -56,7 +57,6 @@ export class Medicos {
     complemento: 'Complemento',
     googleMaps: 'Link do Google Maps',
     telefone: 'Telefone',
-    convenio: 'Convênio'
   };
 
   constructor(
@@ -79,12 +79,11 @@ export class Medicos {
       crm: ['', Validators.required],
       especialidades: [[], Validators.required],
       descricao: [''],
-      
-      servicos: this.fb.array([this.criarGrupoServico()]),
+
+      convenios: this.fb.array([this.criarGrupoConvenio()]), // 👈 agora carrega tudo
       modalidades: this.fb.array([this.criarGrupoModalidade()]),
       unidades: this.fb.array([this.criarGrupoUnidade()]),
-      convenios: this.fb.array([this.criarGrupoConvenio()]),
-      
+
       senha: ['', [Validators.required, Validators.minLength(6)]],
       confirmarSenha: ['', Validators.required]
     }, { validators: this.validarSenhasIguais });
@@ -96,13 +95,26 @@ export class Medicos {
     return senha === confirmarSenha ? null : { senhasDiferentes: true };
   }
 
+  private atualizarEstadoSelectsEspecialidade(): void {
+    this.convenios.controls.forEach(control => {
+      const campo = control.get('especialidade');
+      if (!campo) return;
+
+      if (this.healthSpeciality.size === 0) {
+        campo.disable({ emitEvent: false });
+      } else {
+        campo.enable({ emitEvent: false });
+      }
+    });
+  }
+
   isCampoInvalido(nomeCampo: string): boolean {
     const campo = this.medicoForm.get(nomeCampo);
     return !!(campo && campo.invalid && (campo.touched || campo.dirty));
   }
 
-  get servicos(): FormArray {
-    return this.medicoForm.get('servicos') as FormArray;
+  get convenios(): FormArray {
+    return this.medicoForm.get('convenios') as FormArray;
   }
 
   get modalidades(): FormArray {
@@ -113,12 +125,11 @@ export class Medicos {
     return this.medicoForm.get('unidades') as FormArray;
   }
 
-  get convenios(): FormArray {
-    return this.medicoForm.get('convenios') as FormArray;
-  }
 
-  criarGrupoServico(): FormGroup {
+  criarGrupoConvenio(): FormGroup {
     return this.fb.group({
+      convenio: ['UNIMED', Validators.required],
+      especialidade: ['', Validators.required],
       campo: ['', Validators.required],
       campo_valor: ['', Validators.required]
     });
@@ -145,14 +156,10 @@ export class Medicos {
     });
   }
 
-  criarGrupoConvenio(): FormGroup {
-    return this.fb.group({
-      convenio: ['UNIMED']
-    });
-  }
 
-  adicionarServico(): void {
-    this.servicos.push(this.criarGrupoServico());
+  adicionarConvenio(): void {
+    this.convenios.push(this.criarGrupoConvenio());
+    this.atualizarEstadoSelectsEspecialidade();
   }
 
   adicionarModalidade(): void {
@@ -163,15 +170,6 @@ export class Medicos {
     this.unidades.push(this.criarGrupoUnidade());
   }
 
-  adicionarConvenio(): void {
-    this.convenios.push(this.criarGrupoConvenio());
-  }
-
-  removerServico(index: number): void {
-    if (this.servicos.length > 1) {
-      this.servicos.removeAt(index);
-    }
-  }
 
   removerModalidade(index: number): void {
     if (this.modalidades.length > 1) {
@@ -249,21 +247,29 @@ export class Medicos {
     this.isEspecialidadeOpen = !this.isEspecialidadeOpen;
   }
 
-  isEspecialidadeSelecionada(value: string): boolean {
-    return this.especialidadesSelecionadas.includes(value);
-  }
+  isEspecialidadeSelecionada(espOrValue: { value: string; label: string } | string): boolean {
+      const value = typeof espOrValue === 'string' ? espOrValue : espOrValue.value;
+      return this.especialidadesSelecionadas.includes(value);
+    }
 
-  toggleEspecialidadeItem(value: string, event: Event) {
+  toggleEspecialidadeItem(esp: { value: string; label: string }, event: Event) {
+    const value = esp.value;
+    const label = esp.label;
     const checked = (event.target as HTMLInputElement).checked;
 
     if (checked) {
       this.especialidadesSelecionadas = [...this.especialidadesSelecionadas, value];
-    } else {
+      this.healthSpeciality.set(value, label);
+    } 
+
+    if (!checked) {
       this.especialidadesSelecionadas = this.especialidadesSelecionadas.filter(v => v !== value);
+      this.healthSpeciality.delete(value);
     }
 
     this.medicoForm.get('especialidades')?.setValue(this.especialidadesSelecionadas);
     this.medicoForm.get('especialidades')?.markAsTouched();
+    
   }
 
   @HostListener('document:click', ['$event'])

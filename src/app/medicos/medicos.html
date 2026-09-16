@@ -81,8 +81,8 @@
                 <label class="multi-select__option">
                   <input
                     type="checkbox"
-                    [checked]="isEspecialidadeSelecionada(esp.value)"
-                    (change)="toggleEspecialidadeItem(esp.value, $event)"
+                    [checked]="isEspecialidadeSelecionada(esp)"
+                    (change)="toggleEspecialidadeItem(esp, $event)"
                   />
                   <span>{{ esp.label }}</span>
                 </label>
@@ -103,30 +103,44 @@
         </div>           
       </section>
     </div>
-
     <section class="profile-card profile-card--address" aria-label="Investimento em Saúde">
       <div class="profile-card__heading">
         <h2>Serviços e preços</h2>
       </div>
 
-      <div class="content-valores" formArrayName="servicos">
-        @for (item of servicos.controls; track item) {
+      <div class="content-valores" formArrayName="convenios">
+        @for (item of convenios.controls; track item) {
           <div class="address-grid" [formGroupName]="$index">
+
             <div class="profile-field profile-field--logradouro">
-              <label>Nome do campo</label>
+              <label>Convênio</label>
               <div class="profile-control">
-                <input formControlName="campo" type="text" placeholder="Ex: Consulta de retorno" />
+                <select formControlName="convenio">
+                  <option value="UNIMED">UNIMED</option>
+                  <option value="Bradesco Saúde">Bradesco Saúde</option>
+                  <option value="Amil">Amil</option>
+                  <option value="Porto Seguro">Porto Seguro</option>
+                  <option value="SulAmérica">SulAmérica</option>
+                </select>
               </div>
-              @if (servicos.controls[$index].get('campo')?.invalid && servicos.controls[$index].get('campo')?.touched) {
-                <small class="alert-message">O nome do serviço é obrigatório.</small>
+              @if (convenios.controls[$index].get('convenio')?.invalid && convenios.controls[$index].get('convenio')?.touched) {
+                <small class="alert-message">O convênio é obrigatório.</small>
               }
             </div>
+
             <div class="profile-field">
-              <label>Valor do campo</label>
+              <label>Especialidades</label>
               <div class="profile-control">
-                <input formControlName="campo_valor" type="text" placeholder="Ex: R$ 100,00" />
-                @if (servicos.length > 1) {
-                  <svg width="24" height="24" (click)="removerServico($index)" class="excluir-valores icon-excluir delete-user-adm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <select formControlName="especialidade">
+                  <option value="" disabled>
+                  {{ healthSpeciality.size === 0 ? 'Nenhuma especialidade cadastrada acima' : 'Selecione uma especialidade' }}
+                  </option>
+                  @for (esp of healthSpeciality | keyvalue; track esp.key) {
+                    <option [value]="esp.key">{{ esp.value }}</option>
+                  }
+                </select>
+                @if (convenios.length > 1) {
+                  <svg width="24" height="24" (click)="removerConvenio($index)" class="excluir-valores icon-excluir delete-user-adm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7"></path>
                     <path d="M10 11v6"></path>
                     <path d="M14 11v6"></path>
@@ -134,15 +148,37 @@
                   </svg>
                 }
               </div>
-              @if (servicos.controls[$index].get('campo_valor')?.invalid && servicos.controls[$index].get('campo_valor')?.touched) {
+              @if (convenios.controls[$index].get('especialidade')?.invalid && convenios.controls[$index].get('especialidade')?.touched) {
+                <small class="alert-message">Selecione uma especialidade para este convênio.</small>
+              }
+            </div>
+
+            <div class="profile-field profile-field--logradouro">
+              <label>Nome do campo</label>
+              <div class="profile-control">
+                <input formControlName="campo" type="text" placeholder="Ex: Consulta de retorno" />
+              </div>
+              @if (convenios.controls[$index].get('campo')?.invalid && convenios.controls[$index].get('campo')?.touched) {
+                <small class="alert-message">O nome do serviço é obrigatório.</small>
+              }
+            </div>
+
+            <div class="profile-field">
+              <label>Valor do campo</label>
+              <div class="profile-control">
+                <input formControlName="campo_valor" type="text" placeholder="Ex: R$ 100,00" />
+
+              </div>
+              @if (convenios.controls[$index].get('campo_valor')?.invalid && convenios.controls[$index].get('campo_valor')?.touched) {
                 <small class="alert-message">O valor do serviço é obrigatório.</small>
               }
             </div>
+
           </div>
         }
       </div>
 
-      <svg width="52" height="52" (click)="adicionarServico()" class="add-valor add-icon" viewBox="0 0 52 52" fill="none">
+      <svg width="52" height="52" (click)="adicionarConvenio()" class="add-valor add-icon" viewBox="0 0 52 52" fill="none">
         <circle cx="26" cy="26" r="25" stroke="#0b7e88" stroke-width="3"/>
         <path d="M26 16V36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
         <path d="M16 26H36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
@@ -322,47 +358,6 @@
       </div>
 
       <svg width="52" height="52" (click)="adicionarUnidade()" class="add-valor add-icon" viewBox="0 0 52 52" fill="none">
-        <circle cx="26" cy="26" r="25" stroke="#0b7e88" stroke-width="3"/>
-        <path d="M26 16V36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
-        <path d="M16 26H36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
-      </svg>
-    </section>
-
-    <section class="profile-card profile-card--address" aria-label="Investimento em Saúde">
-      <div class="profile-card__heading">
-        <h2>Convênios</h2>
-      </div>
-
-      <div class="content-valores" formArrayName="convenios">
-        @for (item of convenios.controls; track item) {
-          <div class="address-grid" [formGroupName]="$index">
-            <div class="profile-field profile-field--logradouro">
-              <label>Convênio</label>
-              <div class="profile-control">
-                <select formControlName="convenio">
-                  <option value="UNIMED">UNIMED</option>
-                  <option value="Bradesco Saúde">Bradesco Saúde</option>
-                  <option value="Amil">Amil</option>
-                  <option value="Porto Seguro">Porto Seguro</option>
-                  <option value="SulAmérica">SulAmérica</option>
-                </select>
-              </div>
-            </div>
-            <div class="profile-field">
-              @if (convenios.length > 1) {
-                <svg width="24" height="24" (click)="removerConvenio($index)" style="margin-top: 40px;" class="excluir-convenio icon-excluir delete-user-adm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7"></path>
-                  <path d="M10 11v6"></path>
-                  <path d="M14 11v6"></path>
-                  <path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"></path>
-                </svg>
-              }
-            </div>
-          </div>
-        }
-      </div>
-
-      <svg width="52" height="52" (click)="adicionarConvenio()" class="add-valor add-icon" viewBox="0 0 52 52" fill="none">
         <circle cx="26" cy="26" r="25" stroke="#0b7e88" stroke-width="3"/>
         <path d="M26 16V36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
         <path d="M16 26H36" stroke="#0b7e88" stroke-width="4" stroke-linecap="round"/>
