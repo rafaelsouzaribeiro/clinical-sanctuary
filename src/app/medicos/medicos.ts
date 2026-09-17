@@ -265,11 +265,23 @@ export class Medicos {
     if (!checked) {
       this.especialidadesSelecionadas = this.especialidadesSelecionadas.filter(v => v !== value);
       this.healthSpeciality.delete(value);
+      this.limparConvenioComEspecialidadeRemovida(value);
     }
 
     this.medicoForm.get('especialidades')?.setValue(this.especialidadesSelecionadas);
     this.medicoForm.get('especialidades')?.markAsTouched();
     
+  }
+
+  private limparConvenioComEspecialidadeRemovida(valorRemovido: string): void {
+    const primeiraChaveRestante = this.healthSpeciality.keys().next().value ?? '';
+
+    this.convenios.controls.forEach(control => {
+      const campo = control.get('especialidade');
+      if (campo?.value === valorRemovido) {
+        campo.setValue(primeiraChaveRestante);
+      }
+    });
   }
 
   @HostListener('document:click', ['$event'])
